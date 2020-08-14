@@ -50,7 +50,7 @@ public class DbInitializer implements CommandLineRunner {
         List<Package> packages = Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
         this.packageRepository.saveAll(packages);
 
-        User user1 = new User("01","Mr.","Numlabyod","Reprakan","1799310717171","28 july 1998","Allianz Bank",250000,"4750317960","nearreann@gmail.com","4750317960");
+        User user1 = new User("01","Mr.","Numlabyod","Reprakan","1799310717171","28 July 1998","Allianz Bank",250000,"4750317960","nearreann@gmail.com","0980159795");
         this.usersRepository.deleteAll();
         List<User> user = Arrays.asList(user1);
         this.usersRepository.saveAll(user);
