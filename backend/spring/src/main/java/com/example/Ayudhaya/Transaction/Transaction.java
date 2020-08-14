@@ -3,7 +3,6 @@ package com.example.Ayudhaya.Transaction;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
-@Data
 public class Transaction {
     private @Id String transactionId;
     private String title;
@@ -56,4 +55,6 @@ public class Transaction {
         this.packageName = packageName;
         this.bankBalance = bankBalance;
     }
+
+
 }
