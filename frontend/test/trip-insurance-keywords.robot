@@ -59,7 +59,7 @@ Input traveller personal information
     Select From List By Value       id:dd-traveller-date    (?)
     Select From List By Value       id:dd-traveller-month   (?)
     Select From List By Value       id:dd-traveller-year    (?) 
-    Input Text                      id:benefit-namee        ${BENEFIT_NAME}
+    Input Text                      id:beneficial-namee     ${BENEFICIAL_NAME}
     Wait Until Page Contains        something recieving(?)
     Input Text                      id:traveller-phone      ${TRAVELLER_PHONE}
     Input Text                      id:traveller-email      ${TRAVELLER_EMAIL}
@@ -104,14 +104,14 @@ Scroll down for reviewing Terms&Agreements and accept them
 Check traveller bank account information
     Wait Until Page Contains        Transfer
     Wait Until Page Contains        From
-    Wait Until Element Contains     id:from-bank-name       ALLIANZ BANK
+    Wait Until Element Contains     id:from-bank-name       Allianz Bank
     Wait Until Element Contains     id:from-bank-no         (?)
     Wait Until Element Contains     id:from-bank-balance    250,000.00
     # Picture
 
 Check insurance bank account information
     Wait Until Page Contains        To
-    Wait Until Element Contains     id:to-bank-name         ALLIANZ BANK
+    Wait Until Element Contains     id:to-bank-name         Allianz Bank
     Wait Until Element Contains     id:to-bank-refno        (?)
     # Picture
 

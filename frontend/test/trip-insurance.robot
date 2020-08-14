@@ -6,4 +6,4 @@ Test Template    Buy a trip insurace package
 Test Teardown    Close Google Chrome browser
 
 *** Test Cases ***
-Buy a trip insurance package    NUMLABYOD    REPRAKAN    1799310717171    MS. ANCHISA TEA    0887788990    nearreann@gmail.com       
+Buy a trip insurance package    Numlabyod    Reprakan    1799310717171    Ms. Anchisa Tea    0980159795    nearreann@gmail.com       
