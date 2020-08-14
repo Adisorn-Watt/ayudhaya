@@ -29,10 +29,8 @@ public class TransactionController {
 //    }
 
     @GetMapping("/api/v1/transaction")
-    public List<Transaction> GetCountryByIdInTransaction(){
-        List<Country> countries = countryRepository.findAll();
-        List anotherList = Arrays.asList(countries);
-        return anotherList;
+    public List<Transaction> GetAllTransaction(){
+        return transactionRepository.findAll();
     }
 
 //    @GetMapping("/api/v1/transaction")

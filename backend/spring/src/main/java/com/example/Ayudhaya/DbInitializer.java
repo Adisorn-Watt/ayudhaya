@@ -4,9 +4,12 @@ import com.example.Ayudhaya.Country.Country;
 import com.example.Ayudhaya.Country.CountryRepository;
 import com.example.Ayudhaya.Package.Package;
 import com.example.Ayudhaya.Package.PackageRepository;
+import com.example.Ayudhaya.Transaction.Transaction;
+import com.example.Ayudhaya.Transaction.TransactionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,10 +17,12 @@ import java.util.List;
 public class DbInitializer implements CommandLineRunner {
     private CountryRepository countryRepository;
     private PackageRepository packageRepository;
+    private TransactionRepository transactionRepository;
 
-    public DbInitializer(CountryRepository countryRepository, PackageRepository packageRepository) {
+    public DbInitializer(CountryRepository countryRepository, PackageRepository packageRepository, TransactionRepository transactionRepository) {
         this.countryRepository = countryRepository;
         this.packageRepository = packageRepository;
+        this.transactionRepository = transactionRepository;
     }
     @Override
     public void run(String... args) throws Exception{
@@ -45,6 +50,17 @@ public class DbInitializer implements CommandLineRunner {
         this.packageRepository.deleteAll();
         List<Package> packages = Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
         this.packageRepository.saveAll(packages);
+
+        this.transactionRepository.deleteAll();
+        List<Country> countries = countryRepository.findAll();
+        List<Transaction> transactions = new ArrayList<>();
+        transactions.add(new Transaction(c1.getCountryName()));
+//        for(Country country: countries ){
+//            transactions.add(new Transaction(
+//                    c1.getCountryName()
+//            ));
+//        }
+        this.transactionRepository.saveAll(transactions);
     }
 
 
