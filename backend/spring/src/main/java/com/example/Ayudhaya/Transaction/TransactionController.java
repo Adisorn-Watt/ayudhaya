@@ -33,6 +33,32 @@ public class TransactionController {
         return transactionRepository.findAll();
     }
 
+    @PostMapping("/api/v1/summary")
+    public void PostTransactionById(@RequestBody Transaction transaction
+//                                                 @RequestBody String title,
+//                                                 @RequestBody String firstName,
+//                                                 @RequestBody String lastName,
+//                                                 @RequestBody String citizenId,
+//                                                 @RequestBody String passportId,
+//                                                 @RequestBody String dateOfBirth,
+//                                                 @RequestBody String fromBankName,
+//                                                 @RequestBody String fromBankNo,
+//                                                 @RequestBody Double fromBankBalance,
+//                                                 @RequestBody String beneficialName,
+//                                                 @RequestBody String email,
+//                                                 @RequestBody String mobileNo,
+//                                                 @RequestBody String countryId,
+//                                                 @RequestBody String packageName
+    ){
+//        Transaction transaction = new Transaction(transactionId,title,firstName,lastName,citizenId,
+//                passportId,dateOfBirth,fromBankName,fromBankNo,fromBankBalance,beneficialName,email,mobileNo,countryId,packageName);
+        transactionRepository.insert(transaction);
+        return ;
+    }
+
+
+
+
 //    @GetMapping("/api/v1/transaction")
 //    public List<Transaction> GetAllDetail(@RequestParam (defaultValue = "01") String countryId,
 //                                          @RequestParam (defaultValue = "01") String packageId,
