@@ -1,4 +1,4 @@
-package com.example.Ayudhaya.user;
+package com.example.Ayudhaya.User;
 
 public class UsersResponse {
     private String title;

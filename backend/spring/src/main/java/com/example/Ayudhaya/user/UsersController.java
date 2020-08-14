@@ -1,4 +1,4 @@
-package com.example.Ayudhaya.user;
+package com.example.Ayudhaya.User;
 
 import com.example.Ayudhaya.Country;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,6 @@ public class UsersController {
 
     @GetMapping("/api/v1/user")
     public List<User> getUserDetail(String id){
-
-
-
-
 
         return UsersRepository.findAll();
     }
