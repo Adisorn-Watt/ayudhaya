@@ -1,1 +1,22 @@
-<p>contact-form works!</p>
+<nb-card>
+    <nb-card-header>Contact for receiving all travellers policies</nb-card-header>
+    <nb-card-body>
+        <div class="table">
+            <div class="row">
+                <div class="input-wrapper mb-4">
+                    <label>Mobile Number*</label>
+                    <input nbInput fullWidth type="text" placeholder="" (change)="onChange()" [(ngModel)]="mobileNo"
+                        required>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-wrapper">
+                    <label>Email*</label>
+                    <input nbInput fullWidth type="text" placeholder="" (change)="onChange()" [(ngModel)]="email"
+                        required>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

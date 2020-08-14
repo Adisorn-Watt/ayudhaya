@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./term-and-condition.component.css']
 })
 export class TermAndConditionComponent implements OnInit {
+  public readAll: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onScroll(event: any) {
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+      this.readAll = true;
+    }
   }
 
 }

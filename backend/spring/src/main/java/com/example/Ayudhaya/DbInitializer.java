@@ -4,6 +4,8 @@ import com.example.Ayudhaya.Country.Country;
 import com.example.Ayudhaya.Country.CountryRepository;
 import com.example.Ayudhaya.Package.Package;
 import com.example.Ayudhaya.Package.PackageRepository;
+import com.example.Ayudhaya.user.User;
+import com.example.Ayudhaya.user.UsersRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -14,10 +16,12 @@ import java.util.List;
 public class DbInitializer implements CommandLineRunner {
     private CountryRepository countryRepository;
     private PackageRepository packageRepository;
+    private UsersRepository usersRepository;
 
-    public DbInitializer(CountryRepository countryRepository, PackageRepository packageRepository) {
+    public DbInitializer(CountryRepository countryRepository, PackageRepository packageRepository, UsersRepository usersRepository) {
         this.countryRepository = countryRepository;
         this.packageRepository = packageRepository;
+        this.usersRepository = usersRepository;
     }
     @Override
     public void run(String... args) throws Exception{
@@ -45,7 +49,15 @@ public class DbInitializer implements CommandLineRunner {
         this.packageRepository.deleteAll();
         List<Package> packages = Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
         this.packageRepository.saveAll(packages);
+
+
+        User user1 = new User("01","Mr.","Numlabyod","Reprakan","123489184xxxx","28 july 1998","Allianz Bank",20000000.00,"Numlabyod.ra@hotdog.com","0919991111");
+        this.usersRepository.deleteAll();
+        List<User> user = Arrays.asList(user1);
+        this.usersRepository.saveAll(user);
     }
+
+
 
 
 

@@ -1,0 +1,21 @@
+.summary-package {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-range {
+}
+
+.total-days {
+  margin-left: 24px;
+}
+
+.btn-next-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.btn-back {
+  margin-right: 24px;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NbDialogService } from '@nebular/theme';
+import { TermAndConditionComponent } from '../term-and-condition/term-and-condition.component';
 
 @Component({
   selector: 'app-main-traveller',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainTravellerComponent implements OnInit {
 
-  constructor() { }
+  formFilled = false;
+
+  constructor(private dialogService: NbDialogService) { }
 
   ngOnInit(): void {
+  }
+
+  showDialog() {
+    this.dialogService.open(TermAndConditionComponent, { hasScroll: true, autoFocus: true, hasBackdrop: true });
+  }
+
+  handleContactForm(e: any) {
+    console.log(console.log(e))
   }
 
 }

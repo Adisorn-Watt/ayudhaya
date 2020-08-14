@@ -1,1 +1,41 @@
-<p>pick-date works!</p>
+<nb-card>
+    <nb-card-header>Pick Date</nb-card-header>
+    <nb-card-body>
+
+        <!-- <div>
+            <label>Start Date:</label>
+            <input class="date-input" id="start-date" nbInput name="start-date" [nbDatepicker]="startDatepicker">
+            <nb-datepicker #startDatepicker format="dd/MM/yyyy"></nb-datepicker>
+        </div>
+
+
+        <div>
+            <label>End Date:</label>
+            <input id=" end-date" class="date-input" nbInput name="end-date" [nbDatepicker]="endDatepicker">
+            <nb-datepicker #endDatepicker format="dd/MM/yyyy"></nb-datepicker>
+        </div> -->
+
+        <div class="date-wrapper">
+            <div class="date-input-wrapper">
+                <label class="date-label">Start Date:</label>
+                <input nbInput id="start-date" name="start-date" type="date" [(ngModel)]="selectedStartDate">
+            </div>
+
+
+            <div class="date-input-wrapper">
+                <label class="date-label">End Date:</label>
+                <input nbInput id="end-date" name="end-date" type="date" [(ngModel)]="selectedEndDate"
+                    [min]="selectedStartDate" [max]="maxDate">
+            </div>
+        </div>
+
+
+
+
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="confirm-button-wrapper">
+            <button nbButton (click)="report()"> Confirm </button>
+        </div>
+    </nb-card-footer>
+</nb-card>

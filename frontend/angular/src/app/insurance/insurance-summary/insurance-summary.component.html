@@ -1,1 +1,27 @@
-<p>insurance-summary works!</p>
+<nb-layout>
+    <nb-layout-column>
+        <nb-card>
+            <nb-card-body>
+                <div class="summary-package">
+                    <div id="country">GERMANY</div>
+                    <!-- <div id="country">{{selectedCountry.countryName}}</div> -->
+                    <div id="package-amount-fee">2,328.00 THB. PER PERSON</div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+        <nb-card>
+            <nb-card-body>
+                <div>Trip Date: Onetime</div>
+                <div>Range:
+                    <span class="date-range" id="date-range">04 Jan 2020 - 26 Jan 2020</span>
+                    <span class="total-days" id="total-days">(Total 23 Days)</span>
+                </div>
+            </nb-card-body>
+        </nb-card>
+
+        <div class="btn-next-wrapper">
+            <button nbButton class="btn-back">Back</button>
+            <button nbButton id="btn-next-wrapper" status="primary" (click)="confirmInsurance()">Confirm</button>
+        </div>
+    </nb-layout-column>
+</nb-layout>

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./traveller-form.component.css']
 })
 export class TravellerFormComponent implements OnInit {
+  selectedItem = 'Mr.';
+  selectedIdentification = "";
 
   constructor() { }
 

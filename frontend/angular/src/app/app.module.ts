@@ -6,26 +6,26 @@ import { AppComponent } from './app.component';
 import {
   NbThemeModule,
   NbSidebarModule,
-  NbButtonComponent,
   NbButtonModule,
   NbDatepickerModule,
   NbDialogModule,
+  NbLayoutModule,
 } from '@nebular/theme';
-import { from } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule, HttpClientModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbEvaIconsModule,
     NbSidebarModule,
-    NbButtonModule,
+    NbLayoutModule,
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

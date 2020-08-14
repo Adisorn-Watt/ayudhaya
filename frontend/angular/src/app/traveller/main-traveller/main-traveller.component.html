@@ -1,1 +1,17 @@
-<p>main-traveller works!</p>
+<nb-layout>
+    <nb-layout-column *ngIf="!formFilled">
+        <div class="traveller">
+            <app-traveller-form class="traveller-form"></app-traveller-form>
+            <div class="add-traveller-button-wrapper">
+                <button nbButton shape="round" size="giant" status="primary" class="add-traveller-button">
+                    <nb-icon icon="plus-outline"></nb-icon>
+                </button>
+            </div>
+        </div>
+        <app-contact-form (onChangeValue)="handleContactForm($event)"></app-contact-form>
+    </nb-layout-column>
+    <nb-layout-column *ngIf="formFilled">
+        <app-traveller-summary>></app-traveller-summary>
+        <button nbButton id="dialog" (click)="showDialog()">Dialog</button>
+    </nb-layout-column>
+</nb-layout>
