@@ -1,28 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
+import { TravellerService } from 'src/app/service/traveller/traveller.service';
+import { Traveller } from 'src/app/domain/traveller/traveller';
 
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.css']
+  styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit {
-  mobileNo: string = '';
-  email: string = '';
-  formValid: boolean = false;
+  @Input() traveller: Traveller;
 
-  @Output() onChangeValue = new EventEmitter<{ formValid: boolean, mobileNo: string, email: string }>();
+  travellerForm = this.fb.group({
+    mobileNo: [{ value: '', disabled: true }, Validators.required],
+    email: [{ value: '', disabled: true }, Validators.required],
+  });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-  }
-
-  onChange() {
-    const mobileNo = this.mobileNo
-    const email = this.email
-    const formValid = this.formValid
-    this.onChangeValue.emit({ formValid, mobileNo, email });
+    this.travellerForm.get('email').setValue(this.traveller.email);
+    this.travellerForm.get('mobileNo').setValue(this.traveller.mobileNo);
   }
 
 }

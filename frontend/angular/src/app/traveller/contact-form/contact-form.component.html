@@ -1,20 +1,18 @@
-<nb-card>
+<nb-card status="primary">
     <nb-card-header>Contact for receiving all travellers policies</nb-card-header>
     <nb-card-body>
-        <div class="table">
+        <div class="table" [formGroup]="travellerForm">
             <div class="row">
                 <div class="input-wrapper mb-4">
-                    <label>Mobile Number*</label>
-                    <input nbInput fullWidth type="text" placeholder="" (change)="onChange()" [(ngModel)]="mobileNo"
-                        required>
+                    <label>Mobile Number<span>*</span></label>
+                    <input nbInput fullWidth type="text" formControlName="mobileNo">
                 </div>
 
             </div>
             <div class="row">
                 <div class="input-wrapper">
-                    <label>Email*</label>
-                    <input nbInput fullWidth type="text" placeholder="" (change)="onChange()" [(ngModel)]="email"
-                        required>
+                    <label>Email<span>*</span></label>
+                    <input nbInput fullWidth type="text" formControlName="email">
                 </div>
             </div>
         </div>

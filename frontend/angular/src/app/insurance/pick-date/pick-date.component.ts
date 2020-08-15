@@ -1,33 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PackageService } from '../../service/package/package.service'
 import { CountryService } from '../../service/country/country.service'
 
 @Component({
   selector: 'app-pick-date',
   templateUrl: './pick-date.component.html',
-  styleUrls: ['./pick-date.component.css']
+  styleUrls: ['./pick-date.component.scss']
 })
 export class PickDateComponent implements OnInit {
 
-  public selectedStartDate: string = this.getFormattedDate(new Date());
-  public selectedEndDate: string = this.getFormattedDate(new Date());
+  @Output() dateChange = new EventEmitter<{ start: string, end: string }>();
+
+  public selectedStartDate: string = this.minStartDate;
+  public selectedEndDate: string = this.minReturnDate;
 
   constructor(private packageService: PackageService, private countryService: CountryService) { }
 
   ngOnInit(): void {
-    console.log('country', this.countryService.getAllCountries())
-    console.log('package', this.packageService.getPackageByCountryId("01"));
-
-    this.countryService.getAllCountries().subscribe(p => {
-      console.log(p)
-    })
-    this.packageService.getPackageByCountryId("01").subscribe(p => {
-      console.log(p)
-    })
   }
 
-  onChange(e) {
-    console.log(e)
+  get minStartDate() {
+    return this.getFormattedDate(this.addDays(new Date(), 2));
+  }
+
+  get maxStartDate() {
+    return this.getFormattedDate(this.addDays(new Date(), 180));
+  }
+
+  get minReturnDate() {
+    const startDate = new Date(this.selectedStartDate);
+    return this.getFormattedDate(this.addDays(startDate, 2));
+  }
+
+  get maxReturnDate() {
+    const startDate = new Date(this.selectedStartDate);
+    return this.getFormattedDate(this.addDays(startDate, 180));
   }
 
   addDays(date: Date, days: number): Date {
@@ -36,21 +43,19 @@ export class PickDateComponent implements OnInit {
     return copy
   }
 
-  report() {
-    console.log(typeof (this.selectedStartDate))
-    console.log(this.selectedStartDate)
-  }
-
-
   getFormattedDate(date: Date) {
     return date.toISOString().split('T')[0]
   }
 
-
-  get maxDate() {
-    const startDate = new Date(this.selectedStartDate);
-    return this.getFormattedDate(this.addDays(startDate, 180));
-    //return this.addDays(this.selectedStartDate, 180);
+  onStartDateChange(e: any) {
+    this.selectedEndDate = '';
+    this.dateChange.emit({ start: this.selectedStartDate, end: this.selectedEndDate })
   }
+
+  onEndDateChange(e: any) {
+    this.dateChange.emit({ start: this.selectedStartDate, end: this.selectedEndDate })
+  }
+
+
 
 }

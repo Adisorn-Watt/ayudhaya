@@ -21,8 +21,8 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "src/styles.css"
+              "node_modules/@nebular/theme/styles/prebuilt/default.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -83,8 +83,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "src/styles.css"
+              "node_modules/@nebular/theme/styles/prebuilt/default.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -118,5 +118,10 @@
   "defaultProject": "angular",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

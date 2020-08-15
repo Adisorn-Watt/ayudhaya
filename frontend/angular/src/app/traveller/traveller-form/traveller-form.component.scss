@@ -1,0 +1,29 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-right: 24px;
+  align-items: baseline;
+  flex-grow: 1;
+}
+.input-wrapper label span {
+  color: red;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.input-wrapper label {
+  margin-bottom: 6px;
+  width: 256px;
+}
+
+.title-select {
+  max-width: none !important;
+}
+
+.traveller-card {
+  // min-width: 400px;
+  margin-bottom: 0px !important;
+}

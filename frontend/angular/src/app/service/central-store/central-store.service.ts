@@ -37,8 +37,7 @@ export class CentralStoreService {
   }
 
   setSelectedDate(start: string, end: string) {
-    this.selectedDate.start = start;
-    this.selectedDate.end = end;
+    this.selectedDate = { start, end }
   }
 
 

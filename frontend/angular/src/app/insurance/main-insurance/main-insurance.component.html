@@ -1,16 +1,16 @@
 <div *ngIf="!toSummary">
-  <app-country></app-country>
-  <app-package></app-package>
-  <app-pick-date></app-pick-date>
+  <app-country [countries]="countries" (countryCardClick)="handleCountryCard($event)"></app-country>
+  <app-package [packages]="packages"></app-package>
+  <app-pick-date (dateChange)="handleDateChange($event)"></app-pick-date>
   <div class="btn-next-wrapper">
-    <button nbButton (click)="onConfirm()" status="primary"> Confirm </button>
+    <button nbButton (click)="gotoSummary()" status="primary" [disabled]="!canProceed"> Confirm </button>
   </div>
 </div>
 
 <div *ngIf="toSummary">
-  <app-insurance-summary></app-insurance-summary>
+  <app-insurance-summary [selectedCountry]="selectedCountry" [selectedDate]="selectedDate"></app-insurance-summary>
   <div class="btn-next-wrapper">
-    <button nbButton class="btn-back" (click)="backInsurance()">Back</button>
+    <button nbButton class="btn-back" (click)="gotoInsurance()">Back</button>
     <button nbButton id="btn-next-wrapper" status="primary" (click)="confirmInsurance()">Confirm</button>
   </div>
 </div>

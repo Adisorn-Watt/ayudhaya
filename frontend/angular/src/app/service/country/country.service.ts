@@ -11,10 +11,6 @@ export class CountryService {
   constructor(private http: HttpClient) { }
 
   getAllCountries(): Observable<Country[]> {
-    // return of([
-    //   { countryId: "01", countryName: "Germany" },
-    //   { countryId: "02", countryName: "Thailand" },
-    // ])
     return this.http.get<Country[]>(
       'http://localhost:8080/api/v1/country'
     );

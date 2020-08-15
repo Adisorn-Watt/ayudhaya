@@ -15,7 +15,7 @@ import {
   NbLayoutModule,
   NbIconModule,
 } from '@nebular/theme';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     NbLayoutModule,
     FormsModule,
     NbIconModule,
+    ReactiveFormsModule,
   ],
 })
 export class TravellerModule { }
