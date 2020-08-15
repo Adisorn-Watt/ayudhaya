@@ -4,8 +4,8 @@ import com.example.Ayudhaya.Country.Country;
 import com.example.Ayudhaya.Country.CountryRepository;
 import com.example.Ayudhaya.Package.Package;
 import com.example.Ayudhaya.Package.PackageRepository;
-import com.example.Ayudhaya.user.User;
-import com.example.Ayudhaya.user.UsersRepository;
+import com.example.Ayudhaya.User.User;
+import com.example.Ayudhaya.User.UsersRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -45,7 +45,6 @@ public class DbInitializer implements CommandLineRunner {
         Package p11 = new Package("11","Loss of Travel Document", "5,000", new String[]{"02"},"Allianz");
         Package p12 = new Package("12","Loss or Damage of Baggage and Personal Effects from Natural Disasters", "15,000", new String[]{"02"},"Allianz");
 
-
         this.packageRepository.deleteAll();
         List<Package> packages = Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
         this.packageRepository.saveAll(packages);
@@ -55,6 +54,8 @@ public class DbInitializer implements CommandLineRunner {
         this.usersRepository.deleteAll();
         List<User> user = Arrays.asList(user1);
         this.usersRepository.saveAll(user);
+
+
     }
 
 
