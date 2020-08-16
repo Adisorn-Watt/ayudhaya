@@ -21,3 +21,17 @@
 .mb-4 {
   margin-bottom: 16px;
 }
+
+.card-flex-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-icon {
+  width: 24px;
+  cursor: pointer;
+  &.first {
+    color: rgba(143, 155, 179, 0.5);
+    margin-right: 4px;
+  }
+}

@@ -1,7 +1,7 @@
-import { Package } from './package';
+import { Package } from './package'
 
 describe('Package', () => {
   it('should create an instance', () => {
-    expect(new Package()).toBeTruthy();
-  });
-});
+    expect(new Package()).toBeTruthy()
+  })
+})

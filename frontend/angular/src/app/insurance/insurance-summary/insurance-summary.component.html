@@ -1,16 +1,17 @@
 <nb-card accent="primary">
-    <nb-card-header>
-        <div class="summary-package">
-            <!-- <div id="country" class="header-font-size">Germany</div> -->
-            <div id="country">{{selectedCountry.countryName}}</div>
-            <div id="package-amount-fee" class="font-size">2,328.10 THB per person</div>
-        </div>
-    </nb-card-header>
+  <nb-card-header>
+    <div class="summary-package">
+      <!-- <div id="country" class="header-font-size">Germany</div> -->
+      <div id="country">{{ selectedCountry.countryName }}</div>
+      <div id="package-amount-fee" class="font-size">2,328.10 THB per person</div>
+    </div>
+  </nb-card-header>
 
-    <nb-card-body>
-        <div>Trip date:
-            <span class="date-range" id="date-range">{{selectedDate.start}} - {{selectedDate.end}}</span>
-            <span class="total-days" id="total-days">(Total 23 Days)</span>
-        </div>
-    </nb-card-body>
+  <nb-card-body>
+    <div>
+      Trip date:
+      <span class="date-range" id="date-range">{{ selectedDate.start }} - {{ selectedDate.end }}</span>
+      <span class="total-days" id="total-days">(Total 23 Days)</span>
+    </div>
+  </nb-card-body>
 </nb-card>
