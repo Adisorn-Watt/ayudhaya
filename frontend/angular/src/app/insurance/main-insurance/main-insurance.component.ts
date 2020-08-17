@@ -5,6 +5,7 @@ import { CountryService } from 'src/app/service/country/country.service'
 import { Country } from 'src/app/domain/country/country'
 import { PackageService } from 'src/app/service/package/package.service'
 import { Package } from 'src/app/domain/package/package'
+import { CalculateCostService } from 'src/app/service/calculate-cost/calculate-cost.service'
 
 @Component({
   selector: 'app-main-insurance',
@@ -29,9 +30,6 @@ export class MainInsuranceComponent implements OnInit {
     this.countryService.getAllCountries().subscribe((c) => {
       this.countries = c
     })
-    const today = new Date()
-    this.selectedDate.start = this.getFormattedDate(today)
-    this.selectedDate.end = this.getFormattedDate(today)
   }
 
   gotoInsurance(): void {
@@ -44,7 +42,6 @@ export class MainInsuranceComponent implements OnInit {
 
   handleCountryCard(e: any): void {
     this.selectedCountry = e
-    console.log('çountryCard', e)
     this.packageService.getPackageByCountryId(e.countryId).subscribe((p) => (this.packages = p))
   }
 
@@ -63,11 +60,6 @@ export class MainInsuranceComponent implements OnInit {
   }
 
   get canProceed() {
-    return this.selectedCountry && this.selectedDate && this.selectedDate.start !== '' && this.selectedDate.end !== ''
-    // return this.selectedCountry
-  }
-
-  getFormattedDate(date: Date): string {
-    return date.toISOString().split('T')[0]
+    return this.selectedCountry && this.selectedDate && this.selectedDate.start && this.selectedDate.end
   }
 }

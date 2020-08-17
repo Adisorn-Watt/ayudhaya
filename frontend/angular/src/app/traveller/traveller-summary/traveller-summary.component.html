@@ -1,4 +1,4 @@
-<nb-card accent="primary">
+<nb-card status="primary">
   <nb-card-header>
     <div class="summary-card-header">
       <div id="country">{{ country.countryName }}</div>
@@ -9,22 +9,22 @@
   <nb-card-body>
     <div>
       Trip date:
-      <span class="date-range" id="date-range">{{ date.start }} - {{ date.end }}</span>
-      <span class="total-days" id="total-days">(Total {{ totalDay }} Days)</span>
+      <span class="date-range" id="date-range">{{ date.start | date: 'dd MMM yyyy' }} - {{ date.end | date: 'dd MMM yyyy' }}</span>
+      <span class="total-days" id="total-days"> (Total {{ totalDay }} Days)</span>
     </div>
   </nb-card-body>
 </nb-card>
 
-<nb-card>
+<nb-card status="primary">
   <nb-card-header>
-    <div>
-      <div>Traveller Detail</div>
-      <div>{{ totalPerson }} person{{ totalPerson > 1 ? 's' : '' }}</div>
+    <div class="flex-row">
+      <div>Traveller Detail:</div>
+      <div class="ml-4">{{ totalPerson }} person{{ totalPerson > 1 ? 's' : '' }}</div>
     </div>
   </nb-card-header>
   <nb-card-body>
     <nb-card>
-      <nb-card-header>Traveller </nb-card-header>
+      <nb-card-header>Traveller 1</nb-card-header>
       <nb-card-body>
         <div class="table" [formGroup]="travellerForm">
           <div class="row">
@@ -70,6 +70,29 @@
             <div class="input-wrapper">
               <label>Beneficiary<span>*</span></label>
               <input nbInput fullWidth type="text" placeholder="" formControlName="beneficiary" />
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header class="card-flex-header">
+        <span>
+          Contact for receiving all travellers policies
+        </span>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="table" [formGroup]="contactForm">
+          <div class="row">
+            <div class="input-wrapper mb-4">
+              <label>Mobile Number<span>*</span></label>
+              <input nbInput fullWidth type="text" formControlName="mobileNo" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrapper">
+              <label>Email<span>*</span></label>
+              <input nbInput fullWidth type="text" formControlName="email" />
             </div>
           </div>
         </div>

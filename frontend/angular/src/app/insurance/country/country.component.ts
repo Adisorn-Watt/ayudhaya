@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
-import { CountryService } from 'src/app/service/country/country.service'
 import { Country } from 'src/app/domain/country/country'
 
 @Component({
@@ -11,15 +10,9 @@ export class CountryComponent implements OnInit {
   @Input() countries: Country[]
   @Output() countryCardClick = new EventEmitter<Country>()
 
-  // public countries: Country[];
-
   constructor() {}
 
-  ngOnInit(): void {
-    // this.countryService.getAllCountries().subscribe(countries => {
-    //   this.countries = countries
-    // })
-  }
+  ngOnInit(): void {}
 
   onClickCountryCard(c: Country): void {
     this.countryCardClick.emit(c)

@@ -3,24 +3,25 @@
     <div class="traveller" *ngIf="userInfo">
       <app-traveller-form [traveller]="userInfo"></app-traveller-form>
     </div>
-    <div class="add-traveller-button-wrapper">
+    <!-- <div class="add-traveller-button-wrapper">
       <button nbButton shape="round" size="giant" status="primary" class="add-traveller-button">
         <nb-icon icon="plus-outline"></nb-icon>
       </button>
-    </div>
+    </div> -->
     <div *ngIf="userInfo" class="contact-form">
       <app-contact-form [traveller]="userInfo"></app-contact-form>
     </div>
-    <button nbButton fullWidth status="primary" class="next-button" (click)="onNext()">Next</button>
+    <button nbButton status="primary" class="next-button" (click)="onNext()">Next</button>
   </div>
 </nb-layout-column>
 <nb-layout-column *ngIf="formFilled">
   <app-traveller-summary
     [country]="selectedCountry"
     [date]="selectedDate"
-    [totalDay]="10"
+    [totalDay]="totalDay"
     [totalPerson]="1"
-    [costPerPerson]="100"
+    [costPerPerson]="costPerPerson"
+    [traveller]="userInfo"
   ></app-traveller-summary>
   <div class="payment-btn-wrapper">
     <button nbButton id="dialog" (click)="showDialog()" status="primary">Payment</button>
