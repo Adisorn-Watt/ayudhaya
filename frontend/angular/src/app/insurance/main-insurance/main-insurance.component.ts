@@ -29,6 +29,9 @@ export class MainInsuranceComponent implements OnInit {
     this.countryService.getAllCountries().subscribe((c) => {
       this.countries = c
     })
+    const today = new Date()
+    this.selectedDate.start = this.getFormattedDate(today)
+    this.selectedDate.end = this.getFormattedDate(today)
   }
 
   gotoInsurance(): void {
@@ -60,6 +63,11 @@ export class MainInsuranceComponent implements OnInit {
   }
 
   get canProceed() {
-    return this.selectedCountry && this.selectedDate && this.selectedDate.start && this.selectedDate.end
+    return this.selectedCountry && this.selectedDate && this.selectedDate.start !== '' && this.selectedDate.end !== ''
+    // return this.selectedCountry
+  }
+
+  getFormattedDate(date: Date): string {
+    return date.toISOString().split('T')[0]
   }
 }
