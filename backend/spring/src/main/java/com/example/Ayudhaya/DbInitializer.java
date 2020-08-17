@@ -35,6 +35,9 @@ public class DbInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception{
         Country c1 = new Country("01","Germany");
         Country c2 = new Country("02","France");
+
+//        Country c1 = Country.builder()..countryName("").build();
+
         this.countryRepository.deleteAll();
         List<Country> counties = Arrays.asList(c1,c2);
         this.countryRepository.saveAll(counties);
