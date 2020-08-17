@@ -3,15 +3,15 @@
     <div class="summary-package">
       <!-- <div id="country" class="header-font-size">Germany</div> -->
       <div id="country">{{ selectedCountry.countryName }}</div>
-      <div id="package-amount-fee" class="font-size">2,328.10 THB per person</div>
+      <div id="package-amount-fee" class="font-size">{{ insuranceCost | number: '1.2-2' }} THB per person</div>
     </div>
   </nb-card-header>
 
   <nb-card-body>
     <div>
       Trip date:
-      <span class="date-range" id="date-range">{{ selectedDate.start }} - {{ selectedDate.end }}</span>
-      <span class="total-days" id="total-days">(Total 23 Days)</span>
+      <span class="date-range" id="date-range">{{ selectedDate.start | date: 'dd MMM yyyy' }} - {{ selectedDate.end | date: 'dd MMM yyyy' }}</span>
+      <span class="total-days" id="total-days">(Total {{ daysDifferent }} day{{ daysDifferent - 1 == 0 ? '' : 's' }})</span>
     </div>
   </nb-card-body>
 </nb-card>

@@ -1,6 +1,8 @@
 package com.example.Ayudhaya.Country;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 
 @Data
@@ -14,19 +16,19 @@ public class Country {
         this.countryName = countryName;
     }
 
-    public String getCountryId() {
-        return countryId;
-    }
+//    public String getCountryId() {
+//        return countryId;
+//    }
 
-    public void setCountryId(String countryId) {
-        this.countryId = countryId;
-    }
+//    public void setCountryId(String countryId) {
+//        this.countryId = countryId;
+//    }
 
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
+//    public String getCountryName() {
+//        return countryName;
+//    }
+//
+//    public void setCountryName(String countryName) {
+//        this.countryName = countryName;
+//    }
 }
