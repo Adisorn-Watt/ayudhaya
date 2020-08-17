@@ -18,21 +18,21 @@ export class PickDateComponent implements OnInit {
   ngOnInit(): void {}
 
   get minStartDate() {
-    return this.getFormattedDate(this.addDays(new Date(), 2))
+    return this.getFormattedDate(this.addDays(new Date(), 0))
   }
 
   get maxStartDate() {
-    return this.getFormattedDate(this.addDays(new Date(), 180))
+    return this.getFormattedDate(this.addDays(new Date(), 179))
   }
 
   get minReturnDate() {
     const startDate = new Date(this.selectedStartDate)
-    return this.getFormattedDate(this.addDays(startDate, 2))
+    return this.getFormattedDate(this.addDays(startDate, 0))
   }
 
   get maxReturnDate() {
     const startDate = new Date(this.selectedStartDate)
-    return this.getFormattedDate(this.addDays(startDate, 180))
+    return this.getFormattedDate(this.addDays(startDate, 179))
   }
 
   addDays(date: Date, days: number): Date {
