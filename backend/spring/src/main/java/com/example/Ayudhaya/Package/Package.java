@@ -7,17 +7,24 @@ import org.springframework.data.annotation.Id;
 public class Package {
     @Id
     private String packageId;
-    private String packageName;
+    private String packageDetail;
     private String packagePrice;
     private String[] countryList;
-    private String companyName;
+    private String condition;
 
-    public Package(String packageId, String packageName, String packagePrice, String[] countryList, String companyName) {
+    public Package(String packageId, String packageDetail, String packagePrice, String[] countryList) {
         this.packageId = packageId;
-        this.packageName = packageName;
+        this.packageDetail = packageDetail;
         this.packagePrice = packagePrice;
         this.countryList = countryList;
-        this.companyName = companyName;
+    }
+
+    public Package(String packageId, String packageDetail, String packagePrice, String[] countryList, String condition) {
+        this.packageId = packageId;
+        this.packageDetail = packageDetail;
+        this.packagePrice = packagePrice;
+        this.countryList = countryList;
+        this.condition = condition;
     }
 }
 
