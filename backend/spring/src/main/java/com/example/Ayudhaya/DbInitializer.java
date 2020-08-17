@@ -40,18 +40,19 @@ public class DbInitializer implements CommandLineRunner {
         this.countryRepository.saveAll(counties);
 
 
-        Package p1 = new Package("01","Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident", "1,500,000", new String[]{"01","02"}, "","");
-        Package p2 = new Package("02","Medical Expenses Incurred Overseas", "1,500,000", new String[]{"01"},"","");
+
+        Package p1 = new Package("01","Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident", "1,5000,000", new String[]{"01","02"}, "","");
+        Package p2 = new Package("02","Medical Expenses Incurred Overseas", "1,500,000", new String[]{"01","02"},"","");
         Package p3 = new Package("03","Medical Expenses Incurred in Thailand", "150,000", new String[]{"01","02"},"","");
-        Package p4 = new Package("04","Emergency Medical Evacuation and Repatriation/Repatriation of Mortal Remains", "3,000,000", new String[]{"01"},"","");
-        Package p5 = new Package("05","Loss or Damage of Baggage and Personal Effects", "10,000", new String[]{"02"},"Maximum limit per item/pair/set","2000");
+        Package p4 = new Package("04","Emergency Medical Evacuation and Repatriation/Repatriation of Mortal Remains", "3,000,000", new String[]{"01","02"},"","");
+        Package p5 = new Package("05","Loss or Damage of Baggage and Personal Effects", "10,000", new String[]{"01","02"},"Maximum limit per item/pair/set","2000");
         Package p6 = new Package("06","Travel Delay (Pay 10% of Sum Insured for every 6 consecutive hours delay)", "15,000", new String[]{"01","02"},"","");
-        Package p7 = new Package("07","Missed Connecting Flight (For every 8 consecutive hours delay)", "5,000", new String[]{"01"},"","");
-        Package p8 = new Package("08","Trip Cancellation or Poseponement", "15,000", new String[]{"02"},"","");
+        Package p7 = new Package("07","Missed Connecting Flight (For every 8 consecutive hours delay)", "5,000", new String[]{"01","02"},"","");
+        Package p8 = new Package("08","Trip Cancellation or Poseponement", "15,000", new String[]{"01","02"},"","");
         Package p9 = new Package("09","Trip Curtailment", "15,000", new String[]{"01","02"},"","");
-        Package p10 = new Package("10","Hijacking (Pay THB 5,000 for every 12 consecutive hours)", "5,000", new String[]{"01"},"","");
-        Package p11 = new Package("11","Loss of Travel Document", "5,000", new String[]{"02"},"","");
-        Package p12 = new Package("12","Loss or Damage of Baggage and Personal Effects from Natural Disasters", "15,000", new String[]{"02"},"","");
+        Package p10 = new Package("10","Hijacking (Pay THB 5,000 for every 12 consecutive hours)", "5,000", new String[]{"01","02"},"","");
+        Package p11 = new Package("11","Loss of Travel Document", "5,000", new String[]{"01","02"},"","");
+        Package p12 = new Package("12","Loss or Damage of Baggage and Personal Effects from Natural Disasters", "15,000", new String[]{"01","02"},"","");
 
 
         this.packageRepository.deleteAll();
@@ -69,7 +70,7 @@ public class DbInitializer implements CommandLineRunner {
         List<Country> countries = countryRepository.findAll();
 //        List<Transaction> transactions = Arrays.asList();
         List<Transaction> transactions = new ArrayList<>();
-        transactions.add(new Transaction(c1.getCountryId()));
+        transactions.add(new Transaction(c1.getCountryId(),p1.getPackageId()));
 //        for(Country country: countries ){
 //            transactions.add(new Transaction(
 //                    c1.getCountryName()
