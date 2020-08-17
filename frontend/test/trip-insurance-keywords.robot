@@ -11,7 +11,7 @@ Buy a trip insurance package
     Input traveller personal information                        ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}    ${BENEFIT_NAME}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
     Check insurance package summary
     Check traveller infomation                                  ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
-    Check total amount of insurance fee
+    Check insurance fee
     Scroll down for reviewing Terms&Agreements and accept them
     Check traveller bank account information
     Check insurance bank account information
@@ -24,19 +24,19 @@ Open web browser on Google Chrome
 Select country that a user want to go
     Wait Until Page Contains        Select country
     Wait Until Page Contains        Germany
-    Click Element                   /html/body/app-root/nb-layout/div/div/div/div/div/nb-layout-column/app-main-insurance/div/app-country/nb-card/div/div[1]
+    Click Element                   btn-country-germany
 
 Check insurance package detail
-    Wait Until Page Contains        Select Package(?)
-    Wait Until Page Contains        Package name(?)
-    Click Element                   id:package-name(?)
+    Wait Until Page Contains        Package details
 
 Select date range for a trip
-    Wait Until Page Contains        Select Date
-    Wait Until Page Contains        From
-    Click Element                   id:date(?)
-    Wait Until Page Contains        To
-    Click Element                   id:date(?)
+    Wait Until Page Contains        Select date
+    Wait Until Page Contains        Depart date
+    # Input Text                      start-date        2020-09-01
+    Execute JavaScript              document.getElementById('start-date').value = '2020-09-01'
+    Wait Until Page Contains        Return date
+    # Input Text                      end-date        18-11-2020
+    Execute JavaScript              document.getElementById('end-date').value = '2020-11-29'
     Sleep                           2 seconds
 
 Check insurance package infomation before the next step
@@ -89,7 +89,7 @@ Check traveller infomation
     Wait Until Element Contains     id:traveller-email       ${TRAVELLER_EMAIL}
     # Sleep                         2 seconds
 
-Check total amount of insurance fee
+Check insurance fee
     Wait Until Page Contains        Total Price
     Wait Until Element Contains     id:package-amount-fee    2,328.00
     Click Element                   id:btn-payment

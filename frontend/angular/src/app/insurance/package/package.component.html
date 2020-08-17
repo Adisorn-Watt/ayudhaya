@@ -11,11 +11,11 @@
   <div class="parent" *ngIf="packages.length > 0">
     <div *ngFor="let p of packages" class="button-structure">
       <div class="package-pic">
-        <nb-user size="giant" name="{{ p.packageDetail }}" title="Engineer" color="#f1f1f1" onlyPicture></nb-user>
+        <nb-user size="giant" name="{{ p.packageDetail }}" title="Engineer" color="#f1f1f1" id="package-{{ p.packageId }}-img" onlyPicture></nb-user>
       </div>
-      <div class="detail">
+      <div class="detail" id="package-{{ p.packageId }}">
         <span>{{ p.packageDetail }}</span> <br />
-        <span>{{ p.packagePrice }}</span> <br />
+        <span>{{ p.packagePrice }}.00</span> <br />
       </div>
     </div>
   </div>
