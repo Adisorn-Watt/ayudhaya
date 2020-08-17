@@ -1,13 +1,14 @@
 package com.example.Ayudhaya.Transaction;
 
 import lombok.Data;
+import lombok.Generated;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 
+
 @Data
 public class Transaction {
-    private @Id
-    String transactionId;
+    private @Id String transactionId;
     private String title;
     private String firstName;
     private String lastName;
