@@ -32,7 +32,7 @@ public class DbInitializer implements CommandLineRunner {
         this.countryRepository.saveAll(countries);
 
 
-        Package p1 = new Package("01","Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident", "1,5000,000", new String[]{"01","02"},"Allianz");
+        Package p1 = new Package("01","Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident", "1,500,000", new String[]{"01","02"},"Allianz");
         Package p2 = new Package("02","Medical Expenses Incurred Overseas", "1,500,000", new String[]{"01"},"Allianz");
         Package p3 = new Package("03","Medical Expenses Incurred in Thailand", "150,000", new String[]{"01","02"},"Allianz");
         Package p4 = new Package("04","Emergency Medical Evacuation and Repatriation/Repatriation of Mortal Remains", "3,000,000", new String[]{"01"},"Allianz");
