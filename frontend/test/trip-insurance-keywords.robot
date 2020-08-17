@@ -20,6 +20,8 @@ Buy a trip insurance package
 
 Open web browser on Google Chrome
     Open Browser    ${URL}          chrome
+    Maximize Browser Window
+    Set Selenium Speed	            0.2 seconds
 
 Select country that a user want to go
     Wait Until Page Contains        Select country
@@ -32,11 +34,10 @@ Check insurance package detail
 Select date range for a trip
     Wait Until Page Contains        Select date
     Wait Until Page Contains        Depart date
-    # Input Text                      start-date        2020-09-01
-    Execute JavaScript              document.getElementById('start-date').value = '2020-09-01'
+    Input Text                      start-date      09-01-2020
     Wait Until Page Contains        Return date
-    # Input Text                      end-date        18-11-2020
-    Execute JavaScript              document.getElementById('end-date').value = '2020-11-29'
+    Input Text                      end-date        11-29-2020
+    Click Button                    btn-confirm
     Sleep                           2 seconds
 
 Check insurance package infomation before the next step
