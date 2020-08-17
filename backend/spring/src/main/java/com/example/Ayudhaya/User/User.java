@@ -3,11 +3,9 @@ package com.example.Ayudhaya.User;
 import lombok.Data;
 import nonapi.io.github.classgraph.json.Id;
 
-import javax.persistence.GeneratedValue;
-
 @Data
 public class User {
-    private @Id @GeneratedValue String userId;
+    private @Id String userId;
     private String title;
     private String firstName;
     private String lastName;

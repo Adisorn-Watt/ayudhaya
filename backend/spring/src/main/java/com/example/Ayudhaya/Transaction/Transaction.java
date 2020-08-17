@@ -5,15 +5,10 @@ import lombok.Generated;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Data
-@Entity
 public class Transaction {
-    private @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    String transactionId;
+    private @Id String transactionId;
     private String title;
     private String firstName;
     private String lastName;
