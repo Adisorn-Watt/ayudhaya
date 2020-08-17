@@ -6,7 +6,6 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 
 @Data
-@SuperBuilder
 public class Country {
     @Id
     private String countryId;
