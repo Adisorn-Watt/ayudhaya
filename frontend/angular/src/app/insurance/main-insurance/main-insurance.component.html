@@ -3,7 +3,7 @@
   <app-package [packages]="packages"></app-package>
   <app-pick-date (dateChange)="handleDateChange($event)"></app-pick-date>
   <div class="btn-next-wrapper">
-    <button nbButton (click)="gotoSummary()" status="primary" [disabled]="!canProceed">Confirm</button>
+    <button nbButton id="btn-confirm" (click)="gotoSummary()" status="primary" [disabled]="!canProceed">Confirm</button>
   </div>
 </div>
 
@@ -11,6 +11,6 @@
   <app-insurance-summary [selectedCountry]="selectedCountry" [selectedDate]="selectedDate"></app-insurance-summary>
   <div class="btn-next-wrapper">
     <button nbButton class="btn-back" (click)="gotoInsurance()">Back</button>
-    <button nbButton id="btn-next-wrapper" status="primary" (click)="confirmInsurance()">Confirm</button>
+    <button nbButton id="btn-next" status="primary" (click)="confirmInsurance()">Next</button>
   </div>
 </div>
