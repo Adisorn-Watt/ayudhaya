@@ -1,7 +1,7 @@
-import { Traveller } from './traveller';
+import { Traveller } from './traveller'
 
 describe('Traveller', () => {
   it('should create an instance', () => {
-    expect(new Traveller()).toBeTruthy();
-  });
-});
+    expect(new Traveller()).toBeTruthy()
+  })
+})

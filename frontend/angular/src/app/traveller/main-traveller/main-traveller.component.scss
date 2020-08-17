@@ -1,0 +1,45 @@
+.main-traveller-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  column-gap: 24px;
+}
+.add-traveller-button-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  border: 3px dashed blue;
+  transition: 0.5s;
+}
+.add-traveller-button-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.add-traveller-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px !important;
+  /* justify-self: center;
+  align-self: center; */
+}
+.traveller {
+  display: flex;
+  flex-direction: row;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.contact-form {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.next-button {
+  margin-top: 24px;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}

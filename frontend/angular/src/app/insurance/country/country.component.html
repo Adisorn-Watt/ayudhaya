@@ -1,1 +1,9 @@
-<p>country works!</p>
+<nb-card>
+  <nb-card-header class="header">
+    Select country
+  </nb-card-header>
+
+  <div class="buttonLayout">
+    <div *ngFor="let c of countries" (click)="onClickCountryCard(c)" id="btn-country-{{ c.countryName | lowercase }}">{{ c.countryName }}</div>
+  </div>
+</nb-card>

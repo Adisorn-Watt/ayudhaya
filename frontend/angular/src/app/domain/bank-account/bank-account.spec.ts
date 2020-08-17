@@ -1,7 +1,7 @@
-import { BankAccount } from './bank-account';
+import { BankAccount } from './bank-account'
 
 describe('BankAccount', () => {
   it('should create an instance', () => {
-    expect(new BankAccount()).toBeTruthy();
-  });
-});
+    expect(new BankAccount()).toBeTruthy()
+  })
+})

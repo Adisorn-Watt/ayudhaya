@@ -5,8 +5,7 @@ import nonapi.io.github.classgraph.json.Id;
 
 @Data
 public class User {
-    @Id
-    private String userId;
+    private @Id String userId;
     private String title;
     private String firstName;
     private String lastName;

@@ -1,11 +1,11 @@
 *** Variables ***
-${URL}              localhost:4200
+${URL}              http://localhost:4200/insurance
 
 *** Keywords ***
 Buy a trip insurance package
     [Arguments]    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}    ${BENEFIT_NAME}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
     Select country that a user want to go
-    Select insurance package that a user want to apply for their trip
+    Check insurance package detail
     Select date range for a trip
     Check insurance package infomation before the next step
     Input traveller personal information                        ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}    ${BENEFIT_NAME}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
@@ -22,11 +22,11 @@ Open web browser on Google Chrome
     Open Browser    ${URL}          chrome
 
 Select country that a user want to go
-    Wait Until Page Contains        Select Country(?)
+    Wait Until Page Contains        Select country
     Wait Until Page Contains        Germany
-    Click Element                   id:country(?)
+    Click Element                   /html/body/app-root/nb-layout/div/div/div/div/div/nb-layout-column/app-main-insurance/div/app-country/nb-card/div/div[1]
 
-Select insurance package that a user want to apply for their trip
+Check insurance package detail
     Wait Until Page Contains        Select Package(?)
     Wait Until Page Contains        Package name(?)
     Click Element                   id:package-name(?)
@@ -37,7 +37,7 @@ Select date range for a trip
     Click Element                   id:date(?)
     Wait Until Page Contains        To
     Click Element                   id:date(?)
-    # Sleep                       2 seconds
+    Sleep                           2 seconds
 
 Check insurance package infomation before the next step
     Wait Until Element Contains     id:country               Germany

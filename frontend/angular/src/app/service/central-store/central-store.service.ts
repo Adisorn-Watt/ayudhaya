@@ -1,45 +1,44 @@
-import { Injectable } from '@angular/core';
-import { Package } from 'src/app/domain/package/package';
-import { Country } from 'src/app/domain/country/country';
+import { Injectable } from '@angular/core'
+import { Package } from 'src/app/domain/package/package'
+import { Country } from 'src/app/domain/country/country'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CentralStoreService {
-
-  private selectedCountry: Country = { countryName: "Germany", countryId: "01" };
-  private selectedPackage: Package;
+  private selectedCountry: Country = {
+    countryName: 'Germany',
+    countryId: '01',
+  }
+  private selectedPackage: Package
   private selectedDate: {
-    start: string,
-    end: string,
+    start: string
+    end: string
   }
 
-  constructor() { }
+  constructor() {}
 
-  getSelectedCountry() {
-    return this.selectedCountry;
+  getSelectedCountry(): Country {
+    return this.selectedCountry
   }
 
-  setSelectedCountry(country: Country) {
+  setSelectedCountry(country: Country): void {
     this.selectedCountry = country
   }
 
-  getSelectedPackage() {
-    return this.selectedPackage;
+  getSelectedPackage(): Package {
+    return this.selectedPackage
   }
 
-  setSelectedPackage(p: Package) {
-    this.selectedPackage = p;
+  setSelectedPackage(p: Package): void {
+    this.selectedPackage = p
   }
 
-  getSelectedDate() {
-    return this.selectedDate;
+  getSelectedDate(): { start: string; end: string } {
+    return this.selectedDate
   }
 
-  setSelectedDate(start: string, end: string) {
-    this.selectedDate.start = start;
-    this.selectedDate.end = end;
+  setSelectedDate(start: string, end: string): void {
+    this.selectedDate = { start, end }
   }
-
-
 }

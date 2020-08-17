@@ -1,0 +1,12 @@
+@import "~@nebular/theme/styles/theming";
+@import "~@nebular/theme/styles/themes/default";
+
+$nb-themes: nb-register-theme(
+  (
+    color-primary-default: #2750ba,
+    text-basic-color: color-basic-800,
+    text-disabled-color: color-basic-600,
+  ),
+  default,
+  default
+);
