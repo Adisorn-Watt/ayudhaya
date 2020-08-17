@@ -15,6 +15,14 @@
   </div>
 </nb-layout-column>
 <nb-layout-column *ngIf="formFilled">
-  <app-traveller-summary>></app-traveller-summary>
-  <button nbButton id="dialog" (click)="showDialog()">Dialog</button>
+  <app-traveller-summary
+    [country]="selectedCountry"
+    [date]="selectedDate"
+    [totalDay]="10"
+    [totalPerson]="1"
+    [costPerPerson]="100"
+  ></app-traveller-summary>
+  <div class="payment-btn-wrapper">
+    <button nbButton id="dialog" (click)="showDialog()" status="primary">Payment</button>
+  </div>
 </nb-layout-column>

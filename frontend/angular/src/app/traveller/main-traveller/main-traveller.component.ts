@@ -24,6 +24,8 @@ export class MainTravellerComponent implements OnInit {
     this.travellerService.getUserDetail().subscribe((u) => {
       this.userInfo = u[0]
     })
+    this.selectedCountry = this.centralStore.getSelectedCountry()
+    this.selectedDate = this.centralStore.getSelectedDate()
   }
 
   showDialog(): void {
