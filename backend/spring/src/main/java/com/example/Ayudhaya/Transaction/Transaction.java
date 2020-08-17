@@ -1,9 +1,14 @@
 package com.example.Ayudhaya.Transaction;
 
+import com.example.Ayudhaya.User.User;
 import lombok.Data;
 import lombok.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.Objects;
 
 
 @Data
@@ -27,9 +32,10 @@ public class Transaction {
     private double amount;
     private String startDate;
     private String endDate;
+//    private User user;
 
     @PersistenceConstructor
-    public Transaction(String countryId) {
+    public Transaction(String countryId,String packageId) {
         this.transactionId = "transactionId";
         this.title = "title";
         this.firstName = "firstName";
@@ -44,11 +50,12 @@ public class Transaction {
         this.email = "email";
         this.mobileNo = "mobileNo";
         this.countryId = countryId;
-        this.packageId = "packageId";
+        this.packageId = packageId;
         this.note = "note";
         this.amount = 3232.94;
         this.startDate = "dd-mm-yyyy";
         this.endDate = "dd-mm-yyyy";
+//        this.user = user;
     }
 
     @PersistenceConstructor
