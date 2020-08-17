@@ -15,8 +15,31 @@ export class CentralStoreService {
     start: string
     end: string
   }
+  private user: any = {
+    title: 'Mr.',
+    firstName: 'Numlabyod',
+    lastname: 'Reprakan',
+    citizenId: '1799310717171',
+    dateofBirth: '28 July 1998',
+    beneficialy: 'Ms. Anchisa Tea',
+    mobileNumber: '0980159795',
+    email: 'nearreann@gmail.com',
+    fromBankName: 'Everyday',
+    fromBankNo: '1234xxxx9012',
+    fromBankBalance: '50,000.00',
+    packagePrice: '2328.12',
+  }
 
   constructor() {}
+
+  getUser(): number {
+    return this.user
+    // return this.mockCost
+  }
+
+  setUser(user: any): void {
+    this.user = user
+  }
 
   getSelectedCountry(): Country {
     return this.selectedCountry

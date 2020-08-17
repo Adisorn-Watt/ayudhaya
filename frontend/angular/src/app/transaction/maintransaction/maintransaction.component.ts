@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { CentralStoreService } from 'src/app/service/central-store/central-store.service'
 
 @Component({
   selector: 'app-maintransaction',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./maintransaction.component.scss'],
 })
 export class MaintransactionComponent implements OnInit {
-  constructor() {}
+  public user: any
 
-  ngOnInit(): void {}
+  constructor(private centralStore: CentralStoreService) {}
+
+  ngOnInit(): void {
+    this.user = this.centralStore.getUser()
+  }
 }

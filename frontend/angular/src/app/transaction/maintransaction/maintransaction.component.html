@@ -1,61 +1,40 @@
-<!-- <style>
-  .card {
-    box-shadow: 10px 10px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 100%;
-  }
-  .container {
-    padding: 2px 16px;
-  }
-</style>
-
-<nb-card>
-  <nb-card-body>
-    <div class="card">
-      <div class="container">
-        <h4><b>Transfer</b></h4>
-      </div>
-    </div>
-
-    <p>From</p>
-
-    <div class="card">
-      <div class="container">
-        <h4><b>Transfer</b></h4>
-      </div>
-    </div>
-  </nb-card-body>
-</nb-card> -->
-<nb-layout>
-  <nb-layout-column>
-    From
-    <nb-card>
-      <nb-card-body>
-        Everyday
-        <span class="x">172342314723</span>
-        <div class="Kevin">
-          <div class="z">500000.65</div>
-          <span class="y">
-            <nb-user size="giant" name="Jonh Doe" title="Engineer" onlyPicture> </nb-user>
-          </span>
+<nb-layout-column>
+  <h6 style="margin: 5px 5px 5px 20px;">From</h6>
+  <nb-card class="nb_card">
+    <nb-card-body class="card-flex">
+      <div>
+        <div class="card-flex-row">
+          <div id="from-bank-name">Bank: {{ user.fromBankName }}</div>
+          <div id="from-bank-no" class="policynumber">Account Number: {{ user.fromBankNo }}</div>
         </div>
-      </nb-card-body>
-    </nb-card>
 
-    <!--         <nb-user name="John Doe" title="Engineer" onlyPicture></nb-user> -->
+        <div id="from-bank-balance" class="balance">Balance: {{ user.fromBankBalance }}</div>
+      </div>
+      <span class="pic1">
+        <nb-user size="giant" name="Jonh Doe" title="Engineer" onlyPicture> </nb-user>
+      </span>
+    </nb-card-body>
+  </nb-card>
 
-    To
-    <nb-card>
-      <nb-card-body>
-        Allianz tech
-        <div class="Kevin">
-          <div class="z">Ref:13432432432</div>
-          <span class="pic2">
-            <nb-user size="giant" name="Jonh Doe" title="Engineer" onlyPicture> </nb-user>
-          </span>
+  <!--         <nb-user name="John Doe" title="Engineer" onlyPicture></nb-user> -->
+
+  <h6 style="margin: 5px 5px 5px 20px;">To</h6>
+  <nb-card class="nb_card">
+    <nb-card-body class="card-flex">
+      <div>
+        <div class="card-flex-row">
+          <div>Allianz Tech</div>
         </div>
-      </nb-card-body>
-    </nb-card>
-    <button nbButton fullWidth status="primary">Confirm</button>
-  </nb-layout-column>
-</nb-layout>
+        <div id="to-bank-refno" class="balance">Ref: 509-16713201</div>
+      </div>
+      <span class="pic1">
+        <nb-user size="giant" name="Jonh Doe" title="Engineer" onlyPicture> </nb-user>
+      </span>
+    </nb-card-body>
+  </nb-card>
+  <div class="price">
+    <h5 id="package-amount-fee">Amount: {{ user.packagePrice }} THB</h5>
+    <input type="text" nbInput shape="round" placeholder="add note" /><br />
+    <button nbButton shape="round" class="confirm_btn" status="primary">Confirm</button>
+  </div>
+</nb-layout-column>

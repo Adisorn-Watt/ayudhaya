@@ -1,11 +1,12 @@
-.x {
-  margin: 24%;
-}
-.y {
+.policynumber {
   display: flex;
-  margin-left: 85%;
+  flex-direction: row;
+  margin-left: 300px;
 }
-.z {
+.pic1 {
+  display: flex;
+}
+.balance {
   margin-top: 50px;
 }
 
@@ -17,6 +18,29 @@
   margin-left: 81%;
 }
 
-.button {
-  margin-left: 0%;
+.price {
+  text-align: end;
+}
+
+.card-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.card-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.nb_card {
+  margin: 0 20px 30px 20px;
+}
+.confirm_btn {
+  margin-top: 20px;
 }
