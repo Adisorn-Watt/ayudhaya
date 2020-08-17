@@ -1,11 +1,13 @@
-@import "~@nebular/theme/styles/theming";
-@import "~@nebular/theme/styles/themes/default";
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/default';
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 $nb-themes: nb-register-theme(
   (
     color-primary-default: #2750ba,
     text-basic-color: color-basic-800,
     text-disabled-color: color-basic-600,
+    font-family-primary: Lato,
   ),
   default,
   default
