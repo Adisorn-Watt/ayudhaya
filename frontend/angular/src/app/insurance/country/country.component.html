@@ -2,13 +2,8 @@
   <nb-card-header class="header">
     Select country
   </nb-card-header>
-  <!-- <nb-card-body>
-        Everyday <span class="x">172342314723</span>
 
-        <nb-user name="John Doe" title="Engineer"></nb-user>
-      </nb-card-body> -->
-  <div class="parent">
-    <div *ngFor="let c of countries" (click)="onClickCountryCard(c)">{{ c.countryName }}</div>
-    <!-- <div>France</div> -->
+  <div class="buttonLayout">
+    <div *ngFor="let c of countries" (click)="onClickCountryCard(c)" id="btn-country-{{ c.countryName | lowercase }}">{{ c.countryName }}</div>
   </div>
 </nb-card>
