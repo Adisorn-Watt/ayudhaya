@@ -2,7 +2,6 @@ package com.example.Ayudhaya.Country;
 
 import lombok.Data;
 import lombok.Getter;
-import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 
 @Data
