@@ -34,13 +34,13 @@ public class DbInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception{
         Country c1 = new Country("01","Germany");
-        Country c2 = new Country("02","Thailand");
+        Country c2 = new Country("02","France");
         this.countryRepository.deleteAll();
         List<Country> counties = Arrays.asList(c1,c2);
         this.countryRepository.saveAll(counties);
 
 
-        Package p1 = new Package("01","Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident", "1,5000,000", new String[]{"01","02"}, "","");
+        Package p1 = new Package("01","Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident", "1,500,000", new String[]{"01","02"}, "","");
         Package p2 = new Package("02","Medical Expenses Incurred Overseas", "1,500,000", new String[]{"01"},"","");
         Package p3 = new Package("03","Medical Expenses Incurred in Thailand", "150,000", new String[]{"01","02"},"","");
         Package p4 = new Package("04","Emergency Medical Evacuation and Repatriation/Repatriation of Mortal Remains", "3,000,000", new String[]{"01"},"","");
