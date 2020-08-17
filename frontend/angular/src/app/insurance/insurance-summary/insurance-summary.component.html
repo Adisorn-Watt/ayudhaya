@@ -3,7 +3,7 @@
     <div class="summary-package">
       <!-- <div id="country" class="header-font-size">Germany</div> -->
       <div id="country">{{ selectedCountry.countryName }}</div>
-      <div id="package-amount-fee" class="font-size">{{ insuranceCost.toFixed(2) }} THB per person</div>
+      <div id="package-amount-fee" class="font-size">{{ insuranceCost | number: '1.2-2' }} THB per person</div>
     </div>
   </nb-card-header>
 

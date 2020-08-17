@@ -2,7 +2,7 @@
   font-size: 24px;
 }
 
-.parent {
+.buttonLayout {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 10px;
@@ -10,7 +10,7 @@
   padding: 10px;
 }
 
-.parent > div {
+.buttonLayout > div {
   display: flex;
   height: 100px;
   background: #2750ba;
