@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { Traveller } from 'src/app/domain/traveller/traveller'
 
@@ -57,7 +57,7 @@ export class TravellerFormComponent implements OnInit {
     this.editable = !this.editable
   }
 
-  onChangeBeneficiary() {
+  onChangeBeneficiary(): void {
     this.beneficiaryChange.emit(this.travellerForm.get('beneficiary').value)
   }
 }

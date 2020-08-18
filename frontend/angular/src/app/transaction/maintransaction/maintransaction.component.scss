@@ -3,15 +3,12 @@
   flex-direction: row;
   margin-left: 300px;
 }
-.pic1 {
+.d-flex {
   display: flex;
-}
-.balance {
-  margin-top: 50px;
 }
 
-.Kevin {
-  display: flex;
+.balance {
+  margin-top: 32px;
 }
 
 .pic2 {
@@ -26,7 +23,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 20px;
+  margin: 8px;
 }
 
 .card-flex-col {
@@ -38,9 +35,10 @@
   display: flex;
   flex-direction: row;
 }
-.nb_card {
-  margin: 0 20px 30px 20px;
+.package-amount-fee {
+  margin-top: 12px;
+  margin-bottom: 16px;
 }
-.confirm_btn {
+.confirm-btn {
   margin-top: 20px;
 }

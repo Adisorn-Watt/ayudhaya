@@ -15,7 +15,7 @@ export class TravellerSummaryComponent implements OnInit {
   @Input() insuranceCost: number
   @Input() totalDay: number
   @Input() costPerPerson: number
-  @Input() totalPerson: number = 1
+  @Input() totalPerson = 1
   @Input() traveller: Traveller
 
   travellerForm = this.fb.group({

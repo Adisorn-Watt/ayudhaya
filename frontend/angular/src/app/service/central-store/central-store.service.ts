@@ -7,42 +7,16 @@ import { Traveller } from 'src/app/domain/traveller/traveller'
   providedIn: 'root',
 })
 export class CentralStoreService {
-  private selectedCountry: Country = {
-    countryName: 'Germany',
-    countryId: '01',
-  }
+  private selectedCountry: Country
   private selectedPackage: Package
   private selectedDate: {
     start: string
     end: string
   }
-  private user: any = {
-    title: 'Mr.',
-    firstName: 'Numlabyod',
-    lastname: 'Reprakan',
-    citizenId: '1799310717171',
-    dateofBirth: '28 July 1998',
-    beneficialy: 'Ms. Anchisa Tea',
-    mobileNumber: '0980159795',
-    email: 'nearreann@gmail.com',
-    fromBankName: 'Everyday',
-    fromBankNo: '1234xxxx9012',
-    fromBankBalance: '50,000.00',
-    packagePrice: '2328.12',
-  }
   private userInfo: Traveller
   private costPerPerson: number
 
   constructor() {}
-
-  getUser(): number {
-    return this.user
-    // return this.mockCost
-  }
-
-  setUser(user: any): void {
-    this.user = user
-  }
 
   getSelectedCountry(): Country {
     return this.selectedCountry
