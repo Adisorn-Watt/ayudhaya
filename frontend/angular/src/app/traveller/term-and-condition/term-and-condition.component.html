@@ -1,5 +1,5 @@
 <nb-card size="medium" style="width: 50vw; margin: auto;">
-  <nb-card-header> Terms and Condition </nb-card-header>
+  <nb-card-header> Terms and conditions </nb-card-header>
   <nb-card-body (scroll)="onScroll($event)">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada justo vitae varius euismod. Maecenas venenatis mi et est ultricies, sed
     maximus ligula mollis. Ut vitae ligula at urna rhoncus hendrerit eget ut risus. Aliquam est tellus, tristique sit amet neque eu, pellentesque
@@ -122,6 +122,8 @@
     Vestibulum et enim eget ex semper tristique. Aliquam ullamcorper mattis consectetur. Sed ac augue pharetra,
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton fullWidth status="primary" [disabled]="!readAll" (click)="accept()">I accept the terms and condition</button>
+    <button nbButton fullWidth status="primary" [disabled]="!readAll" (click)="accept()" id="btn-accept-condition">
+      I accept the terms and conditions
+    </button>
   </nb-card-footer>
 </nb-card>

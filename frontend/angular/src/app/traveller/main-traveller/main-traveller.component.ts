@@ -45,11 +45,19 @@ export class MainTravellerComponent implements OnInit {
     this.formFilled = true
   }
 
+  gotoForm(): void {
+    this.formFilled = false
+  }
+
   get costPerPerson() {
     return this.calculateService.getInsuranceCost(this.selectedDate.start, this.selectedDate.end)
   }
 
   get totalDay() {
     return this.calculateService.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
+  }
+
+  handleBeneficiary(e: string) {
+    this.userInfo.beneficialName = e
   }
 }
