@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Package } from 'src/app/domain/package/package'
 import { Country } from 'src/app/domain/country/country'
+import { Traveller } from 'src/app/domain/traveller/traveller'
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ export class CentralStoreService {
     start: string
     end: string
   }
+  private userInfo: Traveller
 
   constructor() {}
 
@@ -40,5 +42,13 @@ export class CentralStoreService {
 
   setSelectedDate(start: string, end: string): void {
     this.selectedDate = { start, end }
+  }
+
+  getUserInfo() {
+    return this.userInfo
+  }
+
+  setUserInfo(t: Traveller) {
+    this.userInfo = t
   }
 }

@@ -13,9 +13,6 @@ export class CalculateCostService {
   }
 
   calculateDaysDifferent(startDate, finishDate) {
-    // console.log(startDate)
-    // console.log(finishDate)
-
     var msecStartDate = Date.parse(startDate)
     var msecFinishDate = Date.parse(finishDate)
 
@@ -80,11 +77,4 @@ export class CalculateCostService {
     }
     return cost
   }
-
-  // console.log('--------------------------------------')
-  // console.log('start date msec = ' + msecStartDate)
-  // console.log('finish date msec = ' + msecFinishDate)
-  // console.log('No. of days = ' + daysDifferent)
-  // console.log('insurance cost = ' + cost)
-  // console.log('--------------------------------------')
 }
