@@ -1,6 +1,6 @@
 .main-traveller-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   column-gap: 24px;
 }
@@ -29,8 +29,8 @@
   flex-direction: row;
 }
 .contact-form {
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
 }
@@ -39,9 +39,12 @@
   grid-row-start: 3;
   grid-row-end: 4;
   grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column-end: 3;
 }
 .payment-btn-wrapper {
   display: flex;
   justify-content: flex-end;
+}
+.traveller-form {
+  width: 100%;
 }

@@ -1,12 +1,12 @@
 <nb-card status="primary">
   <nb-card-header class="card-flex-header">
     <span>
-      Contact for receiving all travellers policies
+      Contact for receiving traveller policy
     </span>
     <div>
       <!-- <nb-icon icon="save" status="control" [options]="{ animation: { type: 'pulse' } }" class="card-icon first">
             </nb-icon> -->
-      <!-- <nb-icon icon="edit" status="control" [options]="{ animation: { type: 'pulse' } }" class="card-icon" (click)="toggleEditable()"></nb-icon> -->
+      <nb-icon icon="edit" status="control" [options]="{ animation: { type: 'pulse' } }" class="card-icon" (click)="toggleEditable()"></nb-icon>
     </div>
   </nb-card-header>
   <nb-card-body>
@@ -14,13 +14,13 @@
       <div class="row">
         <div class="input-wrapper mb-4">
           <label>Mobile Number<span>*</span></label>
-          <input nbInput fullWidth type="text" formControlName="mobileNo" />
+          <input nbInput fullWidth type="text" formControlName="mobileNo" id="traveller-phone" />
         </div>
       </div>
       <div class="row">
         <div class="input-wrapper">
           <label>Email<span>*</span></label>
-          <input nbInput fullWidth type="text" formControlName="email" />
+          <input nbInput fullWidth type="text" formControlName="email" id="traveller-email" />
         </div>
       </div>
     </div>
