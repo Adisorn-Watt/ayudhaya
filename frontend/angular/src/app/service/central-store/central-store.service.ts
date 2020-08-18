@@ -31,6 +31,7 @@ export class CentralStoreService {
     packagePrice: '2328.12',
   }
   private userInfo: Traveller
+  private costPerPerson: number
 
   constructor() {}
 
@@ -67,11 +68,19 @@ export class CentralStoreService {
     this.selectedDate = { start, end }
   }
 
-  getUserInfo() {
+  getUserInfo(): Traveller {
     return this.userInfo
   }
 
-  setUserInfo(t: Traveller) {
+  setUserInfo(t: Traveller): void {
     this.userInfo = t
+  }
+
+  setCostPerPerson(c: any): void {
+    this.costPerPerson = c
+  }
+
+  getCostPerPerson(): any {
+    return this.costPerPerson
   }
 }

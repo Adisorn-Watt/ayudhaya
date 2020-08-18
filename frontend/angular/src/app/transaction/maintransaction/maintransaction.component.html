@@ -16,8 +16,6 @@
     </nb-card-body>
   </nb-card>
 
-  <!--         <nb-user name="John Doe" title="Engineer" onlyPicture></nb-user> -->
-
   <h6 style="margin: 5px 5px 5px 20px;">To</h6>
   <nb-card class="nb_card">
     <nb-card-body class="card-flex">
@@ -33,7 +31,7 @@
     </nb-card-body>
   </nb-card>
   <div class="price">
-    <h5 id="package-amount-fee">Amount: {{ user.packagePrice }} THB</h5>
+    <h5 id="package-amount-fee">Amount: {{ costPerPerson | number: '1.2-2' }} THB</h5>
     <input type="text" nbInput shape="round" placeholder="add note" /><br />
     <button nbButton shape="round" class="confirm_btn" status="primary">Confirm</button>
   </div>

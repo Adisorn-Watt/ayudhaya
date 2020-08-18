@@ -7,6 +7,8 @@ import { CentralStoreService } from 'src/app/service/central-store/central-store
 import { Country } from 'src/app/domain/country/country'
 import { CalculateCostService } from 'src/app/service/calculate-cost/calculate-cost.service'
 
+type NewType = void
+
 @Component({
   selector: 'app-main-traveller',
   templateUrl: './main-traveller.component.html',
@@ -31,6 +33,8 @@ export class MainTravellerComponent implements OnInit {
     })
     this.selectedCountry = this.centralStore.getSelectedCountry()
     this.selectedDate = this.centralStore.getSelectedDate()
+    this.centralStore.setUserInfo(this.userInfo)
+    this.centralStore.setCostPerPerson(this.costPerPerson)
   }
 
   showDialog(): void {
@@ -42,14 +46,15 @@ export class MainTravellerComponent implements OnInit {
   }
 
   onNext(): void {
+    this.centralStore.setUserInfo(this.userInfo)
     this.formFilled = true
   }
 
-  get costPerPerson() {
+  get costPerPerson(): any {
     return this.calculateService.getInsuranceCost(this.selectedDate.start, this.selectedDate.end)
   }
 
-  get totalDay() {
+  get totalDay(): number {
     return this.calculateService.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
   }
 }
