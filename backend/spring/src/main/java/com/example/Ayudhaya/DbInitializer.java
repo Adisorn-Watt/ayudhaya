@@ -52,7 +52,7 @@ public class DbInitializer implements CommandLineRunner {
         Package p7 = new Package("07","Missed Connecting Flight (For every 8 consecutive hours delay)", 5000, new String[]{"01","02"});
         Package p8 = new Package("08","Trip Cancellation or Poseponement", 15000, new String[]{"01","02"});
         Package p9 = new Package("09","Trip Curtailment", 15000, new String[]{"01","02"});
-        Package p10 = new Package("10","Hijacking (Pay THB 5,000 for every 12 consecutive hours)", 5000, new String[]{"01","02"});
+        Package p10 = new Package("10","Hijacking (Pay 5,000 Baht for every 12 consecutive hours)", 5000, new String[]{"01","02"});
         Package p11 = new Package("11","Loss of Travel Document", 5000, new String[]{"01","02"});
         Package p12 = new Package("12","Loss or Damage of Baggage and Personal Effects from Natural Disasters", 15000, new String[]{"01","02"});
 
