@@ -6,29 +6,29 @@ import { Injectable } from '@angular/core'
 export class CalculateCostService {
   constructor() {}
 
-  getDaysDifferent(startDate, finishDate) {
+  getDaysDifferent(startDate, finishDate): number {
     // Calculate time difference of 2 dates
-    let daysDifferent = this.calculateDaysDifferent(startDate, finishDate)
+    const daysDifferent = this.calculateDaysDifferent(startDate, finishDate)
     return daysDifferent
   }
 
-  calculateDaysDifferent(startDate, finishDate) {
-    var msecStartDate = Date.parse(startDate)
-    var msecFinishDate = Date.parse(finishDate)
+  calculateDaysDifferent(startDate, finishDate): number {
+    const msecStartDate = Date.parse(startDate)
+    const msecFinishDate = Date.parse(finishDate)
 
-    var timeDifferent = msecFinishDate - msecStartDate
-    var daysDifferent = timeDifferent / (1000 * 3600 * 24) + 1 //millisec*minutes*hours
+    const timeDifferent = msecFinishDate - msecStartDate
+    const daysDifferent = timeDifferent / (1000 * 3600 * 24) + 1 // millisec*minutes*hours
 
     return daysDifferent
   }
 
-  getInsuranceCost(startDate, finishDate) {
-    let daysDifferent = this.calculateDaysDifferent(startDate, finishDate)
-    let insuranceCost = this.calculateInsuranceCost(daysDifferent)
+  getInsuranceCost(startDate, finishDate): number {
+    const daysDifferent = this.calculateDaysDifferent(startDate, finishDate)
+    const insuranceCost = this.calculateInsuranceCost(daysDifferent)
     return insuranceCost
   }
 
-  calculateInsuranceCost(daysDifferent) {
+  calculateInsuranceCost(daysDifferent): number {
     // check เบี้ยประกัน คิดจากจำนวนวันเดินทาง
     let cost
 
