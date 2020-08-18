@@ -1,5 +1,5 @@
 *** Variables ***
-${URL}              http://localhost:4200
+${URL}              http://167.99.66.178/
 
 *** Keywords ***
 Buy a trip insurance package
