@@ -48,13 +48,13 @@
               <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="lastName" id="traveller-lastname" />
             </div>
           </div>
-          <div class="row" *ngIf="traveller.citizenId !== '-'">
+          <div class="row" *ngIf="traveller.citizenId !== ''">
             <div class="input-wrapper">
               <label>Citizen ID</label>
               <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="citizenId" id="traveller-id" />
             </div>
           </div>
-          <div class="row" *ngIf="traveller.passportId !== '-'">
+          <div class="row" *ngIf="traveller.passportId !== ''">
             <div class="input-wrapper">
               <label>Passport</label>
               <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="passport" id="traveller-passport" />
