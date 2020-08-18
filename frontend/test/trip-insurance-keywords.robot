@@ -1,5 +1,6 @@
 *** Variables ***
-${URL}              http://167.99.66.178/
+# ${URL}              http://167.99.66.178/
+${URL}              http://localhost:4200/
 
 *** Keywords ***
 Buy a trip insurance package
@@ -110,8 +111,8 @@ Check bank account information and total amount of insurance fee
     Wait Until Element Contains     id:from-bank-balance        250,000.00
     Wait Until Page Contains        To
     Wait Until Element Contains     id:to-bank-name             Allianz Bank
-    Wait Until Element Contains     id:to-bank-refno            (?)
-    Wait Until Element Contains     id:package-amount-fee       2,328.00
+    Wait Until Element Contains     id:to-bank-refno            Ref: 509-16713201
+    Wait Until Element Contains     id:package-amount-fee       1,428.00
     Input Text                      id:payment-note             Germany - Trip insurance
     Click Element                   id:btn-payment-confirm
     Sleep                           2 seconds

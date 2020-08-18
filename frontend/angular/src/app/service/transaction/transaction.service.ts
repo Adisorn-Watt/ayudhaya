@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Transaction } from 'src/app/domain/transaction/transaction'
+import { Observable, throwError } from 'rxjs'
+import { catchError } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +10,11 @@ import { Transaction } from 'src/app/domain/transaction/transaction'
 export class TransactionService {
   constructor(private http: HttpClient) {}
 
-  /** POST: add a new transaction to the database */
-  addTransaction(transaction: Transaction) {
-    return this.http.post<Transaction>('http://localhost:8080/api/v1/summary', transaction)
+  addTransaction(transaction: Transaction): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/api/v1/summary', transaction).pipe(catchError(this.formatErrors))
+  }
+
+  private formatErrors(error: any) {
+    return throwError(error.error)
   }
 }

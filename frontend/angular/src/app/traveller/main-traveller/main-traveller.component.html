@@ -1,10 +1,12 @@
-<nb-layout-column *ngIf="!formFilled">
+<div *ngIf="!formFilled">
   <div class="main-traveller-grid">
     <div class="traveller" *ngIf="userInfo">
       <app-traveller-form [traveller]="userInfo" (beneficiaryChange)="handleBeneficiary($event)" class="traveller-form"></app-traveller-form>
     </div>
-    <div *ngIf="userInfo" class="contact-form">
-      <app-contact-form [traveller]="userInfo"></app-contact-form>
+
+    <app-contact-form *ngIf="userInfo" class="contact-form" [traveller]="userInfo"></app-contact-form>
+    <div class="btn-next-2">
+      <button nbButton size="large" fullWidth status="primary" id="btn-next" (click)="onNext()">Next</button>
     </div>
 
     <!-- <div class="add-traveller-button-wrapper">
@@ -13,10 +15,10 @@
       </button>
     </div> -->
 
-    <button nbButton status="primary" id="btn-next" class="next-button" (click)="onNext()">Next</button>
+    <!-- <button nbButton status="primary" id="btn-next" class="btn-next" (click)="onNext()">Next</button> -->
   </div>
-</nb-layout-column>
-<nb-layout-column *ngIf="formFilled">
+</div>
+<div *ngIf="formFilled">
   <app-traveller-summary
     [country]="selectedCountry"
     [date]="selectedDate"
@@ -29,4 +31,4 @@
     <button nbButton id="btn-back" class="btn-back" (click)="gotoForm()">Back</button>
     <button nbButton id="btn-payment" (click)="showDialog()" status="primary">Payment</button>
   </div>
-</nb-layout-column>
+</div>

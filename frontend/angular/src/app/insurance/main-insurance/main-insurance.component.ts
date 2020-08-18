@@ -5,7 +5,6 @@ import { CountryService } from 'src/app/service/country/country.service'
 import { Country } from 'src/app/domain/country/country'
 import { PackageService } from 'src/app/service/package/package.service'
 import { Package } from 'src/app/domain/package/package'
-import { CalculateCostService } from 'src/app/service/calculate-cost/calculate-cost.service'
 
 @Component({
   selector: 'app-main-insurance',
@@ -30,6 +29,10 @@ export class MainInsuranceComponent implements OnInit {
     this.countryService.getAllCountries().subscribe((c) => {
       this.countries = c
     })
+  }
+
+  get canProceed() {
+    return this.selectedCountry && this.selectedDate && this.selectedDate.start && this.selectedDate.end
   }
 
   gotoInsurance(): void {
@@ -57,9 +60,5 @@ export class MainInsuranceComponent implements OnInit {
     } else {
       alert('Internal Error')
     }
-  }
-
-  get canProceed() {
-    return this.selectedCountry && this.selectedDate && this.selectedDate.start && this.selectedDate.end
   }
 }

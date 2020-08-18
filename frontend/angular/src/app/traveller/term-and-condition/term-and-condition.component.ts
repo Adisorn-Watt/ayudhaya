@@ -15,12 +15,12 @@ export class TermAndConditionComponent implements OnInit {
   ngOnInit(): void {}
 
   onScroll(event: any): void {
-    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight - 10) {
       this.readAll = true
     }
   }
 
-  accept() {
+  accept(): void {
     if (this.readAll) {
       this.dialogRef.close()
       this.router.navigateByUrl('/transaction')
