@@ -5,7 +5,8 @@ import nonapi.io.github.classgraph.json.Id;
 
 @Data
 public class User {
-    private @Id String userId;
+    private @Id
+    String userId;
     private String title;
     private String firstName;
     private String lastName;
@@ -31,57 +32,5 @@ public class User {
         this.fromBankNo = fromBankNo;
         this.email = email;
         this.mobileNo = mobileNo;
-    }
-
-    public void setPassportId(String passportId) {
-        this.passportId = passportId;
-    }
-
-    public void setBeneficialName(String beneficialName) {
-        this.beneficialName = beneficialName;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getCitizenId() {
-        return citizenId;
-    }
-
-    public String getPassportId() {
-        return passportId;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public String getFromBankName() {
-        return fromBankName;
-    }
-
-    public double getFromBankBalance() {
-        return fromBankBalance;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getMobileNo() {
-        return mobileNo;
     }
 }
