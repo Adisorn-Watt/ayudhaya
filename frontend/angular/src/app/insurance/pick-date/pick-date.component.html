@@ -25,7 +25,7 @@
           name="start-date"
           type="date"
           [(ngModel)]="selectedStartDate"
-          (change)="onStartDateChange($event)"
+          (ngModelChange)="onStartDateChange($event)"
           [min]="minStartDate"
           [max]="maxStartDate"
         />
@@ -39,7 +39,7 @@
           name="end-date"
           type="date"
           [(ngModel)]="selectedEndDate"
-          (change)="onEndDateChange($event)"
+          (ngModelChange)="onEndDateChange($event)"
           [min]="minReturnDate"
           [max]="maxReturnDate"
         />

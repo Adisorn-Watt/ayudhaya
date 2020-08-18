@@ -5,6 +5,7 @@ import { CountryService } from 'src/app/service/country/country.service'
 import { Country } from 'src/app/domain/country/country'
 import { PackageService } from 'src/app/service/package/package.service'
 import { Package } from 'src/app/domain/package/package'
+import { CalculateCostService } from 'src/app/service/calculate-cost/calculate-cost.service'
 
 @Component({
   selector: 'app-main-insurance',
@@ -41,7 +42,6 @@ export class MainInsuranceComponent implements OnInit {
 
   handleCountryCard(e: any): void {
     this.selectedCountry = e
-    console.log('çountryCard', e)
     this.packageService.getPackageByCountryId(e.countryId).subscribe((p) => (this.packages = p))
   }
 

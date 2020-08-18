@@ -12,12 +12,5 @@ export class PackageComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    // this.packageService.getPackageByCountryId("01").subscribe(ps =>
-    //   this.packages = ps)
-  }
-
-  debug(): void {
-    console.log(this.packages)
-  }
+  ngOnInit(): void {}
 }
