@@ -120,9 +120,8 @@
     eleifend dignissim justo. Suspendisse vel egestas diam, eu blandit ipsum. Etiam dignissim sem nec eros varius eleifend. Sed a nunc vel ex
     fringilla luctus eu vitae nibh. Mauris interdum nec erat eu condimentum. Mauris tincidunt porttitor tellus, eu varius odio pretium sit amet.
     Vestibulum et enim eget ex semper tristique. Aliquam ullamcorper mattis consectetur. Sed ac augue pharetra,
-    <p id="end-text">volutpat justo at, aliquam tellus. Aenean accumsan nunc non dapibus pharetra.</p>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton fullWidth status="primary" [disabled]="!readAll">I accept the terms and condition</button>
+    <button nbButton fullWidth status="primary" [disabled]="!readAll" (click)="accept()">I accept the terms and condition</button>
   </nb-card-footer>
 </nb-card>

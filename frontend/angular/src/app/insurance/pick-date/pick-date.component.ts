@@ -1,6 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core'
-import { PackageService } from '../../service/package/package.service'
-import { CountryService } from '../../service/country/country.service'
 
 @Component({
   selector: 'app-pick-date',
@@ -13,7 +11,7 @@ export class PickDateComponent implements OnInit {
   public selectedStartDate: string = this.minStartDate
   public selectedEndDate: string = this.minReturnDate
 
-  constructor(private packageService: PackageService, private countryService: CountryService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

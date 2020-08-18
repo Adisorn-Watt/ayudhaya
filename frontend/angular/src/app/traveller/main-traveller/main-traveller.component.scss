@@ -1,6 +1,6 @@
 .main-traveller-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   column-gap: 24px;
 }
@@ -27,8 +27,6 @@
 .traveller {
   display: flex;
   flex-direction: row;
-  grid-column-start: 1;
-  grid-column-end: 2;
 }
 .contact-form {
   grid-column-start: 1;
@@ -42,4 +40,8 @@
   grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 5;
+}
+.payment-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
