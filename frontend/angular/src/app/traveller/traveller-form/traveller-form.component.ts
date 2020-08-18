@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core'
+import { Component, OnInit, Input, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { Traveller } from 'src/app/domain/traveller/traveller'
 
@@ -9,13 +9,15 @@ import { Traveller } from 'src/app/domain/traveller/traveller'
 })
 export class TravellerFormComponent implements OnInit {
   @Input() traveller: Traveller
-  private editable = false
+  @Output() beneficiaryChange = new EventEmitter<string>()
+
+  public editable = false
 
   travellerForm = this.fb.group({
     title: [{ value: 'Mr.', disabled: true }, Validators.required],
     firstName: [{ value: '', disabled: true }, Validators.required],
     lastName: [{ value: '', disabled: true }, Validators.required],
-    beneficiary: [{ value: '', disabled: true }, Validators.required],
+    beneficiary: [{ value: '' }, Validators.required],
     dateOfBirth: [{ value: '', disabled: true }, Validators.required],
     citizenId: [{ value: '', disabled: true }],
     passport: [{ value: '', disabled: true }],
@@ -49,9 +51,13 @@ export class TravellerFormComponent implements OnInit {
       this.travellerForm.get('citizenId').reset({ value: this.traveller.citizenId, disabled: true })
       this.travellerForm.get('passport').reset({ value: this.traveller.passportId, disabled: true })
       this.travellerForm.get('dateOfBirth').reset({ value: this.traveller.dateOfBirth, disabled: true })
-      this.travellerForm.get('beneficiary').reset({ value: this.traveller.beneficialName, disabled: true })
+      this.travellerForm.get('beneficiary').reset({ value: this.traveller.beneficialName, disabled: false })
     }
 
     this.editable = !this.editable
+  }
+
+  onChangeBeneficiary() {
+    this.beneficiaryChange.emit(this.travellerForm.get('beneficiary').value)
   }
 }
