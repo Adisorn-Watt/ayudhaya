@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import { Country } from 'src/app/domain/country/country'
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css']
+  styleUrls: ['./country.component.scss'],
 })
 export class CountryComponent implements OnInit {
+  @Input() countries: Country[]
+  @Output() countryCardClick = new EventEmitter<Country>()
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onClickCountryCard(c: Country): void {
+    this.countryCardClick.emit(c)
   }
-
 }

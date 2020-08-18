@@ -1,0 +1,81 @@
+.summary-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+.total-days {
+  margin-left: 4px;
+}
+.flex-row {
+  display: flex;
+}
+.ml-1 {
+  margin-left: 4px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.card-flex-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-icon {
+  width: 24px;
+  cursor: pointer;
+  &.first {
+    color: rgba(143, 155, 179, 0.5);
+    margin-right: 4px;
+  }
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-right: 24px;
+  align-items: baseline;
+  flex-grow: 1;
+}
+
+.input-wrapper label {
+  margin-bottom: 6px;
+  max-width: 256px !important;
+  width: 256px !important;
+}
+
+.input-wrapper label span {
+  color: red;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.title-select {
+  max-width: none !important;
+}
+
+.traveller-card {
+  margin-bottom: 0px !important;
+}
+
+.card-flex-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-icon {
+  width: 24px;
+  cursor: pointer;
+  &.first {
+    color: rgba(143, 155, 179, 0.5);
+    margin-right: 4px;
+  }
+}

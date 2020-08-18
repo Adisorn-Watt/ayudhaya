@@ -1,30 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CentralStoreService } from '../../service/central-store/central-store.service'
-import { Country } from 'src/app/domain/country/country';
-import { Package } from 'src/app/domain/package/package';
+import { Component, OnInit, Input } from '@angular/core'
+import { Router } from '@angular/router'
+import { CalculateCostService } from '../../service/calculate-cost/calculate-cost.service'
+import { Country } from 'src/app/domain/country/country'
+import { Package } from 'src/app/domain/package/package'
 
 @Component({
   selector: 'app-insurance-summary',
   templateUrl: './insurance-summary.component.html',
-  styleUrls: ['./insurance-summary.component.css']
+  styleUrls: ['./insurance-summary.component.scss'],
 })
 export class InsuranceSummaryComponent implements OnInit {
+  @Input() selectedCountry: Country
+  @Input() selectedPackage: Package
+  @Input() selectedDate: { start: string; end: string }
+  public insuranceCost: number
+  public daysDifferent: number
 
-  public selectedCountry: Country;
-  public selectedPackage: Package;
-  public selectedDate;
-
-  constructor(private centralStore: CentralStoreService, private router: Router) { }
+  constructor(private router: Router, private calculateCost: CalculateCostService) {}
 
   ngOnInit(): void {
-    this.selectedCountry = this.centralStore.getSelectedCountry();
-    this.selectedPackage = this.centralStore.getSelectedPackage();
-    this.selectedDate = this.centralStore.getSelectedDate();
+    this.getInsuranceCost()
+    this.getDaysDifferent()
   }
 
-  confirmInsurance() {
-    this.router.navigateByUrl('/traveller');
+  confirmInsurance(): void {
+    this.router.navigateByUrl('/traveller')
   }
 
+  getInsuranceCost() {
+    this.insuranceCost = this.calculateCost.getInsuranceCost(this.selectedDate.start, this.selectedDate.end)
+  }
+
+  getDaysDifferent() {
+    this.daysDifferent = this.calculateCost.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
+  }
 }

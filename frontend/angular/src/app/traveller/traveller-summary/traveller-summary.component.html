@@ -1,1 +1,108 @@
-<p>traveller-summary works!</p>
+<nb-card status="primary">
+  <nb-card-header>
+    <div class="summary-card-header">
+      <div id="country">{{ country.countryName }}</div>
+      <div id="package-amount-fee" class="font-size">{{ costPerPerson | number: '1.2-2' }} THB per person</div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div>
+      Trip date:
+      <span class="date-range" id="date-range">{{ date.start | date: 'dd MMM yyyy' }} - {{ date.end | date: 'dd MMM yyyy' }}</span>
+      <span class="total-days" id="total-days"> (Total {{ totalDay }} Days)</span>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card status="primary">
+  <nb-card-header>
+    <div class="flex-row">
+      <div>Traveller Detail:</div>
+      <div class="ml-1">{{ totalPerson }} person{{ totalPerson > 1 ? 's' : '' }}</div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-card>
+      <nb-card-header>Traveller</nb-card-header>
+      <nb-card-body>
+        <div class="table" [formGroup]="travellerForm">
+          <div class="row">
+            <div class="input-wrapper">
+              <label>Title<span>*</span></label>
+              <nb-select class="title-select" fullWidth placeholder="Title*" formControlName="title" id="traveller-title">
+                <nb-option value="Mr.">Mr.</nb-option>
+                <nb-option value="Ms.">Ms.</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrapper">
+              <label>First name<span>*</span></label>
+              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="firstName" id="traveller-firstname" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrapper">
+              <label>Last name<span>*</span></label>
+              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="lastName" id="traveller-lastname" />
+            </div>
+          </div>
+          <div class="row" *ngIf="traveller.citizenId !== '-'">
+            <div class="input-wrapper">
+              <label>Citizen ID</label>
+              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="citizenId" id="traveller-id" />
+            </div>
+          </div>
+          <div class="row" *ngIf="traveller.passportId !== '-'">
+            <div class="input-wrapper">
+              <label>Passport</label>
+              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="passport" id="traveller-passport" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrapper">
+              <label>Date of Birth<span>*</span></label>
+              <input nbInput fullWidth type="text" placeholder="" formControlName="dateOfBirth" id="traveller-date" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrapper">
+              <label>Beneficiary<span>*</span></label>
+              <input nbInput fullWidth type="text" placeholder="" formControlName="beneficiary" id="traveller-benefit" />
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header class="card-flex-header">
+        <span>
+          Contact for receiving traveller policy
+        </span>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="table" [formGroup]="contactForm">
+          <div class="row">
+            <div class="input-wrapper mb-4">
+              <label>Mobile Number<span>*</span></label>
+              <input nbInput fullWidth type="text" formControlName="mobileNo" id="traveller-phone" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-wrapper">
+              <label>Email<span>*</span></label>
+              <input nbInput fullWidth type="text" formControlName="email" id="traveller-email" />
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+  <nb-card-footer>
+    <div><nb-icon icon="person"></nb-icon> x{{ totalPerson }}</div>
+    <div>
+      Total price: <span id="package-total-price">{{ costPerPerson * totalPerson | number: '1.2-2' }} </span> THB
+    </div>
+  </nb-card-footer>
+</nb-card>

@@ -26,16 +26,27 @@ Select country that a user want to go
 
 Check insurance package detail
     Wait Until Page Contains        Package details
+<<<<<<< HEAD
     Wait Until Element Contains     id:package-01               Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident
     Wait Until Element Contains     id:package-01               1,500,000.00
+=======
+>>>>>>> master
 
 Select date range for a trip
     Wait Until Page Contains        Select date
     Wait Until Page Contains        Depart date
+<<<<<<< HEAD
     Input Text                      id:start-date               09-01-2020
     Wait Until Page Contains        Return date
     Input Text                      id:end-date                 11-29-2020
     Click Button                    btn-confirm
+=======
+    Input Text                      start-date      09-01-2020
+    Wait Until Page Contains        Return date
+    Input Text                      end-date        11-29-2020
+    Click Button                    btn-confirm
+    Sleep                           2 seconds
+>>>>>>> master
 
 Check insurance package infomation before the next step
     Wait Until Element Contains     id:country                  Germany
@@ -93,8 +104,15 @@ Check insurance package summary, traveller infomation, and insurance fee
     Wait Until Element Contains     id:traveller-phone          ${TRAVELLER_PHONE}
     Wait Until Element Contains     id:traveller-email          ${TRAVELLER_EMAIL}
 
+<<<<<<< HEAD
     Wait Until Page Contains        Total price: 1,428.00 THB
     Click Element                   id:dialog
+=======
+Check insurance fee
+    Wait Until Page Contains        Total Price
+    Wait Until Element Contains     id:package-amount-fee    2,328.00
+    Click Element                   id:btn-payment
+>>>>>>> master
     Sleep                           2 seconds
 
 Scroll down for accepting Terms&Conditions
