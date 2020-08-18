@@ -13,7 +13,7 @@
       </button>
     </div> -->
 
-    <button nbButton status="primary" class="next-button" (click)="onNext()">Next</button>
+    <button nbButton status="primary" id="btn-next" class="next-button" (click)="onNext()">Next</button>
   </div>
 </nb-layout-column>
 <nb-layout-column *ngIf="formFilled">
@@ -26,7 +26,11 @@
     [traveller]="userInfo"
   ></app-traveller-summary>
   <div class="payment-btn-wrapper">
+<<<<<<< HEAD
+    <button nbButton id="btn-back" class="btn-back" (click)="gotoForm()">Back</button>
+=======
     <button nbButton class="btn-back" (click)="gotoForm()">Back</button>
+>>>>>>> master
     <button nbButton id="btn-payment" (click)="showDialog()" status="primary">Payment</button>
   </div>
 </nb-layout-column>
