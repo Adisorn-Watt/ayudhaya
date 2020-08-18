@@ -11,14 +11,14 @@ public class User {
     private String firstName;
     private String lastName;
     private String citizenId;
-    private String passportId = "-";
+    private String passportId = "";
     private String dateOfBirth;
     private String fromBankName;
     private double fromBankBalance;
     private String fromBankNo;
     private String email;
     private String mobileNo;
-    private String beneficialName = "-";
+    private String beneficialName = "";
 
     public User(String userId, String title, String firstName, String lastName, String citizenId, String dateOfBirth, String fromBankName, double fromBankBalance, String fromBankNo, String email, String mobileNo) {
         this.userId = userId;
