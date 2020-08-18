@@ -15,9 +15,10 @@
       </div>
       <div class="detail">
         <span>{{ p.packageDetail }}</span> <br />
-        <span>{{ p.packagePrice }}</span> <br />
+        <span>{{ p.packagePrice | number:"1.2" }}</span> <br />
         <span>{{ p.condition }}</span> <br />
-        <span>{{ p.conditionPrice }}</span> <br />
+        <span>{{ p.conditionPrice | number:"1.2" }}</span> <br />
+        <span>{{ p.condition }}</span> <br />
       </div>
     </div>
   </div>
