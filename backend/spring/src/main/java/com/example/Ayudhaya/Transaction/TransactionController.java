@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class TransactionController {
     @Autowired
     private TransactionRepository transactionRepository;
@@ -29,11 +30,13 @@ public class TransactionController {
 //    }
 
     @GetMapping("/api/v1/transaction")
+    @CrossOrigin
     public List<Transaction> GetAllTransaction(){
         return transactionRepository.findAll();
     }
 
     @PostMapping("/api/v1/summary")
+    @CrossOrigin
     public void PostTransactionById(@RequestBody Transaction transaction
 //                                                 @RequestBody String title,
 //                                                 @RequestBody String firstName,

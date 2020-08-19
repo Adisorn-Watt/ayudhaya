@@ -1,27 +1,7 @@
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+.contact-form {
+  width: 100%;
+  margin-bottom: 0px;
 }
-
-.input-wrapper label {
-  margin-bottom: 6px;
-}
-
-.input-wrapper label span {
-  color: red;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.mb-4 {
-  margin-bottom: 16px;
-}
-
 .card-flex-header {
   display: flex;
   justify-content: space-between;
@@ -34,4 +14,26 @@
     color: rgba(143, 155, 179, 0.5);
     margin-right: 4px;
   }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  > label {
+    margin-bottom: 6px;
+    > span {
+      color: red;
+    }
+  }
+}
+
+.mb-4 {
+  margin-bottom: 16px;
 }

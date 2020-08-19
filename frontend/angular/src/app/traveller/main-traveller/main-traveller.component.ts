@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { NbDialogService } from '@nebular/theme'
+import { NbDialogService, NbToastrService } from '@nebular/theme'
 import { TermAndConditionComponent } from '../term-and-condition/term-and-condition.component'
 import { TravellerService } from 'src/app/service/traveller/traveller.service'
 import { Traveller } from 'src/app/domain/traveller/traveller'
@@ -22,7 +22,8 @@ export class MainTravellerComponent implements OnInit {
     private dialogService: NbDialogService,
     public travellerService: TravellerService,
     public centralStore: CentralStoreService,
-    public calculateService: CalculateCostService
+    public calculateService: CalculateCostService,
+    public toastrService: NbToastrService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +32,29 @@ export class MainTravellerComponent implements OnInit {
     })
     this.selectedCountry = this.centralStore.getSelectedCountry()
     this.selectedDate = this.centralStore.getSelectedDate()
+    this.centralStore.setUserInfo(this.userInfo)
+    this.centralStore.setCostPerPerson(this.costPerPerson)
+  }
+
+  get costPerPerson() {
+    return this.calculateService.getInsuranceCost(this.selectedDate.start, this.selectedDate.end)
+  }
+
+  get totalDay(): number {
+    return this.calculateService.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
+  }
+
+  onNext(): void {
+    if (this.userInfo.beneficialName !== '') {
+      this.centralStore.setUserInfo(this.userInfo)
+      this.formFilled = true
+    } else {
+      this.toastrService.show(`Please input your beneficiary name`, 'Form not completed', { status: 'warning', destroyByClick: true })
+    }
+  }
+
+  gotoForm(): void {
+    this.formFilled = false
   }
 
   showDialog(): void {
@@ -39,22 +63,6 @@ export class MainTravellerComponent implements OnInit {
       autoFocus: true,
     })
     this.centralStore.setUserInfo(this.userInfo)
-  }
-
-  onNext(): void {
-    this.formFilled = true
-  }
-
-  gotoForm(): void {
-    this.formFilled = false
-  }
-
-  get costPerPerson() {
-    return this.calculateService.getInsuranceCost(this.selectedDate.start, this.selectedDate.end)
-  }
-
-  get totalDay() {
-    return this.calculateService.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
   }
 
   handleBeneficiary(e: string) {

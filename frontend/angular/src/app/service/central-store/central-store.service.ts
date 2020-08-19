@@ -7,16 +7,14 @@ import { Traveller } from 'src/app/domain/traveller/traveller'
   providedIn: 'root',
 })
 export class CentralStoreService {
-  private selectedCountry: Country = {
-    countryName: 'Germany',
-    countryId: '01',
-  }
+  private selectedCountry: Country
   private selectedPackage: Package
   private selectedDate: {
     start: string
     end: string
   }
   private userInfo: Traveller
+  private costPerPerson: number
 
   constructor() {}
 
@@ -44,11 +42,19 @@ export class CentralStoreService {
     this.selectedDate = { start, end }
   }
 
-  getUserInfo() {
+  getUserInfo(): Traveller {
     return this.userInfo
   }
 
-  setUserInfo(t: Traveller) {
+  setUserInfo(t: Traveller): void {
     this.userInfo = t
+  }
+
+  setCostPerPerson(c: any): void {
+    this.costPerPerson = c
+  }
+
+  getCostPerPerson(): any {
+    return this.costPerPerson
   }
 }

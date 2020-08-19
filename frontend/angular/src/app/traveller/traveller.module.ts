@@ -7,7 +7,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component'
 import { TravellerSummaryComponent } from './traveller-summary/traveller-summary.component'
 import { TermAndConditionComponent } from './term-and-condition/term-and-condition.component'
 import { TravellerFormComponent } from './traveller-form/traveller-form.component'
-import { NbCardModule, NbButtonModule, NbSelectModule, NbInputModule, NbLayoutModule, NbIconModule } from '@nebular/theme'
+import { NbCardModule, NbButtonModule, NbSelectModule, NbInputModule, NbIconModule } from '@nebular/theme'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
@@ -19,7 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     NbButtonModule,
     NbSelectModule,
     NbInputModule,
-    NbLayoutModule,
     FormsModule,
     NbIconModule,
     ReactiveFormsModule,

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { Traveller } from 'src/app/domain/traveller/traveller'
-import { Country } from 'src/app/domain/country/country'
 
 @Injectable({
   providedIn: 'root',

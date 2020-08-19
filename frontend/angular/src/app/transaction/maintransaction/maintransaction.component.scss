@@ -1,22 +1,44 @@
-.x {
-  margin: 24%;
-}
-.y {
+.policynumber {
   display: flex;
-  margin-left: 85%;
+  flex-direction: row;
+  margin-left: 300px;
 }
-.z {
-  margin-top: 50px;
+.d-flex {
+  display: flex;
 }
 
-.Kevin {
-  display: flex;
+.balance {
+  margin-top: 32px;
 }
 
 .pic2 {
   margin-left: 81%;
 }
 
-.button {
-  margin-left: 0%;
+.price {
+  text-align: end;
+}
+
+.card-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8px;
+}
+
+.card-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.package-amount-fee {
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.confirm-btn {
+  margin-top: 20px;
 }

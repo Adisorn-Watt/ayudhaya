@@ -19,19 +19,19 @@ export class InsuranceSummaryComponent implements OnInit {
   constructor(private router: Router, private calculateCost: CalculateCostService) {}
 
   ngOnInit(): void {
-    this.getInsuranceCost()
-    this.getDaysDifferent()
+    this.setInsuranceCost()
+    this.setDaysDifferent()
   }
 
   confirmInsurance(): void {
     this.router.navigateByUrl('/traveller')
   }
 
-  getInsuranceCost() {
+  setInsuranceCost(): void {
     this.insuranceCost = this.calculateCost.getInsuranceCost(this.selectedDate.start, this.selectedDate.end)
   }
 
-  getDaysDifferent() {
+  setDaysDifferent(): void {
     this.daysDifferent = this.calculateCost.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
   }
 }

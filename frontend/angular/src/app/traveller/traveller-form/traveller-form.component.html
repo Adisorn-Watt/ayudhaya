@@ -30,13 +30,13 @@
           <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="lastName" id="traveller-lastname" />
         </div>
       </div>
-      <div class="row" *ngIf="travellerForm.get('citizenId').value !== '-' && !editable">
+      <div class="row" *ngIf="travellerForm.get('citizenId').value !== '' && !editable">
         <div class="input-wrapper">
           <label>Citizen ID</label>
           <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="citizenId" id="traveller-id" />
         </div>
       </div>
-      <div class="row" *ngIf="travellerForm.get('passport').value !== '-'" && !editable>
+      <div class="row" *ngIf="travellerForm.get('passport').value !== ''" && !editable>
         <div class="input-wrapper">
           <label>Passport</label>
           <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="passport" id="traveller-passport" />
@@ -60,7 +60,7 @@
           <input nbInput fullWidth type="text" placeholder="" formControlName="dateOfBirth" id="traveller-date" />
         </div>
       </div>
-      <div class="row">
+      <div class="row last">
         <div class="input-wrapper">
           <label>Beneficiary<span>*</span></label>
           <input
