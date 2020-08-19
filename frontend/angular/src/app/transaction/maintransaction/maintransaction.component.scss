@@ -15,10 +15,16 @@
   margin-left: 81%;
 }
 
+.price-card {
+  margin-top: 1.875rem;
+  padding: 0px 32px;
+}
+
 .price {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom: 0px !important;
 }
 
 .note-and-confirm {
@@ -50,6 +56,15 @@
   font-size: 20px;
   transform: translateY(2px);
 }
+.space-after-price {
+  margin-right: 8px !important;
+}
+
+.space-after-amount,
+.space-after-note {
+  margin-right: 12px !important;
+}
+
 .confirm-btn {
   margin-top: 20px;
 }
@@ -63,6 +78,13 @@
   margin-right: 4px;
 }
 
+.mr-2 {
+  margin-right: 8px;
+}
+
 .bigger-account {
   font-size: 20px;
+}
+.to {
+  margin-bottom: 0px !important;
 }

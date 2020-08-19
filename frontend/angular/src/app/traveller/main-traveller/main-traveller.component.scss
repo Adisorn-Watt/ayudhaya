@@ -49,6 +49,12 @@
   grid-column-start: 1;
   grid-column-end: 2;
 }
+
+.btn-back {
+  background-color: #f6f8fb !important;
+  border-color: #f6f8fb !important;
+  margin-right: 8px;
+}
 .payment-btn-wrapper {
   display: flex;
   justify-content: flex-end;

@@ -7,11 +7,11 @@
         <div class="card-flex-row">
           <div id="from-bank-name" class="bold bigger-account">{{ user.fromBankName }}</div>
           <div id="from-bank-balance" class="policynumber">
-            <span class="bold mr-1">Balance</span>{{ user.fromBankBalance | number: '1.2-2' }} THB
+            <span class="bold mr-2">Balance </span>{{ user.fromBankBalance | number: '1.2-2' }} THB
           </div>
         </div>
 
-        <div id="from-bank-no" class="balance"><span class="bold mr-1">Account No.</span>{{ user.fromBankNo }}</div>
+        <div id="from-bank-no" class="balance"><span class="bold mr-1">Account No. </span>{{ user.fromBankNo }}</div>
       </div>
       <span class="d-flex">
         <nb-user size="giant" name="user.firstName+user.lastName" onlyPicture> </nb-user>
@@ -19,7 +19,7 @@
     </nb-card-body>
   </nb-card>
 
-  <nb-card status="primary">
+  <nb-card status="primary" class="to">
     <nb-card-header>To</nb-card-header>
     <nb-card-body class="card-flex">
       <div>
@@ -33,13 +33,20 @@
       </span>
     </nb-card-body>
   </nb-card>
-  <div class="price">
-    <h5>Note: <input type="text" nbInput shape="semi-round" placeholder="add note" [(ngModel)]="note" id="payment-note" class="note" /><br /></h5>
-    <div class="note-and-confirm">
-      <span> </span><span id="package-amount-fee" class="package-amount-fee"> Amount: {{ costPerPerson | number: '1.2-2' }}THB</span>
-      <button id="btn-payment-confirm" nbButton class="confirm-btn" status="primary" (click)="onConfirm()" disabled="isSubmitted">
-        Confirm
-      </button>
+  <nb-card class="price-card">
+    <div class="price">
+      <h5>
+        <span class="space-after-note">Note </span
+        ><input type="text" nbInput shape="semi-round" placeholder="add note" [(ngModel)]="note" id="payment-note" class="note" /><br />
+      </h5>
+      <div class="note-and-confirm">
+        <span> </span><span id="amount-word" class="package-amount-fee space-after-amount">Amount </span>
+        <span id="package-amount-fee" class="package-amount-fee space-after-price">{{ costPerPerson | number: '1.2-2' }}</span>
+        <span id="thb" class="package-amount-fee">THB</span>
+        <button id="btn-payment-confirm" nbButton class="confirm-btn" status="primary" (click)="onConfirm()" disabled="isSubmitted">
+          Confirm
+        </button>
+      </div>
     </div>
-  </div>
+  </nb-card>
 </div>
