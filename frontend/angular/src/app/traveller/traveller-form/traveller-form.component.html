@@ -2,10 +2,9 @@
   <nb-card-header class="card-flex-header">
     Traveller
   </nb-card-header>
-  <nb-card-body>
-    <div class="table" [formGroup]="travellerForm">
-      <div class="row">
-        <div class="input-wrapper">
+  <nb-card-body class="mb-4">
+    <div class="traveller-layout" [formGroup]="travellerForm">
+        <div class="input-wrapper title">
           <label class="bold">Title</label>
           <nb-select
             class="title-select"
@@ -21,9 +20,7 @@
             <nb-option value="Ms.">Ms.</nb-option>
           </nb-select>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-wrapper">
+        <div class="input-wrapper first-name">
           <label class="bold">First name</label>
           <input
             nbInput
@@ -38,9 +35,7 @@
             placeholder="First name"
           />
         </div>
-      </div>
-      <div class="row">
-        <div class="input-wrapper">
+        <div class="input-wrapper last-name">
           <label class="bold">Last name</label>
           <input
             nbInput
@@ -55,13 +50,11 @@
             placeholder="Last name"
           />
         </div>
-      </div>
-      <div class="row">
-        <div class="input-wrapper">
+        <div class="input-wrapper id-type">
           <label class="bold">Identification</label>
-          <span class="d-row">
             <nb-select
               class="identification-select"
+              fullWidth
               placeholder="Select identification"
               formControlName="identificationType"
               id="identification-type"
@@ -71,7 +64,9 @@
               <nb-option value="passport">Passport</nb-option>
               <nb-option value="citizenId">Citizen ID</nb-option>
             </nb-select>
-            <input
+        </div>
+        <div class="input-wrapper id-no">
+          <input
               nbInput
               fullWidth
               type="text"
@@ -83,11 +78,8 @@
               [status]="identificationNumber"
               placeholder="Identification number"
             />
-          </span>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-wrapper">
+        <div class="input-wrapper date-of-birth">
           <label class="bold">Date of birth</label>
           <input
             nbInput
@@ -99,9 +91,7 @@
             [status]="dateOfBirth"
           />
         </div>
-      </div>
-      <div class="row last">
-        <div class="input-wrapper">
+        <div class="input-wrapper beneficiary">
           <label class="bold">Beneficiary</label>
           <input
             nbInput
@@ -115,7 +105,6 @@
             placeholder="Beneficiary"
           />
         </div>
-      </div>
     </div>
   </nb-card-body>
 </nb-card>

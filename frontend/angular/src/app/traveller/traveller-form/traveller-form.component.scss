@@ -2,6 +2,52 @@
   width: 100%;
 }
 
+.title, .first-name, .last-name, 
+.id-type, .id-no, .date-of-birth, 
+.beneficiary {
+  align-self: end;
+}
+
+.title {
+  grid-area: title;
+}
+
+.first-name {
+  grid-area: first-name;
+}
+
+.last-name {
+  grid-area: last-name;
+}
+
+.id-type {
+  grid-area: id-type;
+}
+
+.id-no {
+  grid-area: id-no;
+}
+
+.date-of-birth {
+  grid-area: date-of-birth;
+}
+
+.beneficiary {
+  grid-area: beneficiary;
+}
+
+.traveller-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: auto;
+  column-gap: 14px;
+  row-gap: 24px;
+  grid-template-areas: 
+    "title first-name last-name"
+    "id-type id-no date-of-birth"
+    "beneficiary beneficiary beneficiary";
+}
+
 .card-flex-header {
   display: flex;
   justify-content: space-between;
@@ -9,9 +55,9 @@
 
 .input-wrapper {
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  flex-grow: 1;
+  flex-direction: column;
+  // align-items: baseline;
+  // flex-grow: 1;
   > label {
     margin-bottom: 6px;
     min-width: 160px;
@@ -21,18 +67,18 @@
   }
 }
 
-.row {
-  margin-bottom: 24px;
-  &.last {
-    margin-bottom: 0px;
-  }
-}
+// .row {
+//   margin-bottom: 24px;
+//   &.last {
+//     margin-bottom: 0px;
+//   }
+// }
 
-.d-row {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-}
+// .d-row {
+//   display: flex;
+//   flex-direction: row;
+//   flex-grow: 1;
+// }
 
 .title-select {
   max-width: none !important;
@@ -56,4 +102,8 @@
 }
 .bold {
   font-weight: bold;
+}
+
+.mb-4 {
+  margin-bottom: 10px;
 }
