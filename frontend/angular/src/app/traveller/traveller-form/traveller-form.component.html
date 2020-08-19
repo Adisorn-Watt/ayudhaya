@@ -1,68 +1,108 @@
 <nb-card class="traveller-card" accent="primary" class="traveller-form">
   <nb-card-header class="card-flex-header">
     Traveller
-    <div>
-      <!-- <nb-icon status="control" icon="save" (click)="toggleEditable()"
-                [options]="{ animation: { type: 'pulse' } }" class="card-icon first"></nb-icon> -->
-      <nb-icon status="control" icon="edit" (click)="toggleEditable()" [options]="{ animation: { type: 'pulse' } }" class="card-icon"></nb-icon>
-    </div>
   </nb-card-header>
   <nb-card-body>
     <div class="table" [formGroup]="travellerForm">
       <div class="row">
         <div class="input-wrapper">
-          <label class="bold">Title<span>*</span></label>
-          <nb-select class="title-select" fullWidth placeholder="Title*" formControlName="title" (ngModelChange)="onChangeTitle()" id="dd-traveller-title">
+          <label class="bold">Title</label>
+          <nb-select
+            class="title-select"
+            fullWidth
+            placeholder="Title"
+            formControlName="title"
+            (ngModelChange)="onChangeTitle()"
+            id="dd-traveller-title"
+            [status]="title"
+          >
             <nb-option value="Mr.">Mr.</nb-option>
+            <nb-option value="Mr.">Mrs.</nb-option>
             <nb-option value="Ms.">Ms.</nb-option>
           </nb-select>
         </div>
       </div>
       <div class="row">
         <div class="input-wrapper">
-          <label class="bold">First name<span>*</span></label>
-          <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="firstName" (ngModelChange)="onChangeFirstName()" id="traveller-firstname" />
+          <label class="bold">First name</label>
+          <input
+            nbInput
+            fullWidth
+            type="text"
+            class="traveller-input"
+            placeholder=""
+            formControlName="firstName"
+            (ngModelChange)="onChangeFirstName()"
+            id="traveller-firstname"
+            [status]="firstName"
+            placeholder="First name"
+          />
         </div>
       </div>
       <div class="row">
         <div class="input-wrapper">
-          <label class="bold">Last name<span>*</span></label>
-          <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="lastName" (ngModelChange)="onChangeLastName()" id="traveller-lastname" />
+          <label class="bold">Last name</label>
+          <input
+            nbInput
+            fullWidth
+            type="text"
+            class="traveller-input"
+            placeholder=""
+            formControlName="lastName"
+            (ngModelChange)="onChangeLastName()"
+            id="traveller-lastname"
+            [status]="lastName"
+            placeholder="Last name"
+          />
         </div>
       </div>
-      <div class="row" *ngIf="travellerForm.get('citizenId').value !== '' && !editable">
-        <div class="input-wrapper">
-          <label class="bold">Citizen ID</label>
-          <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="citizenId" (ngModelChange)="onChangeCitizenId()" id="traveller-id" />
-        </div>
-      </div>
-      <div class="row" *ngIf="travellerForm.get('passport').value !== ''" && !editable>
-        <div class="input-wrapper">
-          <label class="bold">Passport</label>
-          <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="passport" id="traveller-passport" />
-        </div>
-      </div>
-      <div class="row" *ngIf="editable">
+      <div class="row">
         <div class="input-wrapper">
           <label class="bold">Identification</label>
           <span class="d-row">
-            <nb-select class="identification-select" placeholder="Select identification"  [(selected)]="selectedIdentification" id="identification-type">
+            <nb-select
+              class="identification-select"
+              placeholder="Select identification"
+              formControlName="identificationType"
+              id="identification-type"
+              [status]="identificationType"
+              placeholder="Identification"
+            >
               <nb-option value="passport">Passport</nb-option>
               <nb-option value="citizenId">Citizen ID</nb-option>
             </nb-select>
-            <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="identification" (ngModelChange)="onChangeIdentification()" id="identification"/>
+            <input
+              nbInput
+              fullWidth
+              type="text"
+              class="traveller-input"
+              placeholder=""
+              formControlName="identificationNumber"
+              (ngModelChange)="onChangeIdentification()"
+              id="identification"
+              [status]="identificationNumber"
+              placeholder="Identification number"
+            />
           </span>
         </div>
       </div>
       <div class="row">
         <div class="input-wrapper">
-          <label class="bold">Date of Birth<span>*</span></label>
-          <input nbInput fullWidth type="text" placeholder="" formControlName="dateOfBirth" (ngModelChange)="onChangeDateOfBirth()" id="traveller-date" />
+          <label class="bold">Date of birth</label>
+          <input
+            nbInput
+            id="traveller-date"
+            fullWidth
+            type="date"
+            formControlName="dateOfBirth"
+            (ngModelChange)="onChangeDateOfBirth()"
+            [status]="dateOfBirth"
+          />
         </div>
       </div>
       <div class="row last">
         <div class="input-wrapper">
-          <label class="bold">Beneficiary<span>*</span></label>
+          <label class="bold">Beneficiary</label>
           <input
             nbInput
             fullWidth
@@ -71,6 +111,8 @@
             formControlName="beneficiary"
             (ngModelChange)="onChangeBeneficiary()"
             id="benefit-name"
+            [status]="beneficiary"
+            placeholder="Beneficiary"
           />
         </div>
       </div>

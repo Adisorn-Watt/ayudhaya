@@ -14,9 +14,11 @@ import { CalculateCostService } from 'src/app/service/calculate-cost/calculate-c
 })
 export class MainTravellerComponent implements OnInit {
   formFilled = false
-  userInfo: Traveller
+  filledUserInfo: Traveller = new Traveller()
   selectedCountry: Country
   selectedDate: { start: string; end: string }
+  travellerFormValid = false
+  contactFormValid = false
 
   constructor(
     private dialogService: NbDialogService,
@@ -28,11 +30,12 @@ export class MainTravellerComponent implements OnInit {
 
   ngOnInit(): void {
     this.travellerService.getUserDetail().subscribe((u) => {
-      this.userInfo = u[0]
+      this.filledUserInfo.fromBankBalance = u[0].fromBankBalance
+      this.filledUserInfo.fromBankName = u[0].fromBankName
+      this.filledUserInfo.fromBankNo = u[0].fromBankNo
     })
     this.selectedCountry = this.centralStore.getSelectedCountry()
     this.selectedDate = this.centralStore.getSelectedDate()
-    this.centralStore.setUserInfo(this.userInfo)
     this.centralStore.setCostPerPerson(this.costPerPerson)
   }
 
@@ -45,11 +48,12 @@ export class MainTravellerComponent implements OnInit {
   }
 
   onNext(): void {
-    if (this.userInfo.beneficialName !== '') {
-      this.centralStore.setUserInfo(this.userInfo)
+    const allFilled = this.travellerFormValid && this.contactFormValid
+    if (allFilled) {
+      this.centralStore.setUserInfo(this.filledUserInfo)
       this.formFilled = true
     } else {
-      this.toastrService.show(`Please input your beneficiary name`, 'Form not completed', { status: 'warning', destroyByClick: true })
+      this.toastrService.show(`Please input all the required form`, 'Form not completed', { status: 'warning', destroyByClick: true })
     }
   }
 
@@ -62,38 +66,44 @@ export class MainTravellerComponent implements OnInit {
       hasScroll: true,
       autoFocus: true,
     })
-    this.centralStore.setUserInfo(this.userInfo)
+    this.centralStore.setUserInfo(this.filledUserInfo)
   }
 
   handleBeneficiary(e: string) {
-    this.userInfo.beneficialName = e
+    this.filledUserInfo.beneficialName = e
   }
   handleDateOfBirth(e: string) {
-    this.userInfo.dateOfBirth = e
+    this.filledUserInfo.dateOfBirth = e
   }
   handleFirstName(e: string) {
-    this.userInfo.firstName = e
+    this.filledUserInfo.firstName = e
   }
   handleLastName(e: string) {
-    this.userInfo.lastName = e
+    this.filledUserInfo.lastName = e
   }
   handleCitizenId(e: string) {
-    this.userInfo.citizenId = e
+    this.filledUserInfo.citizenId = e
   }
   handleTitle(e: string) {
-    this.userInfo.title = e
+    this.filledUserInfo.title = e
   }
   handleMobileNumber(e: string) {
-    this.userInfo.mobileNo = e
+    this.filledUserInfo.mobileNo = e
   }
   handleEmail(e: string) {
-    this.userInfo.email = e
+    this.filledUserInfo.email = e
   }
   handleIdentification(e: any) {
-    if(e.type == 'citizenId') {
-      this.userInfo.citizenId = e.number
+    if (e.type == 'citizenId') {
+      this.filledUserInfo.citizenId = e.number
     } else {
-      this.userInfo.passportId = e.number
+      this.filledUserInfo.passportId = e.number
     }
+  }
+  handleTravellerFormValid(e: any) {
+    this.travellerFormValid = e
+  }
+  handleContactFormValid(e: any) {
+    this.contactFormValid = e
   }
 }
