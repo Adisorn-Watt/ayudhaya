@@ -2,23 +2,36 @@ package com.example.Ayudhaya.Package;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 @Data
 public class Package {
     @Id
     private String packageId;
     private String packageDetail;
-    private String packagePrice;
+    private Integer packagePrice;
     private String[] countryList;
     private String condition;
-    private String conditionPrice;
+    private Integer conditionPrice;
 
+    @PersistenceConstructor
     public Package(String packageId,
                    String packageDetail,
-                   String packagePrice,
+                   int packagePrice,
+                   String[] countryList) {
+        this.packageId = packageId;
+        this.packageDetail = packageDetail;
+        this.packagePrice = packagePrice;
+        this.countryList = countryList;
+    }
+
+    @PersistenceConstructor
+    public Package(String packageId,
+                   String packageDetail,
+                   int packagePrice,
                    String[] countryList,
                    String condition,
-                   String conditionPrice) {
+                   int conditionPrice) {
         this.packageId = packageId;
         this.packageDetail = packageDetail;
         this.packagePrice = packagePrice;
@@ -27,5 +40,9 @@ public class Package {
         this.conditionPrice = conditionPrice;
     }
 
+
+    public String getPackageId() {
+        return packageId;
+    }
 }
 
