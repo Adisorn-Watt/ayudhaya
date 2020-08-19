@@ -71,7 +71,7 @@ public class DbInitializer implements CommandLineRunner {
         List<Country> countries = countryRepository.findAll();
 //        List<Transaction> transactions = Arrays.asList();
         List<Transaction> transactions = new ArrayList<>();
-        transactions.add(new Transaction(c1.getCountryId(),p1.getPackageId(),user1));
+        transactions.add(new Transaction(c1.getCountryId(),user1));
 //        for(Country country: countries ){
 //            transactions.add(new Transaction(
 //                    c1.getCountryName()
