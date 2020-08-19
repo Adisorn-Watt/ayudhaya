@@ -1,10 +1,13 @@
 .policynumber {
   display: flex;
   flex-direction: row;
-  margin-left: 300px;
 }
-.d-flex {
-  display: flex;
+.d-grid {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  place-self: center;
+  justify-self: end;
 }
 
 .balance {
@@ -15,23 +18,30 @@
   margin-left: 81%;
 }
 
+.price-card {
+  margin-top: 1.875rem;
+  padding: 0px 32px;
+}
+
 .price {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  justify-content: flex-end;
+  margin-bottom: 0px !important;
 }
 
 .note-and-confirm {
   display: flex;
   align-items: baseline;
+  justify-content: flex-end;
 }
 .note {
   margin-right: 16px;
 }
-.card-flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  justify-content: start;
   margin: 8px;
 }
 
@@ -50,9 +60,15 @@
   font-size: 20px;
   transform: translateY(2px);
 }
-.confirm-btn {
-  margin-top: 20px;
+.space-after-price {
+  margin-right: 8px !important;
 }
+
+.space-after-amount,
+.space-after-note {
+  margin-right: 12px !important;
+}
+
 .main-transaction {
   width: 70vw;
 }
@@ -63,6 +79,13 @@
   margin-right: 4px;
 }
 
+.mr-2 {
+  margin-right: 8px;
+}
+
 .bigger-account {
   font-size: 20px;
+}
+.to {
+  margin-bottom: 0px !important;
 }

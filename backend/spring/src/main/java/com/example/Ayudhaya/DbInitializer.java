@@ -52,7 +52,7 @@ public class DbInitializer implements CommandLineRunner {
         Package p7 = new Package("07","Missed Connecting Flight (For every 8 consecutive hours delay)", 5000, new String[]{"01","02"},"",0);
         Package p8 = new Package("08","Trip Cancellation or Poseponement", 15000, new String[]{"01","02"},"",0);
         Package p9 = new Package("09","Trip Curtailment", 15000, new String[]{"01","02"},"",0);
-        Package p10 = new Package("10","Hijacking (Pay 5,000.00 Baht for every 12 consecutive hours)", 5000, new String[]{"01","02"},"",0);
+        Package p10 = new Package("10","Hijacking (Pay 5,000.00 THB for every 12 consecutive hours)", 5000, new String[]{"01","02"},"",0);
         Package p11 = new Package("11","Loss of Travel Document", 5000, new String[]{"01","02"},"",0);
         Package p12 = new Package("12","Loss or Damage of Baggage and Personal Effects from Natural Disasters", 15000, new String[]{"01","02"},"",0);
 
@@ -71,7 +71,7 @@ public class DbInitializer implements CommandLineRunner {
         List<Country> countries = countryRepository.findAll();
 //        List<Transaction> transactions = Arrays.asList();
         List<Transaction> transactions = new ArrayList<>();
-        transactions.add(new Transaction(c1.getCountryId(),p1.getPackageId(),user1));
+        transactions.add(new Transaction(c1.getCountryId(),user1));
 //        for(Country country: countries ){
 //            transactions.add(new Transaction(
 //                    c1.getCountryName()

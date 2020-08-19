@@ -7,6 +7,7 @@
 }
 .flex-row {
   display: flex;
+  justify-content: space-between;
 }
 .ml-1 {
   margin-left: 4px;
@@ -52,6 +53,7 @@
 .input-wrapper label span {
   color: red;
 }
+
 .row {
   display: flex;
   flex-direction: row;
@@ -100,4 +102,52 @@
 
 .trip {
   margin-right: 7px;
+}
+
+.price-card {
+  display: flex;
+  flex-direction: row;
+  padding: 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.package-total-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.person-amount {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0px;
+}
+
+.traveller-detail {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+// .total-price {
+//   justify-content: flex-end;
+// }
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.ml-2 {
+  margin-left: 8px;
+}
+
+.mobile {
+  width: 40% !important;
 }

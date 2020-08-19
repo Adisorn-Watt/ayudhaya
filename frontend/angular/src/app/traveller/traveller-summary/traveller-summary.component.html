@@ -15,94 +15,128 @@
   </nb-card-body>
 </nb-card>
 
-<nb-card status="primary">
-  <nb-card-header>
+<div class="traveller-detail">
+  <h3 class="no-margin-bottom">
     <div class="flex-row">
-      <div>Traveller Detail:</div>
+      <div>Traveller Detail</div>
       <div class="ml-1">{{ totalPerson }} person{{ totalPerson > 1 ? 's' : '' }}</div>
     </div>
-  </nb-card-header>
-  <nb-card-body>
-    <nb-card>
-      <nb-card-header>Traveller</nb-card-header>
-      <nb-card-body>
-        <div class="table" [formGroup]="travellerForm">
-          <div class="row">
-            <div class="input-wrapper">
-              <label>Title</label>
-              <nb-select class="title-select" fullWidth placeholder="Title*" formControlName="title" id="traveller-title">
-                <nb-option value="Mr.">Mr.</nb-option>
-                <nb-option value="Ms.">Ms.</nb-option>
-              </nb-select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-wrapper">
-              <label>First name</label>
-              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="firstName" id="traveller-firstname" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-wrapper">
-              <label>Last name</label>
-              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="lastName" id="traveller-lastname" />
-            </div>
-          </div>
-          <div class="row" *ngIf="traveller.citizenId !== ''">
-            <div class="input-wrapper">
-              <label>Citizen ID</label>
-              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="citizenId" id="traveller-id" />
-            </div>
-          </div>
-          <div class="row" *ngIf="traveller.passportId !== ''">
-            <div class="input-wrapper">
-              <label>Passport</label>
-              <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="passport" id="traveller-passport" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-wrapper">
-              <label>Date of Birth</label>
-              <input nbInput fullWidth type="text" placeholder="" formControlName="dateOfBirth" id="traveller-date" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-wrapper">
-              <label>Beneficiary</label>
-              <input nbInput fullWidth type="text" placeholder="" formControlName="beneficiary" id="traveller-benefit" />
-            </div>
+  </h3>
+</div>
+<!-- <nb-card status="primary"> -->
+<nb-card-body>
+  <nb-card status="primary">
+    <nb-card-header>Traveller</nb-card-header>
+    <nb-card-body>
+      <div class="table" [formGroup]="travellerForm">
+        <div class="row">
+          <div class="input-wrapper">
+            <label class="bold-text">Title</label>
+            <nb-select class="title-select" placeholder="Title*" formControlName="title" id="traveller-title">
+              <nb-option value="Mr.">Mr.</nb-option>
+              <nb-option value="Ms.">Ms.</nb-option>
+            </nb-select>
           </div>
         </div>
-      </nb-card-body>
-    </nb-card>
-    <nb-card>
-      <nb-card-header class="card-flex-header">
-        <span>
-          Contact for receiving traveller policy
-        </span>
-      </nb-card-header>
-      <nb-card-body>
-        <div class="table" [formGroup]="contactForm">
-          <div class="row">
-            <div class="input-wrapper mb-4">
-              <label>Mobile Number</label>
-              <input nbInput fullWidth type="text" formControlName="mobileNo" id="traveller-phone" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-wrapper">
-              <label>Email</label>
-              <input nbInput fullWidth type="text" formControlName="email" id="traveller-email" />
-            </div>
+        <div class="row">
+          <div class="input-wrapper">
+            <label class="bold-text">First name</label>
+            <input nbInput type="text" class="traveller-input" placeholder="" formControlName="firstName" id="traveller-firstname" />
           </div>
         </div>
-      </nb-card-body>
-    </nb-card>
-  </nb-card-body>
-  <nb-card-footer>
-    <div><nb-icon icon="person"></nb-icon> x{{ totalPerson }}</div>
-    <div>
+        <div class="row">
+          <div class="input-wrapper">
+            <label class="bold-text">Last name</label>
+            <input nbInput type="text" class="traveller-input" placeholder="" formControlName="lastName" id="traveller-lastname" />
+          </div>
+        </div>
+        <div class="row" *ngIf="traveller.citizenId !== ''">
+          <div class="input-wrapper">
+            <label class="bold-text">Citizen ID</label>
+            <input nbInput type="text" class="traveller-input" placeholder="" formControlName="citizenId" id="traveller-id" />
+          </div>
+        </div>
+        <div class="row" *ngIf="traveller.passportId !== ''">
+          <div class="input-wrapper">
+            <label class="bold-text">Passport</label>
+            <input nbInput type="text" class="traveller-input" placeholder="" formControlName="passport" id="traveller-passport" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-wrapper">
+            <label class="bold-text">Date of Birth</label>
+            <input nbInput type="text" placeholder="" formControlName="dateOfBirth" id="traveller-date" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-wrapper">
+            <label class="bold-text">Beneficiary</label>
+            <input nbInput type="text" placeholder="" formControlName="beneficiary" id="traveller-benefit" />
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+
+  <!-- <nb-card status="primary">
+    <nb-card-header class="card-flex-header">
+      <span>
+        Contact for receiving traveller policy
+      </span>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="table" [formGroup]="contactForm">
+        <div class="row">
+          <div class="input-wrapper mb-4">
+            <label class="bold-text">Mobile Number</label>
+            <input nbInput type="text" formControlName="mobileNo" id="traveller-phone" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-wrapper">
+            <label class="bold-text">Email</label>
+            <input nbInput type="text" formControlName="email" id="traveller-email" />
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card> -->
+  <nb-card accent="primary" class="contact-form">
+    <nb-card-header class="card-flex-header">
+      <span>
+        Contact for receiving traveller policy
+      </span>
+      <!-- <div>
+        <nb-icon icon="save" status="control" [options]="{ animation: { type: 'pulse' } }" class="card-icon first">
+              </nb-icon> 
+        <nb-icon icon="edit" status="control" [options]="{ animation: { type: 'pulse' } }" class="card-icon" (click)="toggleEditable()"></nb-icon>
+      </div> -->
+    </nb-card-header>
+    <nb-card-body>
+      <div [formGroup]="travellerForm">
+        <div class="row">
+          <div class="input-wrapper mb-4 mr-2 mobile">
+            <label class="bold">Mobile Number<span>*</span></label>
+            <input nbInput fullWidth type="text" formControlName="mobileNo" id="traveller-phone" />
+          </div>
+          <div class="input-wrapper ml-2">
+            <label class="bold">Email<span>*</span></label>
+            <input nbInput fullWidth type="text" formControlName="email" id="traveller-email" />
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</nb-card-body>
+
+<div>
+  <!-- <nb-card-body> -->
+  <nb-card class="price-card">
+    <div class="person-amount"><nb-icon icon="person"></nb-icon> x{{ totalPerson }}</div>
+    <div class="package-total-price">
       Total price: <span id="package-total-price">{{ costPerPerson * totalPerson | number: '1.2-2' }} </span> THB
     </div>
-  </nb-card-footer>
-</nb-card>
+  </nb-card>
+  <!-- </nb-card-body> -->
+</div>
+<!-- </nb-card> -->
