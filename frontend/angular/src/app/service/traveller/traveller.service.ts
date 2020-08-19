@@ -10,6 +10,6 @@ export class TravellerService {
   constructor(private http: HttpClient) {}
 
   getUserDetail(): Observable<Traveller> {
-    return this.http.get<Traveller>('http://localhost:8080/api/v1/user/01')
+    return this.http.get<Traveller>('http://159.65.135.237:8080/api/v1/user/01')
   }
 }

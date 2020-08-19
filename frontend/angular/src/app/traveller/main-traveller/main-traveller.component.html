@@ -1,10 +1,22 @@
 <div *ngIf="!formFilled">
   <div class="main-traveller-grid">
     <div class="traveller" *ngIf="userInfo">
-      <app-traveller-form [traveller]="userInfo" (beneficiaryChange)="handleBeneficiary($event)" class="traveller-form"></app-traveller-form>
+      <app-traveller-form 
+        [traveller]="userInfo"
+        (titleChange)="handleTitle($event)"
+        (firstNameChange)="handleFirstName($event)"
+        (lastNameChange)="handleLastName($event)"
+        (citizenIdChange)="handleCitizenId($event)"
+        (dateOfBirthChange)="handleDateOfBirth($event)"
+        (beneficiaryChange)="handleBeneficiary($event)" 
+        (mobileNumberChange)="handleMobileNumber($event)" 
+        (emailChange)="handleEmail($event)"
+        (identificationChange)="handleIdentification($event)"
+        class="traveller-form">
+      </app-traveller-form>
     </div>
 
-    <app-contact-form *ngIf="userInfo" class="contact-form" [traveller]="userInfo"></app-contact-form>
+    <app-contact-form *ngIf="userInfo" (mobileNumberChange)="handleMobileNumber($event)" (emailChange)="handleEmail($event)" class="contact-form" [traveller]="userInfo"></app-contact-form>
     <div class="btn-next-2">
       <button nbButton status="primary" id="btn-next" (click)="onNext()">Next</button>
     </div>

@@ -68,4 +68,32 @@ export class MainTravellerComponent implements OnInit {
   handleBeneficiary(e: string) {
     this.userInfo.beneficialName = e
   }
+  handleDateOfBirth(e: string) {
+    this.userInfo.dateOfBirth = e
+  }
+  handleFirstName(e: string) {
+    this.userInfo.firstName = e
+  }
+  handleLastName(e: string) {
+    this.userInfo.lastName = e
+  }
+  handleCitizenId(e: string) {
+    this.userInfo.citizenId = e
+  }
+  handleTitle(e: string) {
+    this.userInfo.title = e
+  }
+  handleMobileNumber(e: string) {
+    this.userInfo.mobileNo = e
+  }
+  handleEmail(e: string) {
+    this.userInfo.email = e
+  }
+  handleIdentification(e: any) {
+    if(e.type == 'citizenId') {
+      this.userInfo.citizenId = e.number
+    } else {
+      this.userInfo.passportId = e.number
+    }
+  }
 }
