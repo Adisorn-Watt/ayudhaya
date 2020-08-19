@@ -16,7 +16,7 @@
       </app-traveller-form>
     </div>
 
-    <app-contact-form *ngIf="userInfo" (mobileNumberChange)="handleMobileNumber($event)" (emailChange)="handleEmail($event)" class="contact-form" [traveller]="userInfo"></app-contact-form>
+    <app-contact-form *ngIf="userInfo" (mobileNumberChange)="handleMobileNumber($event)" (emailChange)="handleEmail($event)" class="contact-form" [traveller]="filledUserInfo"></app-contact-form>
     <div class="btn-next-2">
       <button nbButton status="primary" id="btn-next" (click)="onNext()">Next</button>
     </div>
@@ -31,7 +31,7 @@
     [totalDay]="totalDay"
     [totalPerson]="1"
     [costPerPerson]="costPerPerson"
-    [traveller]="userInfo"
+    [traveller]="filledUserInfo"
   ></app-traveller-summary>
   <div class="payment-btn-wrapper">
     <button nbButton id="btn-back" class="btn-back" (click)="gotoForm()">Back</button>

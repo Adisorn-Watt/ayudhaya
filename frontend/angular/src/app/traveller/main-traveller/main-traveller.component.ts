@@ -14,7 +14,8 @@ import { CalculateCostService } from 'src/app/service/calculate-cost/calculate-c
 })
 export class MainTravellerComponent implements OnInit {
   formFilled = false
-  userInfo: Traveller
+  userInfo: Traveller = new Traveller()
+  filledUserInfo: Traveller = new Traveller()
   selectedCountry: Country
   selectedDate: { start: string; end: string }
 
@@ -44,13 +45,26 @@ export class MainTravellerComponent implements OnInit {
     return this.calculateService.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
   }
 
+  isAllFieldFilled() {
+    console.log('a', this.filledUserInfo)
+    const contactForm = this.filledUserInfo.mobileNo && this.filledUserInfo.email  
+    const travellerForm = this.filledUserInfo.title  && this.filledUserInfo.firstName  && this.filledUserInfo.lastName && this.filledUserInfo.dateOfBirth  && this.filledUserInfo.beneficialName
+    const identification = this.filledUserInfo.passportId  || this.filledUserInfo.citizenId 
+    console.log('contactForm',contactForm)
+    console.log('travellerForm',travellerForm)
+    console.log('identification',identification )
+    return (this.filledUserInfo && contactForm && travellerForm && identification)
+  }
+
   onNext(): void {
-    if (this.userInfo.beneficialName !== '') {
+    const allFilled = this.isAllFieldFilled() 
+    if (allFilled) {
       this.centralStore.setUserInfo(this.userInfo)
       this.formFilled = true
     } else {
-      this.toastrService.show(`Please input your beneficiary name`, 'Form not completed', { status: 'warning', destroyByClick: true })
+      this.toastrService.show(`Please input all the required form`, 'Form not completed', { status: 'warning', destroyByClick: true })
     }
+
   }
 
   gotoForm(): void {
@@ -66,34 +80,34 @@ export class MainTravellerComponent implements OnInit {
   }
 
   handleBeneficiary(e: string) {
-    this.userInfo.beneficialName = e
+    this.filledUserInfo.beneficialName = e
   }
   handleDateOfBirth(e: string) {
-    this.userInfo.dateOfBirth = e
+    this.filledUserInfo.dateOfBirth = e
   }
   handleFirstName(e: string) {
-    this.userInfo.firstName = e
+    this.filledUserInfo.firstName = e
   }
   handleLastName(e: string) {
-    this.userInfo.lastName = e
+    this.filledUserInfo.lastName = e
   }
   handleCitizenId(e: string) {
-    this.userInfo.citizenId = e
+    this.filledUserInfo.citizenId = e
   }
   handleTitle(e: string) {
-    this.userInfo.title = e
+    this.filledUserInfo.title = e
   }
   handleMobileNumber(e: string) {
-    this.userInfo.mobileNo = e
+    this.filledUserInfo.mobileNo = e
   }
   handleEmail(e: string) {
-    this.userInfo.email = e
+    this.filledUserInfo.email = e
   }
   handleIdentification(e: any) {
     if(e.type == 'citizenId') {
-      this.userInfo.citizenId = e.number
+      this.filledUserInfo.citizenId = e.number
     } else {
-      this.userInfo.passportId = e.number
+      this.filledUserInfo.passportId = e.number
     }
   }
 }
