@@ -259,7 +259,7 @@
 							"\r",
 							"pm.test(\"Check packageDetail=10 is Hijacking (Pay THB 5,000 for every 12 consecutive hours)\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData[9].packageDetail).to.eql(\"Hijacking (Pay 5,000.00 Baht for every 12 consecutive hours)\");\r",
+							"    pm.expect(jsonData[9].packageDetail).to.eql(\"Hijacking (Pay 5,000.00 THB for every 12 consecutive hours)\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check packagePrice=10 is 5,000.00\", function () {\r",
