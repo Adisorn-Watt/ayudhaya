@@ -1,4 +1,4 @@
-<nb-card class="traveller-card" status="primary" class="traveller-form">
+<nb-card class="traveller-card" accent="primary" class="traveller-form">
   <nb-card-header class="card-flex-header">
     Traveller
     <div>
@@ -11,7 +11,7 @@
     <div class="table" [formGroup]="travellerForm">
       <div class="row">
         <div class="input-wrapper">
-          <label>Title<span>*</span></label>
+          <label class="bold">Title<span>*</span></label>
           <nb-select class="title-select" fullWidth placeholder="Title*" formControlName="title" id="dd-traveller-title">
             <nb-option value="Mr.">Mr.</nb-option>
             <nb-option value="Ms.">Ms.</nb-option>
@@ -20,31 +20,31 @@
       </div>
       <div class="row">
         <div class="input-wrapper">
-          <label>First name<span>*</span></label>
+          <label class="bold">First name<span>*</span></label>
           <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="firstName" id="traveller-firstname" />
         </div>
       </div>
       <div class="row">
         <div class="input-wrapper">
-          <label>Last name<span>*</span></label>
+          <label class="bold">Last name<span>*</span></label>
           <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="lastName" id="traveller-lastname" />
         </div>
       </div>
       <div class="row" *ngIf="travellerForm.get('citizenId').value !== '' && !editable">
         <div class="input-wrapper">
-          <label>Citizen ID</label>
+          <label class="bold">Citizen ID</label>
           <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="citizenId" id="traveller-id" />
         </div>
       </div>
       <div class="row" *ngIf="travellerForm.get('passport').value !== ''" && !editable>
         <div class="input-wrapper">
-          <label>Passport</label>
+          <label class="bold">Passport</label>
           <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="passport" id="traveller-passport" />
         </div>
       </div>
       <div class="row" *ngIf="editable">
         <div class="input-wrapper">
-          <label>Identification</label>
+          <label class="bold">Identification</label>
           <span class="d-row">
             <nb-select class="identification-select" placeholder="Select identification">
               <nb-option value="passport">Passport</nb-option>
@@ -56,13 +56,13 @@
       </div>
       <div class="row">
         <div class="input-wrapper">
-          <label>Date of Birth<span>*</span></label>
+          <label class="bold">Date of Birth<span>*</span></label>
           <input nbInput fullWidth type="text" placeholder="" formControlName="dateOfBirth" id="traveller-date" />
         </div>
       </div>
       <div class="row last">
         <div class="input-wrapper">
-          <label>Beneficiary<span>*</span></label>
+          <label class="bold">Beneficiary<span>*</span></label>
           <input
             nbInput
             fullWidth

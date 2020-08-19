@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { NbCardModule, NbButtonModule, NbDatepickerModule, NbInputModule, NbUserModule, NbIconModule } from '@nebular/theme'
+import { NbCardModule, NbButtonModule, NbDatepickerModule, NbInputModule, NbUserModule, NbIconModule, NbAccordionModule } from '@nebular/theme'
 
 import { InsuranceRoutingModule } from './insurance-routing.module'
 import { MainInsuranceComponent } from './main-insurance/main-insurance.component'
@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms'
     FormsModule,
     NbIconModule,
     NbInputModule,
+    NbAccordionModule,
   ],
 })
 export class InsuranceModule {}

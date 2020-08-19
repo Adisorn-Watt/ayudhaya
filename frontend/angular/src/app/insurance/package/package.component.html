@@ -1,7 +1,4 @@
-<nb-card>
-  <nb-card-header class="header">
-    Package details
-  </nb-card-header>
+<div class="package-card" accent="primary">
   <div class="parent" *ngIf="packages.length > 0">
     <div *ngFor="let p of packages" class="button-structure">
       <div class="package-pic">
@@ -9,15 +6,21 @@
       </div>
       <div class="detail" id="package-{{ p.packageId }}">
         <span>{{ p.packageDetail }}</span> <br />
-        <span>{{ p.packagePrice | number:"1.2" }} THB</span> <br />
-        <div class="condition" *ngIf="p.conditionPrice != null">
-        <span>{{ p.condition }}</span> <br />
-        <span>{{ p.conditionPrice | number:"1.2" }} THB</span> <br />
-        </div>
+        <span>
+          <span>{{ p.packagePrice | number: '1.2' }} THB</span>
+          <span *ngIf="p.conditionPrice != null" class="condition">
+            <span>( {{ p.condition }}</span>
+            <span class="condition-price"> {{ p.conditionPrice | number: '1.2' }} THB )</span>
+          </span>
+        </span>
+
+        <!-- <div class="condition" >
+
+        </div> -->
       </div>
     </div>
   </div>
-  <nb-card-body *ngIf="packages.length == 0">
+  <div *ngIf="packages.length == 0">
     Please select your destination
-  </nb-card-body>
-</nb-card>
+  </div>
+</div>

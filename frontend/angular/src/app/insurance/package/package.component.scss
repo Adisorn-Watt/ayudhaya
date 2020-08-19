@@ -1,3 +1,7 @@
+.package-card {
+  height: 100%;
+  width: 100%;
+}
 .header {
   font-size: 24px;
 }
@@ -8,6 +12,7 @@
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   padding: 10px;
+  padding-bottom: 24px;
 }
 
 .button-structure {
@@ -17,6 +22,7 @@
   /* padding: 15px;
     margin: 10px; */
   border-radius: 15px;
+  margin-bottom: 25px;
 }
 
 .detail {
@@ -26,6 +32,7 @@
   /* background: #2750ba; */
   /* margin: 10px; */
   padding: 20px;
+  padding-top: 3px;
   padding-bottom: 0px;
   font-size: 20px;
   /* color: #f1f1f1; */
@@ -34,17 +41,13 @@
 }
 
 .condition {
-  display: flex;
-  flex-direction: column;
-  /* height: 100px; */
-  /* background: #2750ba; */
-  /* margin: 10px; */
-  padding: 0px;
-  padding-bottom: 0px;
-  font-size: 15px;
-  /* color: #f1f1f1; */
-  /* align-items: center; */
-  justify-content: center;
+  font-size: 13px;
+  margin-left: 8px;
+  color: #778899;
+}
+
+.condition-price {
+  margin-left: 5px;
 }
 
 .package-pic {

@@ -16,9 +16,18 @@
 }
 
 .price {
-  text-align: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
+.note-and-confirm {
+  display: flex;
+  align-items: baseline;
+}
+.note {
+  margin-right: 16px;
+}
 .card-flex {
   display: flex;
   flex-direction: row;
@@ -36,9 +45,24 @@
   flex-direction: row;
 }
 .package-amount-fee {
-  margin-top: 12px;
-  margin-bottom: 16px;
+  margin-right: 18px;
+  font-weight: bold;
+  font-size: 20px;
+  transform: translateY(2px);
 }
 .confirm-btn {
   margin-top: 20px;
+}
+.main-transaction {
+  width: 70vw;
+}
+.bold {
+  font-weight: bold;
+}
+.mr-1 {
+  margin-right: 4px;
+}
+
+.bigger-account {
+  font-size: 20px;
 }
