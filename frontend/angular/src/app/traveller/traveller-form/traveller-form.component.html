@@ -46,11 +46,11 @@
         <div class="input-wrapper">
           <label class="bold">Identification</label>
           <span class="d-row">
-            <nb-select class="identification-select" placeholder="Select identification"  [(selected)]="selectedIdentification">
+            <nb-select class="identification-select" placeholder="Select identification"  [(selected)]="selectedIdentification" id="identification-type">
               <nb-option value="passport">Passport</nb-option>
               <nb-option value="citizenId">Citizen ID</nb-option>
             </nb-select>
-            <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="identification" (ngModelChange)="onChangeIdentification()" />
+            <input nbInput fullWidth type="text" class="traveller-input" placeholder="" formControlName="identification" (ngModelChange)="onChangeIdentification()" id="identification"/>
           </span>
         </div>
       </div>
