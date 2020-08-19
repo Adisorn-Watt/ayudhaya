@@ -6,19 +6,13 @@
 
     <app-contact-form *ngIf="userInfo" class="contact-form" [traveller]="userInfo"></app-contact-form>
     <div class="btn-next-2">
-      <button nbButton size="large" fullWidth status="primary" id="btn-next" (click)="onNext()">Next</button>
+      <button nbButton status="primary" id="btn-next" (click)="onNext()">Next</button>
     </div>
-
-    <!-- <div class="add-traveller-button-wrapper">
-      <button nbButton shape="round" size="giant" status="primary" class="add-traveller-button">
-        <nb-icon icon="plus-outline"></nb-icon>
-      </button>
-    </div> -->
 
     <!-- <button nbButton status="primary" id="btn-next" class="btn-next" (click)="onNext()">Next</button> -->
   </div>
 </div>
-<div *ngIf="formFilled">
+<div *ngIf="formFilled" class="traveller-summary">
   <app-traveller-summary
     [country]="selectedCountry"
     [date]="selectedDate"

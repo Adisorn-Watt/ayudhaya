@@ -1,45 +1,45 @@
-<nb-card>
-  <nb-card-body class="card-flex">
-    Transfer
-  </nb-card-body>
-</nb-card>
-<nb-card>
-  <nb-card-header>From</nb-card-header>
-  <nb-card-body class="card-flex">
-    <div>
-      <div class="card-flex-row">
-        <div id="from-bank-name">{{ user.fromBankName }}</div>
-        <div id="from-bank-no" class="policynumber">{{ user.fromBankNo }}</div>
-      </div>
+<div class="main-transaction">
+  <h1>Transfer</h1>
+  <nb-card status="primary">
+    <nb-card-header>From</nb-card-header>
+    <nb-card-body class="card-flex">
+      <div>
+        <div class="card-flex-row">
+          <div id="from-bank-name" class="bold bigger-account">{{ user.fromBankName }}</div>
+          <div id="from-bank-balance" class="policynumber">
+            <span class="bold mr-1">Balance</span>{{ user.fromBankBalance | number: '1.2-2' }} THB
+          </div>
+        </div>
 
-      <div id="from-bank-balance" class="balance">{{ user.fromBankBalance | number: '1.2-2' }} THB</div>
-    </div>
-    <span class="d-flex">
-      <nb-user size="giant" name="user.firstName+user.lastName" onlyPicture> </nb-user>
-    </span>
-  </nb-card-body>
-</nb-card>
-
-<nb-card>
-  <nb-card-header>To</nb-card-header>
-  <nb-card-body class="card-flex">
-    <div>
-      <div class="card-flex-row">
-        <div id="to-bank-name">Allianz Bank</div>
+        <div id="from-bank-no" class="balance"><span class="bold mr-1">Account No.</span>{{ user.fromBankNo }}</div>
       </div>
-      <div id="to-bank-refno" class="balance">Ref: 509-16713201</div>
+      <span class="d-flex">
+        <nb-user size="giant" name="user.firstName+user.lastName" onlyPicture> </nb-user>
+      </span>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card status="primary">
+    <nb-card-header>To</nb-card-header>
+    <nb-card-body class="card-flex">
+      <div>
+        <div class="card-flex-row">
+          <div id="to-bank-name" class="bold bigger-account">Allianz Bank</div>
+        </div>
+        <div id="to-bank-refno" class="balance"><span class="bold mr-1">Ref. </span>509-16713201</div>
+      </div>
+      <span class="pic1">
+        <nb-user size="giant" name="Allianz" onlyPicture> </nb-user>
+      </span>
+    </nb-card-body>
+  </nb-card>
+  <div class="price">
+    <h5>Note: <input type="text" nbInput shape="semi-round" placeholder="add note" [(ngModel)]="note" id="payment-note" class="note" /><br /></h5>
+    <div class="note-and-confirm">
+      <span> </span><span id="package-amount-fee" class="package-amount-fee"> Amount: {{ costPerPerson | number: '1.2-2' }}THB</span>
+      <button id="btn-payment-confirm" nbButton class="confirm-btn" status="primary" (click)="onConfirm()" disabled="isSubmitted">
+        Confirm
+      </button>
     </div>
-    <span class="pic1">
-      <nb-user size="giant" name="Allianz" onlyPicture> </nb-user>
-    </span>
-  </nb-card-body>
-</nb-card>
-<div class="price">
-  <h5 class="package-amount-fee">
-    Amount: <span id="package-amount-fee">{{ costPerPerson | number: '1.2-2' }}</span> THB
-  </h5>
-  <input type="text" nbInput shape="round" placeholder="add note" [(ngModel)]="note" id="payment-note" /><br />
-  <button id="btn-payment-confirm" nbButton shape="round" class="confirm-btn" status="primary" (click)="onConfirm()" disabled="isSubmitted">
-    Confirm
-  </button>
+  </div>
 </div>

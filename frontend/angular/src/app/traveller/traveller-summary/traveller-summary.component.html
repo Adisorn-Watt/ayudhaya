@@ -1,4 +1,4 @@
-<nb-card status="primary">
+<nb-card status="primary" class="insurance-summary">
   <nb-card-header>
     <div class="summary-card-header">
       <div id="country">{{ country.countryName }}</div>
@@ -8,9 +8,9 @@
 
   <nb-card-body>
     <div>
-      Trip date:
+      <b class="trip">Trip date:</b>
       <span class="date-range" id="date-range">{{ date.start | date: 'dd MMM yyyy' }} - {{ date.end | date: 'dd MMM yyyy' }}</span>
-      <span class="total-days" id="total-days"> (Total {{ totalDay }} Days)</span>
+      <span class="total-days" id="total-days">( Total {{ totalDay }} day{{ totalDay <= 1 ? '' : 's' }} )</span>
     </div>
   </nb-card-body>
 </nb-card>

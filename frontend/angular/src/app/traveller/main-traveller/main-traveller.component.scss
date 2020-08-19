@@ -1,24 +1,23 @@
 .main-traveller-grid {
   display: grid;
-  grid-template-rows: 270px auto;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 24px;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr;
   column-gap: 24px;
 }
 .traveller {
   display: flex;
   flex-direction: row;
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 4;
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 3;
+  width: 70vw;
 }
 .traveller-form {
   width: 100%;
 }
 .contact-form {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  width: 70vw;
 }
 // .add-traveller-button-wrapper {
 //   display: flex;
@@ -43,16 +42,17 @@
   // grid-row-end: 4;
 }
 .btn-next-2 {
+  margin-top: 16px;
   display: flex;
-  justify-content: center;
-  grid-row-start: 2;
-  // grid-row-end: 3;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  align-self: flex-start;
+  justify-content: flex-end;
   margin-bottom: 1.875rem;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 .payment-btn-wrapper {
   display: flex;
   justify-content: flex-end;
+}
+.traveller-summary {
+  width: 70vw;
 }

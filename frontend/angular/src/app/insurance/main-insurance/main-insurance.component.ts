@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { CentralStoreService } from 'src/app/service/central-store/central-store.service'
 import { Router } from '@angular/router'
 import { CountryService } from 'src/app/service/country/country.service'
@@ -12,6 +12,7 @@ import { Package } from 'src/app/domain/package/package'
   styleUrls: ['./main-insurance.component.scss'],
 })
 export class MainInsuranceComponent implements OnInit {
+  @ViewChild('package') accordion
   selectedCountry: Country
   selectedDate: { start: string; end: string }
   toSummary = false
@@ -46,6 +47,7 @@ export class MainInsuranceComponent implements OnInit {
   handleCountryCard(e: any): void {
     this.selectedCountry = e
     this.packageService.getPackageByCountryId(e.countryId).subscribe((p) => (this.packages = p))
+    this.accordion.toggle()
   }
 
   handleDateChange(e: any): void {
