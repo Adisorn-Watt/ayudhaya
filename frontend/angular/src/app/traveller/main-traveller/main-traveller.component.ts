@@ -45,6 +45,7 @@ export class MainTravellerComponent implements OnInit {
   }
 
   onNext(): void {
+    console.log('onNext',this.userInfo)
     if (this.userInfo.beneficialName !== '') {
       this.centralStore.setUserInfo(this.userInfo)
       this.formFilled = true
@@ -67,5 +68,28 @@ export class MainTravellerComponent implements OnInit {
 
   handleBeneficiary(e: string) {
     this.userInfo.beneficialName = e
+  }
+  handleDateOfBirth(e: string) {
+    this.userInfo.dateOfBirth = e
+  }
+  handleFirstName(e: string) {
+    this.userInfo.firstName = e
+  }
+  handleLastName(e: string) {
+    this.userInfo.lastName = e
+  }
+  handleCitizenId(e: string) {
+    this.userInfo.citizenId = e
+  }
+  handleTitle(e: string) {
+    this.userInfo.title = e
+  }
+  handleMobileNumber(e: string) {
+    console.log('mobileNo',e)
+    this.userInfo.mobileNo = e
+  }
+  handleEmail(e: string) {
+    console.log('email',e)
+    this.userInfo.email = e
   }
 }

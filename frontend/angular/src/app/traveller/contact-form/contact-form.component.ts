@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { Validators, FormBuilder } from '@angular/forms'
 import { Traveller } from 'src/app/domain/traveller/traveller'
 
@@ -9,11 +9,13 @@ import { Traveller } from 'src/app/domain/traveller/traveller'
 })
 export class ContactFormComponent implements OnInit {
   @Input() traveller: Traveller
+  @Output() mobileNumberChange = new EventEmitter<string>()
+  @Output() emailChange = new EventEmitter<string>()
   private editable = false
 
   travellerForm = this.fb.group({
-    mobileNo: [{ value: '', disabled: !this.editable }, Validators.required],
-    email: [{ value: '', disabled: !this.editable }, Validators.required],
+    mobileNo: [{ value: '' }, Validators.required],
+    email: [{ value: '' }, Validators.required],
   })
 
   constructor(private fb: FormBuilder) {}
@@ -33,5 +35,15 @@ export class ContactFormComponent implements OnInit {
     }
 
     this.editable = !this.editable
+  }
+
+
+  onChangeMobileNumber(): void {
+    console.log('contactForm - onChange - mobile',this.travellerForm.get('mobileNo').value)
+    this.mobileNumberChange.emit(this.travellerForm.get('mobileNo').value)
+  }
+  onChangeEmail(): void {
+    console.log('contactForm - onChange - email',this.travellerForm.get('email').value)
+    this.emailChange.emit(this.travellerForm.get('email').value)
   }
 }

@@ -10,16 +10,21 @@ import { Traveller } from 'src/app/domain/traveller/traveller'
 export class TravellerFormComponent implements OnInit {
   @Input() traveller: Traveller
   @Output() beneficiaryChange = new EventEmitter<string>()
+  @Output() dateOfBirthChange = new EventEmitter<string>()
+  @Output() firstNameChange = new EventEmitter<string>()
+  @Output() lastNameChange = new EventEmitter<string>()
+  @Output() citizenIdChange = new EventEmitter<string>()
+  @Output() titleChange = new EventEmitter<string>()
 
   public editable = false
 
   travellerForm = this.fb.group({
-    title: [{ value: 'Mr.', disabled: true }, Validators.required],
-    firstName: [{ value: '', disabled: true }, Validators.required],
-    lastName: [{ value: '', disabled: true }, Validators.required],
+    title: [{ value: 'Mr.' }, Validators.required],
+    firstName: [{ value: ''}, Validators.required],
+    lastName: [{ value: ''}, Validators.required],
     beneficiary: [{ value: '' }, Validators.required],
-    dateOfBirth: [{ value: '', disabled: true }, Validators.required],
-    citizenId: [{ value: '', disabled: true }],
+    dateOfBirth: [{ value: '' }, Validators.required],
+    citizenId: [{ value: ''}],
     passport: [{ value: '', disabled: true }],
   })
 
@@ -59,5 +64,20 @@ export class TravellerFormComponent implements OnInit {
 
   onChangeBeneficiary(): void {
     this.beneficiaryChange.emit(this.travellerForm.get('beneficiary').value)
+  }
+  onChangeDateOfBirth(): void {
+    this.dateOfBirthChange.emit(this.travellerForm.get('dateOfBirth').value)
+  }
+  onChangeFirstName(): void {
+    this.firstNameChange.emit(this.travellerForm.get('firstName').value)
+  }
+  onChangeLastName(): void {
+    this.lastNameChange.emit(this.travellerForm.get('lastName').value)
+  }
+  onChangeCitizenId(): void {
+    this.citizenIdChange.emit(this.travellerForm.get('citizenId').value)
+  }
+  onChangeTitle(): void {
+    this.titleChange.emit(this.travellerForm.get('title').value)
   }
 }
