@@ -1,10 +1,13 @@
 .policynumber {
   display: flex;
   flex-direction: row;
-  margin-left: 300px;
 }
-.d-flex {
-  display: flex;
+.d-grid {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  place-self: center;
+  justify-self: end;
 }
 
 .balance {
@@ -23,21 +26,22 @@
 .price {
   display: flex;
   justify-content: flex-end;
-  // align-items: baseline;
   margin-bottom: 0px !important;
 }
 
 .note-and-confirm {
   display: flex;
   align-items: baseline;
+  justify-content: flex-end;
 }
 .note {
   margin-right: 16px;
 }
-.card-flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  justify-content: start;
   margin: 8px;
 }
 
@@ -65,9 +69,6 @@
   margin-right: 12px !important;
 }
 
-.confirm-btn {
-  margin-top: 20px;
-}
 .main-transaction {
   width: 70vw;
 }
