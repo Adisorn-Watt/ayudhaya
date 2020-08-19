@@ -47,7 +47,7 @@ export class MainInsuranceComponent implements OnInit {
   handleCountryCard(e: any): void {
     this.selectedCountry = e
     this.packageService.getPackageByCountryId(e.countryId).subscribe((p) => (this.packages = p))
-    this.accordion.toggle()
+    this.accordion.open()
   }
 
   handleDateChange(e: any): void {

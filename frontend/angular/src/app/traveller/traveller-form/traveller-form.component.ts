@@ -26,7 +26,7 @@ export class TravellerFormComponent implements OnInit {
     beneficiary: [{ value: '', disabled: !this.editable }, Validators.required],
     dateOfBirth: [{ value: '', disabled: !this.editable }, Validators.required],
     identificationType: [{ value: '', disabled: !this.editable }, Validators.required],
-    identificationNumber: [{ value: '', disabled: !this.editable }, [Validators.required, Validators.minLength(13)]],
+    identificationNumber: [{ value: '', disabled: !this.editable }, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(13)]],
   })
 
   constructor(private fb: FormBuilder) {}
