@@ -1,5 +1,5 @@
 *** Variables ***
-${URL}              http://localhost:4200
+${URL}              http://167.99.66.178/
 
 *** Keywords ***
 Buy a trip insurance package
@@ -27,7 +27,29 @@ Select country that a user want to go
 Check insurance package detail
     Wait Until Page Contains        Package details
     Wait Until Element Contains     id:package-01               Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident
-    Wait Until Element Contains     id:package-01               1,500,000.00
+    Wait Until Element Contains     id:package-01               1,500,000.00 THB
+    Wait Until Element Contains     id:package-02               Medical Expenses Incurred Overseas
+    Wait Until Element Contains     id:package-02               1,500,000.00 THB
+    Wait Until Element Contains     id:package-03               Medical Expenses Incurred in Thailand
+    Wait Until Element Contains     id:package-03               150,000.00 THB
+    Wait Until Element Contains     id:package-04               Emergency Medical Evacuation and Repatriation/Repatriation of Mortal Remains
+    Wait Until Element Contains     id:package-04               3,000,000.00 THB
+    Wait Until Element Contains     id:package-05               Loss or Damage of Baggage and Personal Effects
+    Wait Until Element Contains     id:package-05               10,000.00 THB
+    Wait Until Element Contains     id:package-06               Travel Delay (Pay 10% of Sum Insured for every 6 consecutive hours delay)
+    Wait Until Element Contains     id:package-06               15,000.00 THB
+    Wait Until Element Contains     id:package-07               Missed Connecting Flight (For every 8 consecutive hours delay)
+    Wait Until Element Contains     id:package-07               5,000.00 THB
+    Wait Until Element Contains     id:package-08               Trip Cancellation or Poseponement
+    Wait Until Element Contains     id:package-08               15,000.00 THB
+    Wait Until Element Contains     id:package-09               Trip Curtailment
+    Wait Until Element Contains     id:package-09               15,000.00 THB
+    Wait Until Element Contains     id:package-10               Hijacking (Pay THB 5,000 for every 12 consecutive hours)
+    Wait Until Element Contains     id:package-10               5,000.00 THB
+    Wait Until Element Contains     id:package-11               Loss of Travel Document
+    Wait Until Element Contains     id:package-11               5,000.00 THB
+    Wait Until Element Contains     id:package-12               Loss or Damage of Baggage and Personal Effects from Natural Disasters
+    Wait Until Element Contains     id:package-12               15,000.00 THB
 
 Select date range for a trip
     Wait Until Page Contains        Select date
