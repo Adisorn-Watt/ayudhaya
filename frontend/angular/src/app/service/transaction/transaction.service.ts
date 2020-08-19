@@ -11,7 +11,7 @@ export class TransactionService {
   constructor(private http: HttpClient) {}
 
   addTransaction(transaction: Transaction): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/v1/summary', transaction).pipe(catchError(this.formatErrors))
+    return this.http.post<any>('http://159.65.135.237:8080/api/v1/summary', transaction).pipe(catchError(this.formatErrors))
   }
 
   private formatErrors(error: any) {

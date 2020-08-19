@@ -39,11 +39,9 @@ export class ContactFormComponent implements OnInit {
 
 
   onChangeMobileNumber(): void {
-    console.log('contactForm - onChange - mobile',this.travellerForm.get('mobileNo').value)
     this.mobileNumberChange.emit(this.travellerForm.get('mobileNo').value)
   }
   onChangeEmail(): void {
-    console.log('contactForm - onChange - email',this.travellerForm.get('email').value)
     this.emailChange.emit(this.travellerForm.get('email').value)
   }
 }

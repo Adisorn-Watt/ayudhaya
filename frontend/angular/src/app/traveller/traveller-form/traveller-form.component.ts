@@ -15,8 +15,10 @@ export class TravellerFormComponent implements OnInit {
   @Output() lastNameChange = new EventEmitter<string>()
   @Output() citizenIdChange = new EventEmitter<string>()
   @Output() titleChange = new EventEmitter<string>()
+  @Output() identificationChange = new EventEmitter<{type:any, number: any}>()
 
-  public editable = false
+  public editable = true
+  public selectedIdentification = 'citizenId'
 
   travellerForm = this.fb.group({
     title: [{ value: 'Mr.' }, Validators.required],
@@ -26,6 +28,7 @@ export class TravellerFormComponent implements OnInit {
     dateOfBirth: [{ value: '' }, Validators.required],
     citizenId: [{ value: ''}],
     passport: [{ value: '', disabled: true }],
+    identification: [{value: ''}]
   })
 
   constructor(private fb: FormBuilder) {}
@@ -38,6 +41,8 @@ export class TravellerFormComponent implements OnInit {
     this.travellerForm.get('passport').setValue(this.traveller.passportId)
     this.travellerForm.get('dateOfBirth').setValue(this.traveller.dateOfBirth)
     this.travellerForm.get('beneficiary').setValue(this.traveller.beneficialName)
+    this.travellerForm.get('identification').setValue(this.traveller.passportId || this.traveller.citizenId)
+    this.selectedIdentification = this.traveller.citizenId ? 'citizenId' : 'passport'
   }
 
   toggleEditable(): void {
@@ -79,5 +84,9 @@ export class TravellerFormComponent implements OnInit {
   }
   onChangeTitle(): void {
     this.titleChange.emit(this.travellerForm.get('title').value)
+  }
+  onChangeIdentification(): void {
+    const idType = this.selectedIdentification
+    this.identificationChange.emit({type: idType, number: this.travellerForm.get('identification').value})
   }
 }

@@ -1,4 +1,4 @@
-<nb-card status="primary" class="contact-form">
+<nb-card accent="primary" class="contact-form">
   <nb-card-header class="card-flex-header">
     <span>
       Contact for receiving traveller policy
@@ -12,14 +12,12 @@
   <nb-card-body>
     <div [formGroup]="travellerForm">
       <div class="row">
-        <div class="input-wrapper mb-4">
-          <label>Mobile Number<span>*</span></label>
+        <div class="input-wrapper mb-4 mr-2 mobile">
+          <label class="bold">Mobile Number<span>*</span></label>
           <input nbInput fullWidth type="text" formControlName="mobileNo" (ngModelChange)="onChangeMobileNumber()" id="traveller-phone" />
         </div>
-      </div>
-      <div class="row">
-        <div class="input-wrapper">
-          <label>Email<span>*</span></label>
+        <div class="input-wrapper ml-2">
+          <label class="bold">Email<span>*</span></label>
           <input nbInput fullWidth type="text" formControlName="email" (ngModelChange)="onChangeEmail()" id="traveller-email" />
         </div>
       </div>
