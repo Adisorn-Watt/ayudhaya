@@ -10,7 +10,7 @@
       <div class="detail" id="package-{{ p.packageId }}">
         <span>{{ p.packageDetail }}</span> <br />
         <span>{{ p.packagePrice | number:"1.2" }} THB</span> <br />
-        <div *ngIf="p.conditionPrice != null">
+        <div class="condition" *ngIf="p.conditionPrice != null">
         <span>{{ p.condition }}</span> <br />
         <span>{{ p.conditionPrice | number:"1.2" }} THB</span> <br />
         </div>
