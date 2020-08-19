@@ -6,4 +6,4 @@ Test Template    Buy a trip insurance package
 # Test Teardown    Close Google Chrome browser
 
 *** Test Cases ***
-Buy a trip insurance package    Mr.     Numlabyod    Reprakan    1799310717171      07/28/1998      Ms. Anchisa Tea.    0980159795    nearreann@gmail.com       
+Buy a trip insurance package    Mr.     Numlabyod    Reprakan    Citizen ID     1799310717171      07/28/1998      Ms. Anchisa Tea.    0980159795    nearreann@gmail.com       

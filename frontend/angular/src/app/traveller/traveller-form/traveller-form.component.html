@@ -1,4 +1,11 @@
-<nb-card class="traveller-card" accent="primary" class="traveller-form">
+<nb-card
+  class="traveller-card"
+  accent="primary"
+  class="traveller-form"
+  [accent]="editable ? 'primary' : ''"
+  [status]="!editable ? 'primary' : ''"
+  class="contact-form"
+>
   <nb-card-header class="card-flex-header">
     Traveller
   </nb-card-header>
@@ -16,9 +23,9 @@
             id="dd-traveller-title"
             [status]="title"
           >
-            <nb-option value="Mr.">Mr.</nb-option>
-            <nb-option value="Mr.">Mrs.</nb-option>
-            <nb-option value="Ms.">Ms.</nb-option>
+            <nb-option value="Mr."><span id="option-mr">Mr.</span></nb-option>
+            <nb-option value="Mrs."><span id="option-mrs">Mrs.</span></nb-option>
+            <nb-option value="Ms."><span id="option-ms">Mrs.</span></nb-option>
           </nb-select>
         </div>
       </div>
@@ -68,8 +75,8 @@
               [status]="identificationType"
               placeholder="Identification"
             >
-              <nb-option value="passport">Passport</nb-option>
-              <nb-option value="citizenId">Citizen ID</nb-option>
+              <nb-option value="passport"><span id="option-passport">Passport</span></nb-option>
+              <nb-option value="citizenId"><span id="option-citizenId"> Citizen ID</span></nb-option>
             </nb-select>
             <input
               nbInput

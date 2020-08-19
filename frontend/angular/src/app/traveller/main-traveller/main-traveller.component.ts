@@ -53,7 +53,11 @@ export class MainTravellerComponent implements OnInit {
       this.centralStore.setUserInfo(this.filledUserInfo)
       this.formFilled = true
     } else {
-      this.toastrService.show(`Please input all the required form`, 'Form not completed', { status: 'warning', destroyByClick: true })
+      this.toastrService.show(`Please input all the required form`, 'Form not completed', {
+        icon: 'alert-triangle-outline',
+        status: 'danger',
+        destroyByClick: true,
+      })
     }
   }
 
