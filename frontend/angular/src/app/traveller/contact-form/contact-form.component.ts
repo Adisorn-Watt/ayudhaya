@@ -9,39 +9,42 @@ import { Traveller } from 'src/app/domain/traveller/traveller'
 })
 export class ContactFormComponent implements OnInit {
   @Input() traveller: Traveller
+  @Input() editable: boolean = true
   @Output() mobileNumberChange = new EventEmitter<string>()
   @Output() emailChange = new EventEmitter<string>()
-  private editable = false
+  @Output() formValid = new EventEmitter<boolean>()
 
   travellerForm = this.fb.group({
-    mobileNo: [{ value: '' }, Validators.required],
-    email: [{ value: '' }, Validators.required],
+    mobileNo: [{ value: '', disabled: !this.editable }, [Validators.required, Validators.minLength(10)]],
+    email: [{ value: '', disabled: !this.editable }, [Validators.required, Validators.email]],
   })
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.travellerForm.get('email').setValue('')
-    this.travellerForm.get('mobileNo').setValue('')
-  }
-
-  toggleEditable(): void {
     if (!this.editable) {
-      this.travellerForm.get('email').reset({ value: '', disabled: false })
-      this.travellerForm.get('mobileNo').reset({ value: '', disabled: false })
-    } else {
-      this.travellerForm.get('email').reset({ value: this.traveller.email, disabled: true })
+      console.log(this.traveller)
       this.travellerForm.get('mobileNo').reset({ value: this.traveller.mobileNo, disabled: true })
+      this.travellerForm.get('email').reset({ value: this.traveller.email, disabled: true })
     }
-
-    this.editable = !this.editable
   }
-
 
   onChangeMobileNumber(): void {
     this.mobileNumberChange.emit(this.travellerForm.get('mobileNo').value)
+    this.formValid.emit(this.travellerForm.valid)
   }
   onChangeEmail(): void {
     this.emailChange.emit(this.travellerForm.get('email').value)
+    this.formValid.emit(this.travellerForm.valid)
+  }
+
+  get email() {
+    const email = this.travellerForm.get('email')
+    return email.touched ? (email.valid ? 'success' : 'danger') : 'basic'
+  }
+
+  get mobile() {
+    const mobile = this.travellerForm.get('mobileNo')
+    return mobile.touched ? (mobile.valid ? 'success' : 'danger') : 'basic'
   }
 }

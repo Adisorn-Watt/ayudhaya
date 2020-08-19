@@ -14,10 +14,11 @@ import { CalculateCostService } from 'src/app/service/calculate-cost/calculate-c
 })
 export class MainTravellerComponent implements OnInit {
   formFilled = false
-  userInfo: Traveller = new Traveller()
   filledUserInfo: Traveller = new Traveller()
   selectedCountry: Country
   selectedDate: { start: string; end: string }
+  travellerFormValid = false
+  contactFormValid = false
 
   constructor(
     private dialogService: NbDialogService,
@@ -29,11 +30,12 @@ export class MainTravellerComponent implements OnInit {
 
   ngOnInit(): void {
     this.travellerService.getUserDetail().subscribe((u) => {
-      this.userInfo = u[0]
+      this.filledUserInfo.fromBankBalance = u[0].fromBankBalance
+      this.filledUserInfo.fromBankName = u[0].fromBankName
+      this.filledUserInfo.fromBankNo = u[0].fromBankNo
     })
     this.selectedCountry = this.centralStore.getSelectedCountry()
     this.selectedDate = this.centralStore.getSelectedDate()
-    this.centralStore.setUserInfo(this.userInfo)
     this.centralStore.setCostPerPerson(this.costPerPerson)
   }
 
@@ -45,26 +47,14 @@ export class MainTravellerComponent implements OnInit {
     return this.calculateService.getDaysDifferent(this.selectedDate.start, this.selectedDate.end)
   }
 
-  isAllFieldFilled() {
-    console.log('a', this.filledUserInfo)
-    const contactForm = this.filledUserInfo.mobileNo && this.filledUserInfo.email  
-    const travellerForm = this.filledUserInfo.title  && this.filledUserInfo.firstName  && this.filledUserInfo.lastName && this.filledUserInfo.dateOfBirth  && this.filledUserInfo.beneficialName
-    const identification = this.filledUserInfo.passportId  || this.filledUserInfo.citizenId 
-    console.log('contactForm',contactForm)
-    console.log('travellerForm',travellerForm)
-    console.log('identification',identification )
-    return (this.filledUserInfo && contactForm && travellerForm && identification)
-  }
-
   onNext(): void {
-    const allFilled = this.isAllFieldFilled() 
+    const allFilled = this.travellerFormValid && this.contactFormValid
     if (allFilled) {
-      this.centralStore.setUserInfo(this.userInfo)
+      this.centralStore.setUserInfo(this.filledUserInfo)
       this.formFilled = true
     } else {
       this.toastrService.show(`Please input all the required form`, 'Form not completed', { status: 'warning', destroyByClick: true })
     }
-
   }
 
   gotoForm(): void {
@@ -76,7 +66,7 @@ export class MainTravellerComponent implements OnInit {
       hasScroll: true,
       autoFocus: true,
     })
-    this.centralStore.setUserInfo(this.userInfo)
+    this.centralStore.setUserInfo(this.filledUserInfo)
   }
 
   handleBeneficiary(e: string) {
@@ -104,10 +94,16 @@ export class MainTravellerComponent implements OnInit {
     this.filledUserInfo.email = e
   }
   handleIdentification(e: any) {
-    if(e.type == 'citizenId') {
+    if (e.type == 'citizenId') {
       this.filledUserInfo.citizenId = e.number
     } else {
       this.filledUserInfo.passportId = e.number
     }
+  }
+  handleTravellerFormValid(e: any) {
+    this.travellerFormValid = e
+  }
+  handleContactFormValid(e: any) {
+    this.contactFormValid = e
   }
 }

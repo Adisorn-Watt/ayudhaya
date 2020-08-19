@@ -3,22 +3,25 @@
     <span>
       Contact for receiving traveller policy
     </span>
-    <div>
-      <!-- <nb-icon icon="save" status="control" [options]="{ animation: { type: 'pulse' } }" class="card-icon first">
-            </nb-icon> -->
-      <nb-icon icon="edit" status="control" [options]="{ animation: { type: 'pulse' } }" class="card-icon" (click)="toggleEditable()"></nb-icon>
-    </div>
   </nb-card-header>
   <nb-card-body>
     <div [formGroup]="travellerForm">
       <div class="row">
         <div class="input-wrapper mb-4 mr-2 mobile">
-          <label class="bold">Mobile Number<span>*</span></label>
-          <input nbInput fullWidth type="text" formControlName="mobileNo" (ngModelChange)="onChangeMobileNumber()" id="traveller-phone" />
+          <label class="bold">Mobile Number</label>
+          <input
+            nbInput
+            fullWidth
+            type="text"
+            formControlName="mobileNo"
+            (ngModelChange)="onChangeMobileNumber()"
+            id="traveller-phone"
+            [status]="mobile"
+          />
         </div>
         <div class="input-wrapper ml-2">
-          <label class="bold">Email<span>*</span></label>
-          <input nbInput fullWidth type="text" formControlName="email" (ngModelChange)="onChangeEmail()" id="traveller-email" />
+          <label class="bold">Email</label>
+          <input nbInput fullWidth type="text" formControlName="email" (ngModelChange)="onChangeEmail()" id="traveller-email" [status]="email" />
         </div>
       </div>
     </div>
