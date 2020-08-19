@@ -1,4 +1,4 @@
-<nb-card accent="primary" class="contact-form">
+<nb-card [accent]="editable ? 'primary' : ''" [status]="!editable ? 'primary' : ''" class="contact-form">
   <nb-card-header class="card-flex-header">
     <span>
       Contact for receiving traveller policy

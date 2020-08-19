@@ -1,4 +1,11 @@
-<nb-card class="traveller-card" accent="primary" class="traveller-form">
+<nb-card
+  class="traveller-card"
+  accent="primary"
+  class="traveller-form"
+  [accent]="editable ? 'primary' : ''"
+  [status]="!editable ? 'primary' : ''"
+  class="contact-form"
+>
   <nb-card-header class="card-flex-header">
     Traveller
   </nb-card-header>

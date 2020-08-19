@@ -22,8 +22,12 @@
   border-top-right-radius: 0.25rem;
 }
 .accordion-item {
-  > div > div {
+  padding-bottom: 0px !important;
+  > div {
     padding-bottom: 0px !important;
+    > div {
+      padding-bottom: 0px !important;
+    }
   }
 }
 .insurance-summary {

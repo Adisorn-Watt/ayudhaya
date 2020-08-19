@@ -74,7 +74,6 @@ Input traveller personal information
     Click Element                   id:option-mr
     Input Text                      id:traveller-firstname          ${TRAVELLER_FIRSTNAME}
     Input Text                      id:traveller-lastname           ${TRAVELLER_LASTNAME} 
-    Click Element                   id:dd-traveller-title
     Click Element                   id:identification-type
     Click Element                   id:option-citizenId
     Input Text                      id:identification               ${TRAVELLER_ID}
