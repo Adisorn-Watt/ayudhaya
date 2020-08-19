@@ -8,7 +8,7 @@
         <span>{{ p.packageDetail }}</span> <br />
         <span>
           <span>{{ p.packagePrice | number: '1.2' }} THB</span>
-          <span *ngIf="p.conditionPrice != null" class="condition">
+          <span *ngIf="p.conditionPrice !== 0 && p.condition" class="condition">
             <span>( {{ p.condition }}</span>
             <span class="condition-price"> {{ p.conditionPrice | number: '1.2' }} THB )</span>
           </span>

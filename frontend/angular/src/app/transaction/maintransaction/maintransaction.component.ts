@@ -42,7 +42,6 @@ export class MaintransactionComponent implements OnInit {
     t.amount = this.costPerPerson * 1 // HARDCODE
     t.startDate = this.centralStore.getSelectedDate().start
     t.endDate = this.centralStore.getSelectedDate().end
-
     this.transactionService.addTransaction(t).subscribe(
       (transaction) => {
         this.isSubmitted = true
