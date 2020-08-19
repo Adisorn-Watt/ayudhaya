@@ -34,15 +34,24 @@ export class TravellerFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.travellerForm.get('title').setValue(this.traveller.title)
-    this.travellerForm.get('firstName').setValue(this.traveller.firstName)
-    this.travellerForm.get('lastName').setValue(this.traveller.lastName)
-    this.travellerForm.get('citizenId').setValue(this.traveller.citizenId)
-    this.travellerForm.get('passport').setValue(this.traveller.passportId)
-    this.travellerForm.get('dateOfBirth').setValue(this.traveller.dateOfBirth)
-    this.travellerForm.get('beneficiary').setValue(this.traveller.beneficialName)
-    this.travellerForm.get('identification').setValue(this.traveller.passportId || this.traveller.citizenId)
-    this.selectedIdentification = this.traveller.citizenId ? 'citizenId' : 'passport'
+    // this.travellerForm.get('title').setValue(this.traveller.title)
+    // this.travellerForm.get('firstName').setValue(this.traveller.firstName)
+    // this.travellerForm.get('lastName').setValue(this.traveller.lastName)
+    // this.travellerForm.get('citizenId').setValue(this.traveller.citizenId)
+    // this.travellerForm.get('passport').setValue(this.traveller.passportId)
+    // this.travellerForm.get('dateOfBirth').setValue(this.traveller.dateOfBirth)
+    // this.travellerForm.get('beneficiary').setValue(this.traveller.beneficialName)
+    // this.travellerForm.get('identification').setValue(this.traveller.passportId || this.traveller.citizenId)
+    // this.selectedIdentification = this.traveller.citizenId ? 'citizenId' : 'passport'
+    this.travellerForm.get('title').setValue('')
+    this.travellerForm.get('firstName').setValue('')
+    this.travellerForm.get('lastName').setValue('')
+    this.travellerForm.get('citizenId').setValue('')
+    this.travellerForm.get('passport').setValue('')
+    this.travellerForm.get('dateOfBirth').setValue('')
+    this.travellerForm.get('beneficiary').setValue('')
+    this.travellerForm.get('identification').setValue('')
+    // this.selectedIdentification = this.traveller.citizenId ? 'citizenId' : 'passport'
   }
 
   toggleEditable(): void {

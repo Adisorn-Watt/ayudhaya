@@ -21,8 +21,8 @@ export class ContactFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.travellerForm.get('email').setValue(this.traveller.email)
-    this.travellerForm.get('mobileNo').setValue(this.traveller.mobileNo)
+    this.travellerForm.get('email').setValue('')
+    this.travellerForm.get('mobileNo').setValue('')
   }
 
   toggleEditable(): void {
