@@ -1,0 +1,620 @@
+{
+	"info": {
+		"_postman_id": "b3436ce0-0bb3-47ac-9cca-b2a31cf747b0",
+		"name": "Mr.Numlabyod_want_to_buy_a_trip_insurance_package_for_1_person_to_Germany",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllCountries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "887ec7c1-3900-48bd-a55e-afb847d6deae",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Country has 2 elements\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.65.135.237:8080/api/v1/country",
+					"protocol": "http",
+					"host": [
+						"159",
+						"65",
+						"135",
+						"237"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"country"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all of packages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b875b07f-aec4-4ab7-ae87-472c9b8d5165",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Package has 12 elements\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(12);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.65.135.237:8080/api/v1/package",
+					"protocol": "http",
+					"host": [
+						"159",
+						"65",
+						"135",
+						"237"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"package"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter all packages in CountryList = 1 (Germany)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "895169ff-49be-4a9a-9f6c-2d5c42f72891",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// packageId = 01\r",
+							"pm.test(\"packageId should be 01\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].packageId).to.eql(\"01\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=01 is Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].packageDetail).to.eql(\"Personal Accident Loss of Life, Dismemberment Loss of Sight or Total Permanent Disability from Accident\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=01 is 1,500,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].packagePrice).to.eql(1500000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 02\r",
+							"pm.test(\"packageId should be 02\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[1].packageId).to.eql(\"02\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=02 is Medical Expenses Incurred Overseas\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[1].packageDetail).to.eql(\"Medical Expenses Incurred Overseas\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=02 is 1,500,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[1].packagePrice).to.eql(1500000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 03\r",
+							"pm.test(\"packageId should be 03\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[2].packageId).to.eql(\"03\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=03 is Medical Expenses Incurred in Thailand\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[2].packageDetail).to.eql(\"Medical Expenses Incurred in Thailand\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=03 is 150,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[2].packagePrice).to.eql(150000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 04\r",
+							"pm.test(\"packageId should be 04\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[3].packageId).to.eql(\"04\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=04 is Emergency Medical Evacuation and Repatriation/Repatriation of Mortal Remains\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[3].packageDetail).to.eql(\"Emergency Medical Evacuation and Repatriation/Repatriation of Mortal Remains\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=04 is 3,000,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[3].packagePrice).to.eql(3000000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 05\r",
+							"pm.test(\"packageId should be 05\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[4].packageId).to.eql(\"05\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=05 is Loss or Damage of Baggage and Personal Effects\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[4].packageDetail).to.eql(\"Loss or Damage of Baggage and Personal Effects\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=05 is 10,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[4].packagePrice).to.eql(10000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 06\r",
+							"pm.test(\"packageId should be 06\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[5].packageId).to.eql(\"06\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=06 is Travel Delay (Pay 10% of Sum Insured for every 6 consecutive hours delay)\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[5].packageDetail).to.eql(\"Travel Delay (Pay 10% of Sum Insured for every 6 consecutive hours delay)\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=06 is 15,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[5].packagePrice).to.eql(15000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 07\r",
+							"pm.test(\"packageId should be 07\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[6].packageId).to.eql(\"07\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=07 is Missed Connecting Flight (For every 8 consecutive hours delay)\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[6].packageDetail).to.eql(\"Missed Connecting Flight (For every 8 consecutive hours delay)\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=07 is 5,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[6].packagePrice).to.eql(5000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 08\r",
+							"pm.test(\"packageId should be 08\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[7].packageId).to.eql(\"08\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=08 is Trip Cancellation or Poseponement\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[7].packageDetail).to.eql(\"Trip Cancellation or Poseponement\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=08 is 15,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[7].packagePrice).to.eql(15000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 09\r",
+							"pm.test(\"packageId should be 09\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[8].packageId).to.eql(\"09\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=09 is Trip Curtailment\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[8].packageDetail).to.eql(\"Trip Curtailment\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=09 is 15,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[8].packagePrice).to.eql(15000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 10\r",
+							"pm.test(\"packageId should be 10\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[9].packageId).to.eql(\"10\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=10 is Hijacking (Pay THB 5,000 for every 12 consecutive hours)\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[9].packageDetail).to.eql(\"Hijacking (Pay 5,000.00 Baht for every 12 consecutive hours)\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=10 is 5,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[9].packagePrice).to.eql(5000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 11\r",
+							"pm.test(\"packageId should be 11\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[10].packageId).to.eql(\"11\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=11 is Loss of Travel Document\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[10].packageDetail).to.eql(\"Loss of Travel Document\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=11 is 5,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[10].packagePrice).to.eql(5000);\r",
+							"});\r",
+							"\r",
+							"// packageId = 12\r",
+							"pm.test(\"packageId should be 12\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[11].packageId).to.eql(\"12\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packageDetail=12 is Loss or Damage of Baggage and Personal Effects from Natural Disasters\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[11].packageDetail).to.eql(\"Loss or Damage of Baggage and Personal Effects from Natural Disasters\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check packagePrice=12 is 15,000.00\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[11].packagePrice).to.eql(15000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.65.135.237:8080/api/v1/package/01",
+					"protocol": "http",
+					"host": [
+						"159",
+						"65",
+						"135",
+						"237"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"package",
+						"01"
+					],
+					"query": [
+						{
+							"key": "packageName",
+							"value": "Medical",
+							"disabled": true
+						},
+						{
+							"key": "packagePrice",
+							"value": "1282.00",
+							"disabled": true
+						},
+						{
+							"key": "countryList",
+							"value": "Germany",
+							"disabled": true
+						},
+						{
+							"key": "companyName",
+							"value": "Allianz",
+							"disabled": true
+						},
+						{
+							"key": "packageId",
+							"value": "02",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all of users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a7c12d8-1072-49ab-943d-31cdb8c0b0cf",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// ???\r",
+							"pm.test(\"Check User has 1 element\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.65.135.237:8080/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"159",
+						"65",
+						"135",
+						"237"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter userId = 1 -> Numlabyod Reprakan",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22b2d4bd-5143-4c5d-9692-54f651af1d3b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check userId is 01\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].userId).to.eql(\"01\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check title of userId:01 is Mr.\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].title).to.eql(\"Mr.\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check firstName of userId:01 is Numlabyod\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].firstName).to.eql(\"Numlabyod\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check lastName of userId:01 is Reprakan\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].lastName).to.eql(\"Reprakan\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check citizenId of userId:01 is 1799310717171\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].citizenId).to.eql(\"1799310717171\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check dateOfBirth of userId:01 is 07/28/1998\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].dateOfBirth).to.eql(\"07/28/1998\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check mobileNo of userId:01 is 0980159795\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].mobileNo).to.eql(\"0980159795\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check email of userId:01 is nearreann@gmail.com\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].email).to.eql(\"nearreann@gmail.com\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check fromBankName is Allianz Bank\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].fromBankName).to.eql(\"Allianz Bank\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check fromBankNo is 4750317960\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].fromBankNo).to.eql(\"4750317960\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check fromBankBalance is 250,000.00\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].fromBankBalance).to.eql(250000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.65.135.237:8080/api/v1/user/01",
+					"protocol": "http",
+					"host": [
+						"159",
+						"65",
+						"135",
+						"237"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"01"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter transaction summary",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a60d582-eb50-4c03-9522-de3fe89dcbe6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"transactionId\": \"01\",\r\n        \"countryId\": \"01\",\r\n        \"packageId\": \"01\",\r\n        \"user\": {\r\n            \"userId\": \"01\",\r\n            \"title\": \"Mr.\",\r\n            \"firstName\": \"Numlabyod\",\r\n            \"lastName\": \"Reprakan\",\r\n            \"citizenId\": \"1799310717171\",\r\n            \"passportId\": \"-\",\r\n            \"dateOfBirth\": \"28/07/1998\",\r\n            \"fromBankName\": \"Allianz Bank\",\r\n            \"fromBankBalance\": 250000.0,\r\n            \"fromBankNo\": \"4750317960\",\r\n            \"email\": \"nearreann@gmail.com\",\r\n            \"mobileNo\": \"0980159795\",\r\n            \"beneficialName\": \"-\"\r\n        },\r\n        \"note\": \"note\",\r\n        \"amount\": 3232.94,\r\n        \"startDate\": \"dd-mm-yyyy\",\r\n        \"endDate\": \"dd-mm-yyyy\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://159.65.135.237:8080/api/v1/summary",
+					"protocol": "http",
+					"host": [
+						"159",
+						"65",
+						"135",
+						"237"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
