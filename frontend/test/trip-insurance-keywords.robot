@@ -16,7 +16,7 @@ Buy a trip insurance package
     Close Google Chrome browser
 
 Open web browser on Google Chrome
-    Open Browser    ${URL}          chrome
+    Open Browser    ${URL}          chrome          remote_url=http://206.189.154.4:4444/wd/hub             desired_capabilities=browserName:chrome
     Maximize Browser Window
     Set Selenium Speed	            0.2 seconds
 
