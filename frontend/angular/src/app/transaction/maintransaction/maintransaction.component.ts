@@ -38,6 +38,12 @@ export class MaintransactionComponent implements OnInit {
     t.countryId = this.centralStore.getSelectedCountry().countryId
     t.packageId = '01' // HARDCODE
     t.user = this.user
+    if (t.user.citizenId == null || t.user.citizenId == '') {
+      t.user.citizenId = null
+    }
+    if (t.user.passportId == null || t.user.passportId == '') {
+      t.user.passportId = null
+    }
     t.user.dateOfBirth = this.getFormattedDate(this.user.dateOfBirth)
     t.note = this.note || ''
     t.amount = this.costPerPerson * 1 // HARDCODE

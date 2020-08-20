@@ -30,6 +30,7 @@ export class MainTravellerComponent implements OnInit {
 
   ngOnInit(): void {
     this.travellerService.getUserDetail().subscribe((u) => {
+      this.filledUserInfo.userId = u[0].userId
       this.filledUserInfo.fromBankBalance = u[0].fromBankBalance
       this.filledUserInfo.fromBankName = u[0].fromBankName
       this.filledUserInfo.fromBankNo = u[0].fromBankNo
