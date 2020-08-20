@@ -69,6 +69,7 @@
           id="identification-type"
           [status]="identificationType"
           placeholder="Identification"
+          (ngModelChange)="onChangeIdentificationType()"
         >
           <nb-option value="citizenId"><span id="option-citizenId"> Citizen ID</span></nb-option>
           <nb-option value="passport"><span id="option-passport">Passport</span></nb-option>

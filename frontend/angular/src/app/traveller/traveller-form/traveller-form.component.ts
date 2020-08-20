@@ -65,6 +65,11 @@ export class TravellerFormComponent implements OnInit {
     this.identificationChange.emit({ type: idType, number: this.travellerForm.get('identificationNumber').value })
     this.formValid.emit(this.travellerForm.valid)
   }
+  onChangeIdentificationType(): void {
+    const idType = this.travellerForm.get('identificationType').value
+    this.identificationChange.emit({ type: idType, number: this.travellerForm.get('identificationNumber').value })
+    this.formValid.emit(this.travellerForm.valid)
+  }
   onChangeDateOfBirth(): void {
     this.dateOfBirthChange.emit(this.travellerForm.get('dateOfBirth').value)
     this.formValid.emit(this.travellerForm.valid)
