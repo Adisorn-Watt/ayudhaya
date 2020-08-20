@@ -61,7 +61,7 @@ product
 - ชื่อไดเร็คทอรี่มีความยาวตั้งแต่ 2 คำขึ้นไป ให้ตั้งชื่อในรูปแบบ **kebab-case** เช่น
 
 ```
-ิbank-account
+bank-account
 insurance-detail
 ```
 
