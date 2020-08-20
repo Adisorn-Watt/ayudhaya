@@ -143,9 +143,9 @@ product
 - PascalCase เช่น
 
 ```
-OrderService.go
-ProductRepository.go
-OrderService_test.go
+OrderService.java
+ProductRepository.java
+OrderService_test.java
 ```
 
 ## Package Name
