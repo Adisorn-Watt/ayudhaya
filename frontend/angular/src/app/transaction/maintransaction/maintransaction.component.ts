@@ -38,19 +38,33 @@ export class MaintransactionComponent implements OnInit {
     t.countryId = this.centralStore.getSelectedCountry().countryId
     t.packageId = '01' // HARDCODE
     t.user = this.user
+    t.user.dateOfBirth = this.getFormattedDate(this.user.dateOfBirth)
     t.note = this.note || ''
     t.amount = this.costPerPerson * 1 // HARDCODE
-    t.startDate = this.centralStore.getSelectedDate().start
-    t.endDate = this.centralStore.getSelectedDate().end
+    t.startDate = this.getFormattedDate(this.centralStore.getSelectedDate().start)
+    t.endDate = this.getFormattedDate(this.centralStore.getSelectedDate().end)
     this.transactionService.addTransaction(t).subscribe(
       (transaction) => {
         this.isSubmitted = true
-        this.toastrService.show(`We will redirect you to frontpage shortly`, 'Insurance bought!', { status: 'success', destroyByClick: true })
-        setTimeout(() => this.router.navigateByUrl('/'), 3000)
+        this.toastrService.show(`Enjoy your trip!`, 'Transaction completed', {
+          status: 'success',
+          destroyByClick: true,
+          duration: 5000,
+        })
       },
       (err) => {
-        this.toastrService.show(`Opps, look like something is wrong with our server`, 'Internal error', { status: 'danger', destroyByClick: true })
+        this.toastrService.show(`Opps, look like something is wrong with our server`, 'Internal error', {
+          status: 'danger',
+          destroyByClick: true,
+          duration: 5000,
+        })
       }
     )
+  }
+
+  getFormattedDate(date: string) {
+    const d = date.split('-')
+    const rd = `${d[2]}/${d[1]}/${d[0]}`
+    return rd
   }
 }

@@ -15,8 +15,9 @@ $nb-themes: nb-register-theme(
     select-outline-success-background-color: white,
     select-outline-danger-background-color: white,
     select-outline-basic-background-color: white,
+    select-min-width: 10rem,
     card-header-text-font-size: 22px,
-    icon-font-size: 2rem,
+    icon-font-size: 2rem
   ),
   default,
   default

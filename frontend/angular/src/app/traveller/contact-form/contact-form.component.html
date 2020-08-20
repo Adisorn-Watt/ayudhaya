@@ -8,20 +8,34 @@
     <div [formGroup]="travellerForm">
       <div class="row">
         <div class="input-wrapper mb-4 mr-2 mobile">
-          <label class="bold">Mobile Number</label>
+          <label class="bold">
+            <span>Mobile number</span>
+          </label>
           <input
             nbInput
             fullWidth
             type="text"
             formControlName="mobileNo"
+            placeholder="Mobile number"
             (ngModelChange)="onChangeMobileNumber()"
             id="traveller-phone"
             [status]="mobile"
           />
         </div>
         <div class="input-wrapper ml-2">
-          <label class="bold">Email</label>
-          <input nbInput fullWidth type="text" formControlName="email" (ngModelChange)="onChangeEmail()" id="traveller-email" [status]="email" />
+          <label class="bold">
+            <span>Email</span>
+          </label>
+          <input
+            nbInput
+            placeholder="Email"
+            fullWidth
+            type="text"
+            formControlName="email"
+            (ngModelChange)="onChangeEmail()"
+            id="traveller-email"
+            [status]="email"
+          />
         </div>
       </div>
     </div>
