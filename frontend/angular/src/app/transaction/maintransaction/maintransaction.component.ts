@@ -45,7 +45,6 @@ export class MaintransactionComponent implements OnInit {
       t.user.passportId = null
     }
     t.user.dateOfBirth = this.getFormattedDate(this.user.dateOfBirth)
-    t.note = this.note || ''
     t.amount = this.costPerPerson * 1 // HARDCODE
     t.startDate = this.getFormattedDate(this.centralStore.getSelectedDate().start)
     t.endDate = this.getFormattedDate(this.centralStore.getSelectedDate().end)
