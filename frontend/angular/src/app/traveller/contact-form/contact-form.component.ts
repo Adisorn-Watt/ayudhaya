@@ -15,18 +15,18 @@ export class ContactFormComponent implements OnInit {
   @Output() formValid = new EventEmitter<boolean>()
 
   travellerForm = this.fb.group({
-    mobileNo: [{ value: '', disabled: !this.editable }, [Validators.required, Validators.minLength(10)]],
+    mobileNo: [
+      { value: '', disabled: !this.editable },
+      [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(10)],
+    ],
     email: [{ value: '', disabled: !this.editable }, [Validators.required, Validators.email]],
   })
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    if (!this.editable) {
-      console.log(this.traveller)
-      this.travellerForm.get('mobileNo').reset({ value: this.traveller.mobileNo, disabled: true })
-      this.travellerForm.get('email').reset({ value: this.traveller.email, disabled: true })
-    }
+    this.travellerForm.get('mobileNo').reset({ value: this.traveller.mobileNo, disabled: !this.editable })
+    this.travellerForm.get('email').reset({ value: this.traveller.email, disabled: !this.editable })
   }
 
   onChangeMobileNumber(): void {

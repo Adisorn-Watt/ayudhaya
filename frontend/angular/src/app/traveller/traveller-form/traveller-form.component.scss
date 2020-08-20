@@ -2,8 +2,12 @@
   width: 100%;
 }
 
-.title, .first-name, .last-name, 
-.id-type, .id-no, .date-of-birth, 
+.title,
+.first-name,
+.last-name,
+.id-type,
+.id-no,
+.date-of-birth,
 .beneficiary {
   align-self: end;
 }
@@ -42,10 +46,10 @@
   grid-template-rows: auto;
   column-gap: 14px;
   row-gap: 24px;
-  grid-template-areas: 
-    "title first-name last-name"
-    "id-type id-no date-of-birth"
-    "beneficiary beneficiary beneficiary";
+  grid-template-areas:
+    'title first-name last-name'
+    'id-type id-no date-of-birth'
+    'beneficiary beneficiary beneficiary';
 }
 
 .card-flex-header {
@@ -61,9 +65,6 @@
   > label {
     margin-bottom: 6px;
     min-width: 160px;
-    span {
-      color: red;
-    }
   }
 }
 

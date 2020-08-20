@@ -26,24 +26,26 @@ export class TravellerFormComponent implements OnInit {
     beneficiary: [{ value: '', disabled: !this.editable }, Validators.required],
     dateOfBirth: [{ value: '', disabled: !this.editable }, Validators.required],
     identificationType: [{ value: '', disabled: !this.editable }, Validators.required],
-    identificationNumber: [{ value: '', disabled: !this.editable }, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(13)]],
+    identificationNumber: [
+      { value: '', disabled: !this.editable },
+      [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(7), Validators.maxLength(13)],
+    ],
   })
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    if (!this.editable) {
-      console.log(this.traveller)
-      this.travellerForm.get('title').reset({ value: this.traveller.title, disabled: true })
-      this.travellerForm.get('firstName').reset({ value: this.traveller.firstName, disabled: true })
-      this.travellerForm.get('lastName').reset({ value: this.traveller.lastName, disabled: true })
-      this.travellerForm.get('identificationType').reset({ value: this.traveller.citizenId ? 'citizenId' : 'passport', disabled: true })
-      this.travellerForm
-        .get('identificationNumber')
-        .reset({ value: this.traveller.citizenId ? this.traveller.citizenId : this.traveller.passportId, disabled: true })
-      this.travellerForm.get('dateOfBirth').reset({ value: this.traveller.dateOfBirth, disabled: true })
-      this.travellerForm.get('beneficiary').reset({ value: this.traveller.beneficialName, disabled: true })
-    }
+    this.travellerForm.get('title').reset({ value: this.traveller.title, disabled: !this.editable })
+    this.travellerForm.get('firstName').reset({ value: this.traveller.firstName, disabled: !this.editable })
+    this.travellerForm.get('lastName').reset({ value: this.traveller.lastName, disabled: !this.editable })
+    this.travellerForm
+      .get('identificationType')
+      .reset({ value: this.traveller.citizenId ? 'citizenId' : this.traveller.passportId ? 'passport' : '', disabled: !this.editable })
+    this.travellerForm
+      .get('identificationNumber')
+      .reset({ value: this.traveller.citizenId ? this.traveller.citizenId : this.traveller.passportId, disabled: !this.editable })
+    this.travellerForm.get('dateOfBirth').reset({ value: this.traveller.dateOfBirth, disabled: !this.editable })
+    this.travellerForm.get('beneficiary').reset({ value: this.traveller.beneficialName, disabled: !this.editable })
   }
 
   onChangeTitle(): void {

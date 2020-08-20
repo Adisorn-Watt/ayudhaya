@@ -4,21 +4,21 @@ ${URL}              http://localhost:4200/
 
 *** Keywords ***
 Buy a trip insurance package
-    [Arguments]    ${TRAVELLER_TITLE}    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_IDENTYPE}   ${TRAVELLER_ID}    ${TRAVELLER_DATE}    ${TRAVELLER_BENEFICIARY}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
+    [Arguments]    ${TRAVELLER_TITLE}    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_IDENTYPE}   ${TRAVELLER_ID}    ${TRAVELLER_DATE}    ${TRAVELLER_BENEFICIARY}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}    ${TRAVELLER_DATECHECK}
     Select country that a user want to go
     Check insurance package detail
     Select date range for a trip
     Check insurance package infomation before the next step
     Input traveller personal information                                        ${TRAVELLER_TITLE}    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_IDENTYPE}   ${TRAVELLER_ID}        ${TRAVELLER_DATE}           ${TRAVELLER_BENEFICIARY}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
-    Check insurance package summary, traveller infomation, and insurance fee    ${TRAVELLER_TITLE}    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}         ${TRAVELLER_DATE}      ${TRAVELLER_BENEFICIARY}    ${TRAVELLER_PHONE}          ${TRAVELLER_EMAIL}
+    Check insurance package summary, traveller infomation, and insurance fee    ${TRAVELLER_TITLE}    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}         ${TRAVELLER_DATECHECK}      ${TRAVELLER_BENEFICIARY}    ${TRAVELLER_PHONE}          ${TRAVELLER_EMAIL}
     Scroll down for accepting Terms&Conditions
-    Check bank account information and total amount of insurance fee
+    Check bank account information and total amount of insurance fee            ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}
     Close Google Chrome browser
 
 Open web browser on Google Chrome
     Open Browser    ${URL}          chrome
     Maximize Browser Window
-    # Set Selenium Speed	            0.2 seconds
+    Set Selenium Speed	            0.2 seconds
 
 Select country that a user want to go
     Wait Until Page Contains        Select country
@@ -45,7 +45,7 @@ Check insurance package detail
     Wait Until Element Contains     id:package-08               15,000.00
     Wait Until Element Contains     id:package-09               Trip Curtailment
     Wait Until Element Contains     id:package-09               15,000.00
-    # Wait Until Element Contains     id:package-10               Hijacking (Pay 5,000.00 Baht for every 12 consecutive hours)
+    Wait Until Element Contains     id:package-10               Hijacking (Pay 5,000.00 THB for every 12 consecutive hours)
     Wait Until Element Contains     id:package-10               5,000.00
     Wait Until Element Contains     id:package-11               Loss of Travel Document
     Wait Until Element Contains     id:package-11               5,000.00
@@ -92,19 +92,20 @@ Check insurance package summary, traveller infomation, and insurance fee
     Wait Until Element Contains     id:total-days               ( Total 90 days )
     Sleep                           2 seconds
 
-    [Arguments]    ${TRAVELLER_TITLE}    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}    ${TRAVELLER_DATE}    ${TRAVELLER_BENEFICIARY}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
+    [Arguments]    ${TRAVELLER_TITLE}    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}    ${TRAVELLER_ID}     ${TRAVELLER_DATECHECK}    ${TRAVELLER_BENEFICIARY}    ${TRAVELLER_PHONE}    ${TRAVELLER_EMAIL}
     Wait Until Page Contains        Traveller Detail
     Wait Until Page Contains        1 person
     Wait Until Page Contains        Traveller
     Element Text Should Be          xpath://*[@id="dd-traveller-title"]/button[1]              ${TRAVELLER_TITLE}
+
     ${firstname}=                   Get Value                   id:traveller-firstname
     Should Be Equal                 ${firstname}                ${TRAVELLER_FIRSTNAME}
     ${lastname}=                    Get Value                   id:traveller-lastname
     Should Be Equal                 ${lastname}                 ${TRAVELLER_LASTNAME}
     ${id}=                          Get Value                   id:identification
     Should Be Equal                 ${id}                       ${TRAVELLER_ID} 
-    # ${date}=                        Get Value                   id:traveller-date
-    # Should Be Equal                 ${date}                     ${TRAVELLER_DATE}
+    ${date}=                        Get Value                   id:traveller-date
+    Should Be Equal                 ${date}                     ${TRAVELLER_DATECHECK}
     ${benefit}=                     Get Value                   id:benefit-name
     Should Be Equal                 ${benefit}                  ${TRAVELLER_BENEFICIARY}   
     Wait Until Page Contains        Contact for receiving traveller policy
@@ -123,17 +124,18 @@ Scroll down for accepting Terms&Conditions
     Sleep                           2 seconds
 
 Check bank account information and total amount of insurance fee
+    [Arguments]    ${TRAVELLER_FIRSTNAME}    ${TRAVELLER_LASTNAME}
     Wait Until Page Contains        Transfer
     Wait Until Page Contains        From
-    Wait Until Element Contains     id:from-bank-name           Numlabyod
+    Wait Until Element Contains     id:from-bank-name           ${TRAVELLER_FIRSTNAME} ${TRAVELLER_LASTNAME}
     Wait Until Element Contains     id:from-bank-no             4750317960
     Wait Until Element Contains     id:from-bank-balance        250,000.00
     Wait Until Page Contains        To
     Wait Until Element Contains     id:to-bank-name             Allianz Bank
     Wait Until Element Contains     id:to-bank-refno            509-16713201
-    # Wait Until Element Contains     id:package-amount-fee       1,428.00
+    Wait Until Element Contains     id:package-amount-fee       1,428.00
     Click Element                   id:btn-payment-confirm
-    Sleep                           2 seconds
+    Sleep                           8 seconds
 
 Close Google Chrome browser
     Close Browser

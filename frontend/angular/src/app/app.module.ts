@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     NbThemeModule.forRoot({ name: 'default' }),
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
-    NbToastrModule.forRoot({ destroyByClick: true, duration: 2000, preventDuplicates: true }),
+    NbToastrModule.forRoot({ destroyByClick: true, duration: 3000, preventDuplicates: true }),
   ],
   providers: [],
   bootstrap: [AppComponent],
